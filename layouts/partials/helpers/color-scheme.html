@@ -1,0 +1,21 @@
+<script>
+    (function () {
+        var key = 'StackColorScheme';
+        var media = window.matchMedia('(prefers-color-scheme: dark)');
+        var stored = null;
+
+        try {
+            stored = localStorage.getItem(key);
+        } catch (e) {
+            stored = null;
+        }
+
+        var resolved = stored === 'dark' || stored === 'light'
+            ? stored
+            : (media.matches ? 'dark' : 'light');
+
+        document.documentElement.dataset.theme = resolved;
+        document.documentElement.dataset.scheme = resolved;
+        document.documentElement.style.colorScheme = resolved;
+    })();
+</script>

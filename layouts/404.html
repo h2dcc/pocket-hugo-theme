@@ -1,0 +1,30 @@
+{{ define "body-class" }}template-404{{ end }}
+
+{{ define "main" }}
+    <section class="search-page not-found-page">
+        <header class="section-head">
+            <p class="section-head__eyebrow">404</p>
+            <h1>{{ if eq .Site.Language.Lang "zh-cn" }}页面不存在{{ else }}Page not found{{ end }}</h1>
+            <p>
+                {{ if eq .Site.Language.Lang "zh-cn" }}
+                    你访问的地址不存在，可能已经移动、删除，或者链接写错了。
+                {{ else }}
+                    The page you requested could not be found. It may have moved, been removed, or the URL may be incorrect.
+                {{ end }}
+            </p>
+        </header>
+
+        <div class="not-found-page__actions">
+            <a class="not-found-page__button not-found-page__button--primary" href="{{ .Site.Home.RelPermalink }}">
+                {{ if eq .Site.Language.Lang "zh-cn" }}返回首页{{ else }}Back to home{{ end }}
+            </a>
+            <a class="not-found-page__button" href="{{ "/search/" | relLangURL }}">
+                {{ if eq .Site.Language.Lang "zh-cn" }}站内搜索{{ else }}Search the site{{ end }}
+            </a>
+        </div>
+    </section>
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar-right.html" (dict "Context" . "Scope" "static") }}
+{{ end }}

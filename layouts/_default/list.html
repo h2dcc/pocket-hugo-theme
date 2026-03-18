@@ -1,0 +1,41 @@
+{{ define "body-class" }}template-list{{ end }}
+
+{{ define "main" }}
+    {{ $isTaxonomyPage := or (eq .Data.Plural "categories") (eq .Data.Plural "tags") (eq .Type "categories") (eq .Type "tags") }}
+    {{ $isCategoryPage := or (eq .Data.Plural "categories") (eq .Type "categories") }}
+    <section class="list-page">
+        <header class="section-head">
+            <p class="section-head__eyebrow">{{ .Section | default .Type }}</p>
+            <h1>{{ .Title }}</h1>
+            {{ if not $isCategoryPage }}
+                {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+            {{ end }}
+        </header>
+
+        {{ $pages := .RegularPages }}
+        {{ if not $pages }}
+            {{ $pages = .Pages }}
+        {{ end }}
+
+        <section class="post-feed{{ if $isTaxonomyPage }} post-feed--taxonomy{{ end }}">
+            {{ $pageSize := 10 }}
+            {{ if $isTaxonomyPage }}
+                {{ $pageSize = 16 }}
+            {{ end }}
+            {{ $paginator := .Paginate $pages $pageSize }}
+            {{ range $paginator.Pages }}
+                {{ if $isTaxonomyPage }}
+                    {{ partial "article/card.html" (dict "page" . "showMeta" false "variant" "taxonomy") }}
+                {{ else }}
+                    {{ partial "article/card.html" . }}
+                {{ end }}
+            {{ end }}
+        </section>
+
+        {{ partial "pagination.html" . }}
+    </section>
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar-right.html" (dict "Context" . "Scope" "static") }}
+{{ end }}

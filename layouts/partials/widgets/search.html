@@ -1,0 +1,7 @@
+{{- $showTitle := partial "helpers/widget-show-title.html" (dict "Context" .Context "Widget" "search") -}}
+<section class="widget-simple widget-simple--search">
+    {{ if $showTitle }}<h2 class="widget-simple__title">{{ T "search.title" }}</h2>{{ end }}
+    <form class="widget-search" action="{{ "/search/" | relLangURL }}" method="get">
+        <input type="search" name="q" placeholder="">
+    </form>
+</section>

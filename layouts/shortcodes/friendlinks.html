@@ -1,0 +1,33 @@
+{{- $items := .Inner | transform.Unmarshal (dict "format" "yaml") -}}
+{{- if $items -}}
+<section class="links-grid">
+    <div class="links-grid__items">
+        {{ range $items }}
+            {{- $image := "" -}}
+            {{- with .image -}}
+                {{- $url := urls.Parse . -}}
+                {{- if or (eq $url.Scheme "http") (eq $url.Scheme "https") -}}
+                    {{- $image = . -}}
+                {{- else -}}
+                    {{- with $.Page.Resources.GetMatch . -}}
+                        {{- $image = .RelPermalink -}}
+                    {{- else -}}
+                        {{- $image = . | relURL -}}
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}
+            <a class="friend-card" href="{{ .website }}" target="_blank" rel="noopener noreferrer">
+                {{ with $image }}
+                    <div class="friend-card__media">
+                        <img src="{{ . }}" alt="{{ $.Page.Title }}">
+                    </div>
+                {{ end }}
+                <div class="friend-card__body">
+                    <strong>{{ .title }}</strong>
+                    {{ with .description }}<span>{{ . }}</span>{{ end }}
+                </div>
+            </a>
+        {{ end }}
+    </div>
+</section>
+{{- end -}}

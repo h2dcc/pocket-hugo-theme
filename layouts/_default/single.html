@@ -1,0 +1,55 @@
+{{ define "body-class" }}template-single{{ end }}
+
+{{ define "main" }}
+    {{ $sidebarScope := cond (eq .Type "page") "static" "page" }}
+    <article class="article-page">
+        <header class="article-page__header">
+            {{ with partial "helpers/cover.html" (dict "page" . "variant" "single") }}
+                {{ if .exists }}
+                    <div class="article-page__cover">
+                        <img src="{{ .permalink }}" alt="{{ $.Title }}">
+                    </div>
+                {{ end }}
+            {{ end }}
+
+            <div class="article-page__meta">
+                <h1>{{ .Title }}</h1>
+                <div class="meta-line">
+                    {{ if not .Date.IsZero }}<span>{{ .Date | time.Format (or .Site.Params.dateFormat.published "2006-01-02") }}</span>{{ end }}
+                    {{ with .Params.categories }}
+                        <span class="meta-categories">
+                            {{ range $index, $term := $.GetTerms "categories" }}
+                                {{ if gt $index 0 }}<span class="meta-sep">/</span>{{ end }}
+                                <a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>
+                            {{ end }}
+                        </span>
+                    {{ end }}
+                    {{ if (.Params.readingTime | default .Site.Params.article.readingTime) }}<span>{{ if eq .Site.Language.Lang "zh-cn" }}{{ .ReadingTime }} 分钟{{ else }}{{ .ReadingTime }} min read{{ end }}</span>{{ end }}
+                    {{ partial "helpers/translation-toggle.html" . }}
+                </div>
+                {{ with .Description }}<blockquote class="article-page__description">{{ . }}</blockquote>{{ end }}
+            </div>
+        </header>
+
+        {{ if eq $sidebarScope "page" }}
+            <div class="article-page__toc-mobile">
+                {{ partial "widgets/toc.html" (dict "Context" . "Params" dict) }}
+            </div>
+        {{ end }}
+
+        <div class="article-page__content">
+            <div class="article-content">
+                {{ .Content }}
+            </div>
+        </div>
+
+        {{ if and .IsPage (not (eq .Params.comments false)) (.Site.Params.comments.enabled) (eq .Site.Params.comments.provider "twikoo") }}
+            {{ partial "comments/twikoo.html" . }}
+        {{ end }}
+    </article>
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ $sidebarScope := cond (eq .Type "page") "static" "page" }}
+    {{ partial "sidebar-right.html" (dict "Context" . "Scope" $sidebarScope) }}
+{{ end }}

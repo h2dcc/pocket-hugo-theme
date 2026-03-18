@@ -1,0 +1,38 @@
+{{ define "body-class" }}template-talk{{ end }}
+
+{{ define "main" }}
+    <article class="list-page talk-page">
+        <header class="section-head">
+            <h1>{{ .Title }}</h1>
+            {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </header>
+
+        {{ $data := partial "helpers/talks-data.html" . }}
+        {{ $moments := $data.moments }}
+
+        <div class="post-feed post-feed--moments">
+            {{ range sort $moments "time" "desc" }}
+                <article class="post-card post-card--moment">
+                    <div class="post-card__body">
+                        <div class="post-card__meta">
+                            <span>{{ .time }}</span>
+                        </div>
+                        <div class="article-content moment-content">
+                            {{ $.Page.RenderString .content }}
+                        </div>
+                    </div>
+                </article>
+            {{ else }}
+                <p>暂无内容</p>
+            {{ end }}
+        </div>
+
+        {{ if and .IsPage (not (eq .Params.comments false)) (.Site.Params.comments.enabled) (eq .Site.Params.comments.provider "twikoo") }}
+            {{ partial "comments/twikoo.html" . }}
+        {{ end }}
+    </article>
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar-right.html" (dict "Context" . "Scope" "static") }}
+{{ end }}

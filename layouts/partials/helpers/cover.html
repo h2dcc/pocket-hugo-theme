@@ -1,0 +1,32 @@
+{{ $page := . }}
+{{ $variant := "single" }}
+{{ if reflect.IsMap . }}
+    {{ $page = .page }}
+    {{ $variant = .variant | default "single" }}
+{{ end }}
+
+{{ $result := dict "exists" false "permalink" nil }}
+{{ $imageField := default "image" $page.Site.Params.featuredImageField }}
+{{ $imageValue := index $page.Params $imageField }}
+
+{{ if $imageValue }}
+    {{ $url := urls.Parse $imageValue }}
+    {{ if or (eq $url.Scheme "http") (eq $url.Scheme "https") }}
+        {{ $result = dict "exists" true "permalink" $imageValue }}
+    {{ else }}
+        {{ $resource := $page.Resources.GetMatch (printf "%s" ($imageValue | safeURL)) }}
+        {{ if $resource }}
+            {{ if or (eq $variant "card") (eq $variant "taxonomy") }}
+                {{ with $resource.Fill "640x300 Center q85" }}
+                    {{ $result = dict "exists" true "permalink" .RelPermalink }}
+                {{ end }}
+            {{ else }}
+                {{ $result = dict "exists" true "permalink" $resource.RelPermalink }}
+            {{ end }}
+        {{ else }}
+            {{ $result = dict "exists" true "permalink" (relURL $imageValue) }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ return $result }}

@@ -1,0 +1,60 @@
+{{- $pctx := . -}}
+{{- if .IsHome -}}
+  {{- $pctx = .Site -}}
+{{- end -}}
+{{- $mainSections := .Site.MainSections | default (slice "post" "posts") -}}
+{{- $pages := slice -}}
+{{- if .IsHome -}}
+  {{- $pages = where .Site.RegularPages "Type" "in" $mainSections -}}
+{{- else -}}
+  {{- $pages = .RegularPages -}}
+{{- end -}}
+{{- $limit := .Site.Config.Services.RSS.Limit | default 5 -}}
+{{- $pages = first $limit (sort $pages "Date" "desc") -}}
+{{- $title := "" -}}
+{{- if .IsHome -}}
+  {{- $title = printf "%s" $pctx.Title -}}
+{{- else -}}
+  {{- $title = printf "%s - %s" $pctx.Title .Site.Title -}}
+{{- end -}}
+{{- $description := "" -}}
+{{- with $pctx.Params.description -}}
+  {{- $description = . -}}
+{{- else -}}
+  {{- $description = $pctx.Title -}}
+{{- end -}}
+{{- $rssLink := "" -}}
+{{- with .OutputFormats.Get "RSS" -}}
+  {{- $rssLink = .Permalink -}}
+{{- end -}}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>{{ $title }}</title>
+    <link>{{ if .IsHome }}{{ .Site.Home.Permalink }}{{ else }}{{ $pctx.Permalink }}{{ end }}</link>
+    <description>{{ $description }}</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>{{ .Site.LanguageCode }}</language>
+    <lastBuildDate>{{ now.UTC.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+    {{- with $rssLink }}
+    <atom:link href="{{ . }}" rel="self" type="application/rss+xml" />
+    {{- end }}
+    {{- range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.UTC.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <guid>{{ .Permalink }}</guid>
+      {{- with .Params.description }}
+      <description>{{ . | html }}</description>
+      {{- else }}
+      <description>{{ .Summary | plainify | html }}</description>
+      {{- end }}
+      <content:encoded>{{ printf "<![CDATA[%s]]>" .Content | safeHTML }}</content:encoded>
+    </item>
+    {{- end }}
+  </channel>
+</rss>

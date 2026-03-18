@@ -1,0 +1,62 @@
+[nav.home]
+other = "Inicio"
+
+[nav.talks]
+other = "Notas"
+
+[nav.archives]
+other = "Archivo"
+
+[nav.search]
+other = "Buscar"
+
+[page.about]
+other = "Acerca de"
+
+[page.guide]
+other = "Guía"
+
+[page.links]
+other = "Enlaces"
+
+[language.switch]
+other = "Cambiar idioma"
+
+[language.select]
+other = "Elegir idioma"
+
+[language.current]
+other = "Idioma actual"
+
+[language.available]
+other = "Idiomas disponibles"
+
+[language.more]
+other = "Más idiomas"
+
+[widget.archives.title]
+other = "Archivo"
+
+[widget.archives.more]
+other = "Más"
+
+[widget.categoriesCloud.title]
+other = "Categorías"
+
+[widget.tagCloud.title]
+other = "Etiquetas"
+
+[widget.related.title]
+other = "Entradas relacionadas"
+
+[search.title]
+other = "Buscar"
+
+[article.tableOfContents]
+other = "Contenido"
+
+[error.404.title]
+other = "Página no encontrada"
+
+[error.404.message]
+other = "La página solicitada no existe o pudo haber cambiado de lugar."

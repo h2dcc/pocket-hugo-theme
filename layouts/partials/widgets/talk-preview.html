@@ -1,0 +1,41 @@
+{{- $data := partial "helpers/talks-data.html" .Context -}}
+{{- $talkPage := $data.page -}}
+{{- $moment := index (first 1 $data.moments) 0 -}}
+{{- if and $talkPage $moment -}}
+{{- $avatar := site.Params.sidebar.avatar.src | default "img/avatar.webp" -}}
+{{- $displayTime := $moment.time -}}
+{{- $timeSource := $moment.time | replaceRE " " "T" -}}
+{{- if not (findRE ":[0-9]{2}:[0-9]{2}" $timeSource) -}}
+    {{- $timeSource = printf "%s:00+08:00" $timeSource -}}
+{{- end -}}
+{{- with time.AsTime $timeSource -}}
+    {{- if eq site.Language.Lang "zh-cn" -}}
+        {{- $displayTime = .Format "01-02 15:04" -}}
+    {{- else -}}
+        {{- $displayTime = .Format "Jan 02 15:04" -}}
+    {{- end -}}
+{{- end -}}
+<section class="widget-simple widget-simple--talk{{ with .Class }} {{ . }}{{ end }}">
+    <div class="widget-talk">
+        <div class="widget-talk__head">
+            <div class="widget-talk__identity">
+                <img class="widget-talk__avatar" src="{{ $avatar | relURL }}" alt="{{ $talkPage.Title }}">
+                <div class="widget-talk__meta">
+                    <span class="widget-talk__handle" aria-label="{{ $talkPage.Title }}">
+                        <span class="widget-talk__icon">{{ partial "helpers/icon.html" "talk" }}</span>
+                    </span>
+                    <span class="widget-talk__time">{{ $displayTime }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="widget-talk__details">
+            <div class="article-content moment-content widget-talk__content">
+                {{ $talkPage.RenderString $moment.content }}
+            </div>
+            <div class="widget-talk__summary" aria-hidden="true">
+                <span class="widget-talk__summary-fade"></span>
+            </div>
+        </div>
+    </div>
+</section>
+{{- end -}}

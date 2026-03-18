@@ -1,0 +1,24 @@
+{{- $mainSections := .Site.MainSections | default (slice "post" "posts") -}}
+{{- $pages := where .Site.RegularPages "Type" "in" $mainSections -}}
+{{- $pages = where $pages "Params.hidden" "!=" true -}}
+[
+{{- range $index, $page := $pages -}}
+    {{- $categories := slice -}}
+    {{- range ($page.GetTerms "categories") -}}
+        {{- $categories = $categories | append .LinkTitle -}}
+    {{- end -}}
+    {{- $tags := slice -}}
+    {{- range ($page.GetTerms "tags") -}}
+        {{- $tags = $tags | append .LinkTitle -}}
+    {{- end -}}
+    {{- if gt $index 0 }},{{ end -}}
+    {
+        "title": {{ $page.Title | jsonify }},
+        "permalink": {{ $page.RelPermalink | jsonify }},
+        "description": {{ ($page.Description | default "") | jsonify }},
+        "slug": {{ ($page.Params.slug | default "") | jsonify }},
+        "categories": {{ $categories | jsonify }},
+        "tags": {{ $tags | jsonify }}
+    }
+{{- end -}}
+]

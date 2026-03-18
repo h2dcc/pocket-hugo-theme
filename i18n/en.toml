@@ -1,0 +1,62 @@
+[nav.home]
+other = "Home"
+
+[nav.talks]
+other = "Talks"
+
+[nav.archives]
+other = "Archives"
+
+[nav.search]
+other = "Search"
+
+[page.about]
+other = "About"
+
+[page.guide]
+other = "Guide"
+
+[page.links]
+other = "Links"
+
+[language.switch]
+other = "Switch language"
+
+[language.select]
+other = "Choose language"
+
+[language.current]
+other = "Current language"
+
+[language.available]
+other = "Available languages"
+
+[language.more]
+other = "More languages"
+
+[widget.archives.title]
+other = "Archives"
+
+[widget.archives.more]
+other = "More"
+
+[widget.categoriesCloud.title]
+other = "Categories"
+
+[widget.tagCloud.title]
+other = "Tags"
+
+[widget.related.title]
+other = "Related Posts"
+
+[search.title]
+other = "Search"
+
+[article.tableOfContents]
+other = "Contents"
+
+[error.404.title]
+other = "Page not found"
+
+[error.404.message]
+other = "The page you requested does not exist or may have moved."

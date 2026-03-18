@@ -1,0 +1,62 @@
+[nav.home]
+other = "ホーム"
+
+[nav.talks]
+other = "トーク"
+
+[nav.archives]
+other = "アーカイブ"
+
+[nav.search]
+other = "検索"
+
+[page.about]
+other = "概要"
+
+[page.guide]
+other = "ガイド"
+
+[page.links]
+other = "リンク"
+
+[language.switch]
+other = "言語を切り替える"
+
+[language.select]
+other = "言語を選択"
+
+[language.current]
+other = "現在の言語"
+
+[language.available]
+other = "利用可能な言語"
+
+[language.more]
+other = "その他の言語"
+
+[widget.archives.title]
+other = "アーカイブ"
+
+[widget.archives.more]
+other = "もっと見る"
+
+[widget.categoriesCloud.title]
+other = "カテゴリ"
+
+[widget.tagCloud.title]
+other = "タグ"
+
+[widget.related.title]
+other = "関連記事"
+
+[search.title]
+other = "検索"
+
+[article.tableOfContents]
+other = "目次"
+
+[error.404.title]
+other = "ページが見つかりません"
+
+[error.404.message]
+other = "お探しのページは存在しないか、移動された可能性があります。"

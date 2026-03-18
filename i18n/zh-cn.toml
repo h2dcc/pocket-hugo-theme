@@ -1,0 +1,62 @@
+[nav.home]
+other = "主页"
+
+[nav.talks]
+other = "说说"
+
+[nav.archives]
+other = "归档"
+
+[nav.search]
+other = "搜索"
+
+[page.about]
+other = "关于"
+
+[page.guide]
+other = "指南"
+
+[page.links]
+other = "链接"
+
+[language.switch]
+other = "切换语言"
+
+[language.select]
+other = "选择语言"
+
+[language.current]
+other = "当前语言"
+
+[language.available]
+other = "可用语言"
+
+[language.more]
+other = "更多语言"
+
+[widget.archives.title]
+other = "归档"
+
+[widget.archives.more]
+other = "查看更多"
+
+[widget.categoriesCloud.title]
+other = "分类"
+
+[widget.tagCloud.title]
+other = "标签"
+
+[widget.related.title]
+other = "相关文章"
+
+[search.title]
+other = "搜索"
+
+[article.tableOfContents]
+other = "目录"
+
+[error.404.title]
+other = "页面未找到"
+
+[error.404.message]
+other = "你访问的页面不存在，或者已经移动到别处。"

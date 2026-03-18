@@ -1,0 +1,226 @@
+# Base URL for production. Replace this before deployment.
+baseURL = "https://example.org/"
+
+# Site title shown in the header, browser title, and feeds.
+title = "Pocket Notes"
+
+# Theme folder name.
+theme = "pocket-hugo-theme"
+
+# Default language for the site.
+languageCode = "en"
+defaultContentLanguage = "en"
+
+# Enable CJK-aware word counting for Chinese, Japanese, and Korean text.
+hasCJKLanguage = true
+
+# Generate robots.txt automatically.
+enableRobotsTXT = true
+
+# Main content sections used by homepage lists and archives.
+mainSections = ["posts"]
+
+# Footer copyright text shown after the current year.
+copyright = "MIT licensed demo content"
+
+# Talks JSON feed media type.
+[mediaTypes."application/feed+json"]
+  suffixes = ["json"]
+
+# RSS output for the talks page.
+[outputFormats.TalksRSS]
+  mediaType = "application/rss+xml"
+  baseName = "talks"
+  isPlainText = false
+  notAlternative = true
+
+# JSON output for the talks page.
+[outputFormats.TalksJSON]
+  mediaType = "application/feed+json"
+  baseName = "talks"
+  isPlainText = true
+  notAlternative = true
+
+# Posts per page.
+[pagination]
+  pagerSize = 8
+
+# RSS item count.
+[services.rss]
+  limit = 10
+
+# URL patterns.
+[permalinks]
+  posts = "/article/:slug/"
+  page = "/:slug/"
+
+# Taxonomies.
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# English language settings.
+[languages.en]
+  languageName = "English"
+  title = "Pocket Notes"
+  weight = 1
+
+[languages.en.params.sidebar]
+  subtitle = "A cover-driven theme for long-term personal writing"
+
+# Chinese language settings.
+[languages.zh-cn]
+  languageName = "Chinese"
+  title = "Pocket Notes 中文"
+  weight = 2
+
+[languages.zh-cn.params.sidebar]
+  subtitle = "一款适合个人长期写作的图文式主题"
+
+# Japanese language settings.
+[languages.ja]
+  languageName = "Japanese"
+  title = "Pocket Notes 日本語"
+  weight = 3
+
+[languages.ja.params.sidebar]
+  subtitle = "長く書き続けるための、図文中心の個人向けテーマ"
+# Spanish language settings.
+[languages.es]
+  languageName = "Spanish"
+  title = "Pocket Notes Español"
+  weight = 4
+
+[languages.es.params.sidebar]
+  subtitle = "Un tema visual para la escritura personal a largo plazo"
+
+# French language settings.
+[languages.fr]
+  languageName = "French"
+  title = "Pocket Notes Français"
+  weight = 5
+
+[languages.fr.params.sidebar]
+  subtitle = "Un thème visuel pour une écriture personnelle au long cours"
+
+# Theme options.
+[params]
+  featuredImageField = "image"
+  favicon = "/img/logo-default.svg"
+  appleTouchIcon = "/img/avatar.webp"
+
+  [params.footer]
+    since = 2026
+
+  [params.dateFormat]
+    published = "2006-01-02"
+    lastUpdated = "2006-01-02"
+
+  [params.sidebar]
+    subtitle = "A cover-driven theme for long-term personal writing"
+
+    [params.sidebar.avatar]
+      enabled = true
+      local = true
+      src = "img/avatar.webp"
+
+    [params.sidebar.qr]
+      enabled = false
+      # image = "img/your-qr.png"
+      # alt = "Scan me"
+      # width = 110
+      # height = 110
+
+  [params.article]
+    toc = true
+    readingTime = true
+
+  [params.languageSwitcher]
+    # Show a select box in the header when available languages reach this count.
+    headerSelectThreshold = 3
+
+  [params.comments]
+    enabled = false
+    provider = ""
+
+  [params.colorScheme]
+    toggle = true
+    default = "auto"
+
+  [params.widgets]
+    homepage = [
+      { type = "search", params = { limit = 0 } },
+      { type = "archives", params = { limit = 3 } },
+      { type = "categories", params = { limit = 10 } },
+      { type = "tag-cloud", params = { limit = 20 } }
+    ]
+    static = [
+      { type = "search", params = { limit = 0 } },
+      { type = "archives", params = { limit = 3 } },
+      { type = "categories", params = { limit = 10 } },
+      { type = "tag-cloud", params = { limit = 20 } }
+    ]
+    page = [
+      { type = "toc" }
+    ]
+
+    [params.widgets.titleVisibility]
+      archives = true
+      categories = true
+      related = true
+      search = true
+      tagCloud = true
+      toc = true
+
+  [[params.social]]
+  name = "GitHub"
+  url = "https://github.com/h2dcc"
+  icon = "brand-github"
+
+  [[params.social]]
+  name = "Facebook"
+  url = "https://www.facebook.com/"
+  icon = "brand-facebook"
+
+  [[params.social]]
+  name = "Twitter"
+  url = "https://twitter.com/"
+  icon = "brand-twitter"
+
+  [[params.social]]
+  name = "RSS"
+  url = "/index.xml"
+  icon = "rss"
+
+[related]
+  includeNewer = true
+  threshold = 1
+  toLower = false
+
+  [[related.indices]]
+    name = "tags"
+    weight = 200
+
+  [[related.indices]]
+    name = "categories"
+    weight = 100
+
+# Markdown rendering options.
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = true
+
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = false
+    tabWidth = 4

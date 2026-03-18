@@ -1,0 +1,41 @@
+{{- $scope := default "homepage" .Scope -}}
+{{- $context := .Context -}}
+{{- with (index $context.Site.Params.widgets $scope) -}}
+<aside class="sidebar-right">
+    {{ if eq $scope "homepage" }}
+        {{ partial "widgets/talk-preview.html" (dict "Context" $context "Class" "widget-simple--talk-sidebar") }}
+    {{ end }}
+
+    {{ range $widget := . }}
+        {{ $params := default dict .params }}
+        {{ if eq .type "search" }}
+            {{ partial "widgets/search.html" (dict "Context" $context "Params" $params) }}
+        {{ else if eq .type "archives" }}
+            {{ partial "widgets/archives.html" (dict "Context" $context "Params" $params) }}
+        {{ else if eq .type "categories" }}
+            {{ partial "widgets/categories.html" (dict "Context" $context "Params" $params) }}
+        {{ else if eq .type "tag-cloud" }}
+            {{ partial "widgets/tag-cloud.html" (dict "Context" $context "Params" $params) }}
+        {{ else if eq .type "toc" }}
+            {{ partial "widgets/toc.html" (dict "Context" $context "Params" $params) }}
+        {{ end }}
+    {{ end }}
+
+    {{ if eq $scope "page" }}
+        {{ partial "widgets/related.html" (dict "Context" $context) }}
+    {{ end }}
+
+    {{ with $context.Site.Params.sidebar.qr }}
+        {{ $qr := . }}
+        {{ if .enabled | default true }}
+            {{ with .image }}
+                <section class="widget-simple widget-simple--wechat">
+                    <div class="widget-wechat">
+                        <img src="{{ . | relURL }}" alt="{{ $qr.alt | default `QR code` }}" width="{{ $qr.width | default 110 }}" height="{{ $qr.height | default 110 }}">
+                    </div>
+                </section>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+</aside>
+{{- end -}}

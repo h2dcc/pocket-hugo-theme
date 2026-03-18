@@ -1,0 +1,11 @@
+<section class="links-grid">
+    <h2>{{ .Title }}</h2>
+    <div class="links-grid__items">
+        {{ range .Params.links }}
+            <a class="friend-card" href="{{ .website }}" target="_blank" rel="noopener noreferrer">
+                <strong>{{ .title }}</strong>
+                {{ with .description }}<span>{{ . }}</span>{{ end }}
+            </a>
+        {{ end }}
+    </div>
+</section>

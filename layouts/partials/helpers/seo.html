@@ -1,0 +1,83 @@
+{{ $page := . }}
+{{ $siteTitle := $page.Site.Title }}
+{{ $title := partial "helpers/title.html" $page }}
+{{ $description := "" }}
+{{ with $page.Description }}
+    {{ $description = . | plainify }}
+{{ else }}
+    {{ with $page.Summary }}
+        {{ $description = . | plainify }}
+    {{ else }}
+        {{ with $page.Site.Params.sidebar.subtitle }}
+            {{ $description = . | plainify }}
+        {{ else }}
+            {{ $description = $siteTitle }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+{{ $description = $description | truncate 180 }}
+
+{{ $cover := partial "helpers/cover.html" (dict "page" $page "variant" "single") }}
+{{ $canonicalURL := $page.Permalink }}
+{{ $sourceTranslation := false }}
+
+{{ if and $page.IsTranslated (eq $page.Language.Lang "en") }}
+    {{ $preferred := where $page.AllTranslations "Language.Lang" "zh-cn" }}
+    {{ with index $preferred 0 }}
+        {{ $canonicalURL = .Permalink }}
+        {{ $sourceTranslation = true }}
+    {{ end }}
+{{ end }}
+
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ $canonicalURL }}">
+<meta name="robots" content="{{ if $sourceTranslation }}noindex,follow,max-image-preview:large{{ else }}index,follow,max-image-preview:large{{ end }}">
+<meta property="og:locale" content="{{ if eq $page.Language.Lang `zh-cn` }}zh_CN{{ else if eq $page.Language.Lang `en` }}en_US{{ else }}{{ replace $page.Language.Lang `-` `_` }}{{ end }}">
+<meta property="og:site_name" content="{{ $siteTitle }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="{{ if $page.IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ $page.Permalink }}">
+<meta name="twitter:card" content="{{ if $cover.exists }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ if $cover.exists }}
+    <meta property="og:image" content="{{ absURL $cover.permalink }}">
+    <meta name="twitter:image" content="{{ absURL $cover.permalink }}">
+{{ end }}
+{{ if $page.IsPage }}
+    {{ if not $page.Date.IsZero }}<meta property="article:published_time" content="{{ $page.Date.Format `2006-01-02T15:04:05Z07:00` }}">{{ end }}
+    {{ if not $page.Lastmod.IsZero }}<meta property="article:modified_time" content="{{ $page.Lastmod.Format `2006-01-02T15:04:05Z07:00` }}">{{ end }}
+    {{ range first 6 ($page.GetTerms "categories") }}<meta property="article:section" content="{{ .LinkTitle }}">{{ end }}
+    {{ range first 12 ($page.GetTerms "tags") }}<meta property="article:tag" content="{{ .LinkTitle }}">{{ end }}
+{{ end }}
+
+{{ range $translation := $page.AllTranslations }}
+    <link rel="alternate" hreflang="{{ $translation.Language.Lang }}" href="{{ $translation.Permalink }}">
+{{ end }}
+{{ if gt (len $page.AllTranslations) 0 }}
+    {{ with index (where $page.AllTranslations "Language.Lang" "zh-cn") 0 }}
+        <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+    {{ else }}
+        <link rel="alternate" hreflang="x-default" href="{{ $page.Permalink }}">
+    {{ end }}
+{{ end }}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ if $page.IsPage }}Article{{ else }}WebPage{{ end }}",
+  "headline": {{ $page.Title | jsonify }},
+  "name": {{ $title | jsonify }},
+  "description": {{ $description | jsonify }},
+  "url": {{ $page.Permalink | jsonify }},
+  "inLanguage": {{ $page.Language.Lang | jsonify }},
+  {{ if $page.IsPage }}"datePublished": {{ $page.Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}
+  {{ if $page.IsPage }}"dateModified": {{ $page.Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ $siteTitle | jsonify }}
+  }{{ if $cover.exists }},
+  "image": {{ absURL $cover.permalink | jsonify }}{{ end }}
+}
+</script>

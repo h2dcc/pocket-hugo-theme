@@ -1,0 +1,16 @@
+<section class="comments-card">
+    <script src="/jsdelivr/twik.all.min.js"></script>
+    <div id="tcomment"></div>
+    {{ with .Site.Params.comments.twikoo }}
+    {{ $lang := cond (eq $.Site.Language.Lang "zh-cn") "zh-CN" "en-US" }}
+    <script>
+        twikoo.init({
+            envId: '{{ .envId }}',
+            el: '#tcomment',
+            lang: '{{ .lang | default $lang }}',
+            {{ with .region }}region: '{{ . }}',{{ end }}
+            {{ with .path }}path: '{{ . }}',{{ end }}
+        });
+    </script>
+    {{ end }}
+</section>

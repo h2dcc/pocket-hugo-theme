@@ -1,0 +1,25 @@
+{{ define "body-class" }}template-search{{ end }}
+
+{{ define "main" }}
+    <section class="search-page">
+        <header class="section-head">
+            <p class="section-head__eyebrow">Search</p>
+            <h1>{{ .Title }}</h1>
+        </header>
+
+        <div class="search-box">
+            <input id="search-input" type="search" placeholder="{{ T "search.placeholder" | default "Search posts" }}">
+        </div>
+        <div id="search-results" class="search-results"></div>
+    </section>
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar-right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}
+
+{{ define "scripts" }}
+    {{ with resources.Get "js/search.js" }}
+        <script src="{{ .RelPermalink }}" defer></script>
+    {{ end }}
+{{ end }}

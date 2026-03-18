@@ -1,0 +1,10 @@
+{{- $limit := default 10 .Params.limit -}}
+{{- $showTitle := partial "helpers/widget-show-title.html" (dict "Context" .Context "Widget" "tagCloud") -}}
+<section class="widget-simple">
+    {{ if $showTitle }}<h2 class="widget-simple__title">{{ T "widget.tagCloud.title" }}</h2>{{ end }}
+    <div class="widget-simple__tabs">
+        {{ range first $limit .Context.Site.Taxonomies.tags.ByCount }}
+            <a class="widget-simple__tab" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        {{ end }}
+    </div>
+</section>

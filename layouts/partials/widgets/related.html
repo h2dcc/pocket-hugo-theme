@@ -1,0 +1,14 @@
+{{- $showTitle := partial "helpers/widget-show-title.html" (dict "Context" .Context "Widget" "related") -}}
+{{ $related := first 5 (.Context.Site.RegularPages.Related .Context) }}
+{{ if gt (len $related) 0 }}
+<section class="widget-simple">
+    {{ if $showTitle }}<h2 class="widget-simple__title">{{ T "widget.related.title" }}</h2>{{ end }}
+    <div class="widget-simple__list">
+        {{ range $related }}
+            <a class="widget-simple__row widget-simple__row--related" href="{{ .RelPermalink }}">
+                <span>{{ .Title }}</span>
+            </a>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

@@ -1,0 +1,8 @@
+{{- $widget := .Widget -}}
+{{- $showTitle := true -}}
+{{- with .Context.Site.Params.widgets.titleVisibility -}}
+    {{- if isset . $widget -}}
+        {{- $showTitle = index . $widget -}}
+    {{- end -}}
+{{- end -}}
+{{- return $showTitle -}}

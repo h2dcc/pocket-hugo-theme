@@ -1,0 +1,12 @@
+{{ if gt .Paginator.TotalPages 1 }}
+<nav class="pagination">
+    {{ $isZh := eq .Site.Language.Lang "zh-cn" }}
+    {{ with .Paginator.Prev }}
+        <a class="pagination__link" href="{{ .URL }}">{{ if $isZh }}上一页{{ else }}Newer{{ end }}</a>
+    {{ end }}
+    <span class="pagination__current">{{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}</span>
+    {{ with .Paginator.Next }}
+        <a class="pagination__link" href="{{ .URL }}">{{ if $isZh }}下一页{{ else }}Older{{ end }}</a>
+    {{ end }}
+</nav>
+{{ end }}

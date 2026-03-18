@@ -1,0 +1,68 @@
+<header class="site-header">
+    <div class="site-header__inner">
+        <div class="site-brand">
+            {{ $avatar := resources.Get "img/logo-default.svg" }}
+            {{ with .Site.Params.sidebar.avatar }}
+                {{ if and (default true .enabled) .local }}
+                    {{ with resources.Get .src }}
+                        {{ $avatar = . }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+
+            {{ with $avatar }}
+                <a class="site-brand__avatar" href="{{ $.Site.Home.RelPermalink }}">
+                    <img src="{{ .RelPermalink }}" alt="{{ $.Site.Title }}">
+                </a>
+            {{ end }}
+
+            <div class="site-brand__text">
+                <a class="site-brand__title" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+                <p class="site-brand__subtitle">{{ with .Site.Params.sidebar.subtitle }}{{ . }}{{ else }}{{ T "site-description" }}{{ end }}</p>
+            </div>
+        </div>
+
+        <div class="site-header__nav">
+            <nav class="main-nav" aria-label="Main navigation">
+                <a class="main-nav__link" href="{{ .Site.Home.RelPermalink }}">{{ T "nav.home" | default "Home" }}</a>
+                {{ range .Site.Menus.main }}
+                    {{ $url := .URL }}
+                    {{ if and (not (in $url "/archives")) (not (in $url "/search")) }}
+                        <a class="main-nav__link" href="{{ $url }}" {{ if eq .Params.newTab true }}target="_blank"{{ end }}>{{ .Name }}</a>
+                    {{ end }}
+                {{ end }}
+            </nav>
+
+            {{ with .Site.Params.social }}
+                <nav class="social-nav" aria-label="Social links">
+                    {{ range . }}
+                        {{ $icon := .icon | default "brand-github" }}
+                        {{ $label := .name | default .title | default $icon }}
+                        {{ $url := .url | default .href }}
+                        {{ with $url }}
+                            <a
+                                class="social-nav__link"
+                                href="{{ . }}"
+                                title="{{ $label }}"
+                                {{ if not (or (hasPrefix . "/") (hasPrefix . "#")) }}target="_blank" rel="me noopener noreferrer"{{ end }}
+                            >
+                                {{ partial "helpers/icon.html" $icon }}
+                            </a>
+                        {{ end }}
+                    {{ end }}
+                </nav>
+            {{ end }}
+        </div>
+
+        <div class="header-tools">
+            {{ partial "helpers/translation-toggle.html" (dict "page" .Site.Home "variant" "header") }}
+
+            {{ if (default false .Site.Params.colorScheme.toggle) }}
+                <button class="header-tool header-tool--toggle" id="dark-mode-toggle" type="button" data-toggle-color-scheme>
+                    {{ partial "helpers/icon.html" "toggle-left" }}
+                    {{ partial "helpers/icon.html" "toggle-right" }}
+                </button>
+            {{ end }}
+        </div>
+    </div>
+</header>

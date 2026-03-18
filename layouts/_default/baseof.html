@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang | default .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>{{ partial "helpers/title.html" . }}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ .Site.Params.favicon | default "/img/logo-default.svg" | relURL }}">
+    <link rel="apple-touch-icon" href="{{ .Site.Params.appleTouchIcon | default "/img/avatar.webp" | relURL }}">
+    <meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1623" media="(prefers-color-scheme: dark)">
+    {{ partial "helpers/seo.html" . }}
+    {{ with resources.Get "css/main.css" }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{ end }}
+    {{ range .AlternativeOutputFormats }}
+        <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+    {{ end }}
+</head>
+<body class="{{ block `body-class` . }}{{ end }}">
+    {{ partial "helpers/color-scheme.html" . }}
+    {{ partial "site-header.html" . }}
+
+    <div class="site-shell">
+        <main class="site-main">
+            {{ block "main" . }}{{ end }}
+        </main>
+
+        {{ block "right-sidebar" . }}{{ end }}
+    </div>
+
+    {{ partial "site-footer.html" . }}
+
+    {{ with resources.Get "js/main.js" }}
+        <script src="{{ .RelPermalink }}" defer></script>
+    {{ end }}
+    {{ block "scripts" . }}{{ end }}
+</body>
+</html>

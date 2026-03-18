@@ -1,0 +1,55 @@
+{{ $page := . }}
+{{ $variant := "inline" }}
+{{ if reflect.IsMap . }}
+    {{ $page = .page | default .Page }}
+    {{ $variant = .variant | default "inline" }}
+{{ end }}
+
+{{ if and $page $page.IsTranslated }}
+    {{ $currentLanguageCode := $page.Language.Lang }}
+    {{ $translations := where $page.AllTranslations "Language.Lang" "ne" $currentLanguageCode }}
+    {{ $totalLanguages := $page.AllTranslations.Len }}
+    {{ $threshold := int (default 3 $page.Site.Params.languageSwitcher.headerSelectThreshold) }}
+
+    {{ if gt (len $translations) 0 }}
+        <div class="translation-toggle translation-toggle--{{ $variant }}">
+            {{ if eq $variant "header" }}
+                {{ if ge $totalLanguages $threshold }}
+                    <label class="visually-hidden" for="site-language-select">{{ T "language.select" }}</label>
+                    <select
+                        id="site-language-select"
+                        class="translation-toggle__select translation-toggle__select--compact"
+                        aria-label="{{ T "language.select" }}"
+                        onchange="if (this.value) window.location.href = this.value"
+                    >
+                        {{ range $page.AllTranslations }}
+                            {{ $abbr := upper (replaceRE "-.*$" "" .Language.Lang) }}
+                            <option value="{{ .RelPermalink }}"{{ if eq .Language.Lang $currentLanguageCode }} selected{{ end }}>{{ $abbr }}</option>
+                        {{ end }}
+                    </select>
+                {{ else }}
+                    {{ with index $translations 0 }}
+                        <a
+                            class="translation-toggle__header-link header-tool header-tool--icon"
+                            href="{{ .RelPermalink }}"
+                            title="{{ T "language.switch" }}: {{ .Language.LanguageName }}"
+                            aria-label="{{ T "language.switch" }}: {{ .Language.LanguageName }}"
+                        >
+                            {{ partial "helpers/icon.html" "language" }}
+                        </a>
+                    {{ end }}
+                {{ end }}
+            {{ else }}
+                {{ range $translations }}
+                    <a
+                        class="translation-toggle__text-link"
+                        href="{{ .RelPermalink }}"
+                        title="{{ T "language.switch" }}: {{ .Language.LanguageName }}"
+                    >
+                        <span class="translation-toggle__label">{{ .Language.LanguageName }}</span>
+                    </a>
+                {{ end }}
+            {{ end }}
+        </div>
+    {{ end }}
+{{ end }}

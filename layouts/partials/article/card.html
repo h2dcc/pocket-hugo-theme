@@ -1,0 +1,38 @@
+{{ $page := . }}
+{{ $variant := "" }}
+{{ $showMeta := true }}
+{{ if reflect.IsMap . }}
+    {{ $page = .page }}
+    {{ $variant = .variant | default "" }}
+    {{ $showMeta = .showMeta | default true }}
+{{ end }}
+
+{{ $coverVariant := cond (eq $variant "taxonomy") "taxonomy" "card" }}
+{{ $cover := partial "helpers/cover.html" (dict "page" $page "variant" $coverVariant) }}
+<article class="post-card{{ if $cover.exists }} post-card--with-cover{{ end }}{{ with $variant }} post-card--{{ . }}{{ end }}">
+    {{ if $cover.exists }}
+        <a class="post-card__cover" href="{{ $page.RelPermalink }}">
+            <img src="{{ $cover.permalink }}" alt="{{ $page.Title }}" loading="lazy">
+        </a>
+    {{ end }}
+
+    <div class="post-card__body">
+        <h2 class="post-card__title"><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
+
+        {{ if $showMeta }}
+            <div class="post-card__meta">
+                {{ if not $page.Date.IsZero }}<span>{{ $page.Date | time.Format (or $page.Site.Params.dateFormat.published "2006-01-02") }}</span>{{ end }}
+                {{ with $page.Params.categories }}
+                    <span class="post-card__categories">
+                        {{ range $index, $term := $page.GetTerms "categories" }}
+                            {{ if gt $index 0 }}<span class="meta-sep">/</span>{{ end }}
+                            <a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>
+                        {{ end }}
+                    </span>
+                {{ end }}
+                {{ if ($page.Params.readingTime | default $page.Site.Params.article.readingTime) }}<span>{{ if eq $page.Site.Language.Lang "zh-cn" }}{{ $page.ReadingTime }} 分钟{{ else }}{{ $page.ReadingTime }} min read{{ end }}</span>{{ end }}
+                {{ partial "helpers/translation-toggle.html" $page }}
+            </div>
+        {{ end }}
+    </div>
+</article>

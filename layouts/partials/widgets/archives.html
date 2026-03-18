@@ -1,0 +1,25 @@
+{{- $query := first 1 (where .Context.Site.Pages "Layout" "==" "archives") -}}
+{{- $limit := default 5 .Params.limit -}}
+{{- $showTitle := partial "helpers/widget-show-title.html" (dict "Context" .Context "Widget" "archives") -}}
+{{- if $query -}}
+    {{- $archivesPage := index $query 0 -}}
+    {{- $mainSections := .Context.Site.MainSections | default (slice "post" "posts") -}}
+    {{- $pages := where .Context.Site.RegularPages "Type" "in" $mainSections -}}
+    {{- $pages = where $pages "Params.hidden" "!=" true -}}
+    {{- $archives := $pages.GroupByDate "2006" -}}
+    <section class="widget-simple widget-simple--archives">
+        {{ if $showTitle }}<h2 class="widget-simple__title">{{ T "widget.archives.title" }}</h2>{{ end }}
+        <div class="widget-simple__list">
+            {{ range first $limit $archives }}
+                {{ $id := lower (replace .Key " " "-") }}
+                <a class="widget-simple__row" href="{{ $archivesPage.RelPermalink }}#{{ $id }}">
+                    <span>{{ .Key }}</span>
+                    <span>{{ len .Pages }}</span>
+                </a>
+            {{ end }}
+            <a class="widget-simple__row widget-simple__row--more" href="{{ $archivesPage.RelPermalink }}">
+                <span>{{ T "widget.archives.more" }}</span>
+            </a>
+        </div>
+    </section>
+{{ end }}

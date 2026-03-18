@@ -1,0 +1,37 @@
+{{ define "body-class" }}template-archives{{ end }}
+
+{{ define "main" }}
+    {{ $mainSections := .Site.MainSections | default (slice "post" "posts") }}
+    {{ $pages := where .Site.RegularPages "Type" "in" $mainSections }}
+    {{ $pages = where $pages "Params.hidden" "!=" true }}
+    {{ $archives := $pages.GroupByDate "2006" }}
+
+    <section class="archives-page">
+        <header class="section-head">
+            <p class="section-head__eyebrow">Archive</p>
+            <h1>{{ .Title }}</h1>
+        </header>
+
+        {{ range $archives }}
+            {{ $id := lower (replace .Key " " "-") }}
+            <section class="archive-year" id="{{ $id }}">
+                <div class="archive-year__head">
+                    <h2>{{ .Key }}</h2>
+                    <span>{{ len .Pages }}</span>
+                </div>
+                <div class="archive-year__list">
+                    {{ range .Pages }}
+                        <article class="archive-entry">
+                            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                            <time>{{ .Date | time.Format (or .Site.Params.dateFormat.published "2006-01-02") }}</time>
+                        </article>
+                    {{ end }}
+                </div>
+            </section>
+        {{ end }}
+    </section>
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar-right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}

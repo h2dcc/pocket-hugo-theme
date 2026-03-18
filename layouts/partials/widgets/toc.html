@@ -1,0 +1,7 @@
+{{- $showTitle := partial "helpers/widget-show-title.html" (dict "Context" .Context "Widget" "toc") -}}
+{{ if and (.Context.Params.toc | default .Context.Site.Params.article.toc) (ge (len .Context.TableOfContents) 100) }}
+<section class="widget-simple widget-simple--toc">
+    {{ if $showTitle }}<h2 class="widget-simple__title">{{ T "article.tableOfContents" }}</h2>{{ end }}
+    <div class="toc-widget">{{ .Context.TableOfContents }}</div>
+</section>
+{{ end }}

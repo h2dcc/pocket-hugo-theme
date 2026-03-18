@@ -1,0 +1,42 @@
+{{- $pages := where .Site.Pages "Layout" "talk" -}}
+{{- $pages = where $pages "Language.Lang" .Site.Language.Lang -}}
+{{- $pages = where $pages "Params.hidden" "!=" true -}}
+{{- $talkPage := index (first 1 $pages) 0 -}}
+{{- $moments := slice -}}
+
+{{- with $talkPage -}}
+    {{- $raw := strings.TrimSpace .RawContent -}}
+    {{- $sections := split $raw "\n## " -}}
+
+    {{- range $i, $sec := $sections -}}
+        {{- $sec = strings.TrimSpace $sec -}}
+        {{- if eq $i 0 -}}
+            {{- $sec = $sec | replaceRE `^##\s+` "" -}}
+        {{- end -}}
+
+        {{- $lines := split $sec "\n" -}}
+        {{- $title := "" -}}
+        {{- $timeStr := "" -}}
+        {{- $bodyLines := slice -}}
+        {{- $foundTime := false -}}
+
+        {{- range $lines -}}
+            {{- $line := strings.TrimSpace . -}}
+            {{- if and (eq $title "") (ne $line "") (not (hasPrefix $line ">")) -}}
+                {{- $title = $line -}}
+            {{- else if and (eq $timeStr "") (hasPrefix $line ">") -}}
+                {{- $timeStr = $line | replaceRE `^>\s*` "" | strings.TrimSpace -}}
+                {{- $foundTime = true -}}
+            {{- else if $foundTime -}}
+                {{- $bodyLines = $bodyLines | append . -}}
+            {{- end -}}
+        {{- end -}}
+
+        {{- if and (ne $title "") (ne $timeStr "") -}}
+            {{- $body := delimit $bodyLines "\n" -}}
+            {{- $moments = $moments | append (dict "title" $title "time" $timeStr "content" $body) -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- return (dict "page" $talkPage "moments" (sort $moments "time" "desc")) -}}

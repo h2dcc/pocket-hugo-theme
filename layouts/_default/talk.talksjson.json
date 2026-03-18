@@ -1,0 +1,26 @@
+{{- $data := partial "helpers/talks-data.html" . -}}
+{{- $moments := slice -}}
+{{- range $item := first 20 $data.moments -}}
+  {{- $timeSource := $item.time | replaceRE " " "T" -}}
+  {{- if not (findRE ":[0-9]{2}:[0-9]{2}" $timeSource) -}}
+    {{- $timeSource = printf "%s:00+08:00" $timeSource -}}
+  {{- end -}}
+  {{- $published := time.AsTime $timeSource -}}
+  {{- $id := printf "%s#%s" $.Permalink ($published.Format "200601021504") -}}
+  {{- $moments = $moments | append (dict
+    "id" $id
+    "url" $id
+    "title" $item.title
+    "date_published" ($published.UTC.Format "2006-01-02T15:04:05Z07:00")
+    "content_html" ($.RenderString $item.content)
+    "content_text" ($item.content | plainify)
+  ) -}}
+{{- end -}}
+{{- dict
+  "version" "https://jsonfeed.org/version/1.1"
+  "title" .Title
+  "home_page_url" .Permalink
+  "feed_url" (printf "%stalks.json" .Permalink)
+  "language" (.Language.LanguageCode | default .Language.Lang)
+  "items" $moments
+| jsonify -}}

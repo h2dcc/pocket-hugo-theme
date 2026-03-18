@@ -1,0 +1,62 @@
+[nav.home]
+other = "Accueil"
+
+[nav.talks]
+other = "Notes"
+
+[nav.archives]
+other = "Archives"
+
+[nav.search]
+other = "Recherche"
+
+[page.about]
+other = "À propos"
+
+[page.guide]
+other = "Guide"
+
+[page.links]
+other = "Liens"
+
+[language.switch]
+other = "Changer de langue"
+
+[language.select]
+other = "Choisir une langue"
+
+[language.current]
+other = "Langue actuelle"
+
+[language.available]
+other = "Langues disponibles"
+
+[language.more]
+other = "Plus de langues"
+
+[widget.archives.title]
+other = "Archives"
+
+[widget.archives.more]
+other = "Plus"
+
+[widget.categoriesCloud.title]
+other = "Catégories"
+
+[widget.tagCloud.title]
+other = "Étiquettes"
+
+[widget.related.title]
+other = "Articles liés"
+
+[search.title]
+other = "Recherche"
+
+[article.tableOfContents]
+other = "Sommaire"
+
+[error.404.title]
+other = "Page introuvable"
+
+[error.404.message]
+other = "La page demandée n'existe pas ou a peut-être été déplacée."

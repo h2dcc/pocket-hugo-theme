@@ -1,0 +1,234 @@
+# 站点部署地址。正式上线前请替换成你自己的域名。
+baseURL = "https://example.org/"
+
+# 网站标题，会显示在页头、浏览器标题和订阅信息里。
+title = "Pocket Notes"
+
+# 主题目录名称。
+theme = "pocket-hugo-theme"
+
+# 站点默认语言。
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+
+# 启用中日韩文字计数优化。
+hasCJKLanguage = true
+
+# 自动生成 robots.txt。
+enableRobotsTXT = true
+
+# 首页和归档页默认读取的主要内容分区。
+mainSections = ["posts"]
+
+# 页脚版权文字，会显示在当前年份之后。
+copyright = "MIT licensed demo content"
+
+# 说说页面 JSON feed 的媒体类型。
+[mediaTypes."application/feed+json"]
+  suffixes = ["json"]
+
+# 说说页面的 RSS 输出。
+[outputFormats.TalksRSS]
+  mediaType = "application/rss+xml"
+  baseName = "talks"
+  isPlainText = false
+  notAlternative = true
+
+# 说说页面的 JSON 输出。
+[outputFormats.TalksJSON]
+  mediaType = "application/feed+json"
+  baseName = "talks"
+  isPlainText = true
+  notAlternative = true
+
+# 分页大小。
+[pagination]
+  pagerSize = 8
+
+# RSS 输出条数。
+[services.rss]
+  limit = 10
+
+# URL 规则。
+[permalinks]
+  posts = "/article/:slug/"
+  page = "/:slug/"
+  talks = "/talks/:slug/"
+
+# 多语言配置。
+[languages]
+  [languages.zh-cn]
+    languageName = "简体中文"
+    languageCode = "zh-CN"
+    weight = 1
+    title = "Pocket Notes"
+    contentDir = "content"
+
+    [languages.zh-cn.params]
+      description = "一款适合个人长期写作的图文式主题"
+      subtitle = "一款适合个人长期写作的图文式主题"
+      keywords = ["Hugo", "theme", "writing", "multilingual"]
+      author = "Pocket Hugo"
+
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-US"
+    weight = 2
+    title = "Pocket Notes"
+    contentDir = "content"
+
+    [languages.en.params]
+      description = "A cover-driven theme for long-term personal writing"
+      subtitle = "A cover-driven theme for long-term personal writing"
+      keywords = ["Hugo", "theme", "writing", "multilingual"]
+      author = "Pocket Hugo"
+
+  [languages.ja]
+    languageName = "Japanese"
+    languageCode = "ja-JP"
+    weight = 3
+    title = "Pocket Notes 日本語"
+    contentDir = "content"
+
+    [languages.ja.params]
+      description = "長く書き続けるための、図文中心の個人向けテーマ"
+      subtitle = "适合长期个人写作的图文式主题"
+      keywords = ["Hugo", "theme", "writing", "multilingual"]
+      author = "Pocket Hugo"
+  [languages.es]
+    languageName = "Spanish"
+    languageCode = "es-ES"
+    weight = 4
+    title = "Pocket Notes Español"
+    contentDir = "content"
+
+    [languages.es.params]
+      description = "Un tema visual para la escritura personal a largo plazo"
+      subtitle = "Un tema visual para la escritura personal a largo plazo"
+      keywords = ["Hugo", "theme", "writing", "multilingual"]
+      author = "Pocket Hugo"
+
+  [languages.fr]
+    languageName = "French"
+    languageCode = "fr-FR"
+    weight = 5
+    title = "Pocket Notes Français"
+    contentDir = "content"
+
+    [languages.fr.params]
+      description = "Un thème visuel pour une écriture personnelle au long cours"
+      subtitle = "Un thème visuel pour une écriture personnelle au long cours"
+      keywords = ["Hugo", "theme", "writing", "multilingual"]
+      author = "Pocket Hugo"
+
+# 站点级参数。
+[params]
+  # 默认头像，建议放在 static/img/ 目录下。
+  avatar = "img/avatar.webp"
+
+  # 默认 logo，可用于站点角标或浏览器图标。
+  logo = "img/logo-default.svg"
+
+  # 作者名称。
+  author = "Pocket Hugo"
+
+  # 页脚年份，可用于手动指定开始年份。
+  since = 2026
+
+  # 是否启用彩色主题切换。
+  colorSchemeToggle = true
+
+  # 显示在首页顶部的简介。
+  intro = "A cover-driven theme for long-term personal writing"
+
+  # 站点备案或额外页脚说明。
+  footer = "Built with Hugo"
+
+  # 首页卡片默认摘要长度。
+  summaryLength = 110
+
+  # 是否在文章页显示预计阅读时长。
+  readingTime = true
+
+  # 是否显示文章字数统计。
+  articleWords = true
+
+  # 是否启用返回顶部按钮。
+  backToTop = true
+
+  # 是否启用图片灯箱。
+  fancybox = false
+
+  # 是否启用说说页面。
+  enableTalks = true
+
+  # 自定义二维码图片，留空则不显示。
+  qrcode = ""
+
+  # 语言切换选项。
+  [params.languageSwitcher]
+    # 当可切换语言达到这个数量时，在顶部语言图标旁显示下拉选择框。
+    headerSelectThreshold = 3
+
+# 首页社交链接。
+[[params.social]]
+name = "GitHub"
+url = "https://github.com/h2dcc"
+icon = "brand-github"
+
+[[params.social]]
+name = "Facebook"
+url = "https://www.facebook.com/"
+icon = "brand-facebook"
+
+[[params.social]]
+name = "Twitter"
+url = "https://twitter.com/"
+icon = "brand-twitter"
+
+[[params.social]]
+name = "RSS"
+url = "/index.xml"
+icon = "rss"
+
+[params.widgets]
+  # 首页右边栏组件顺序。
+  homepage = ["search", "archives", "categories", "tag-cloud"]
+
+  # 静态页面右边栏组件顺序。
+  static = ["search", "archives", "categories", "tag-cloud"]
+
+  # 文章页右边栏组件顺序。
+  page = ["toc", "search", "related", "archives", "categories", "tag-cloud"]
+
+  [params.widgets.titleVisibility]
+    # 是否显示目录组件标题。
+    toc = true
+    # 是否显示搜索组件标题。
+    search = true
+    # 是否显示相关文章标题。
+    related = true
+    # 是否显示归档标题。
+    archives = true
+    # 是否显示分类标题。
+    categories = true
+    # 是否显示标签云标题。
+    tagCloud = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+
+# 首页输出 HTML、RSS 和 JSON，便于搜索与前端脚本使用。
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+  page = ["HTML"]
