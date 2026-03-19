@@ -283,34 +283,73 @@
         <div class="translation-toggle translation-toggle--header">
             
                 
-                    <label class="visually-hidden" for="site-language-select">Choose language</label>
-                    <select
-                        id="site-language-select"
-                        class="translation-toggle__select translation-toggle__select--compact"
-                        aria-label="Choose language"
-                        onchange="if (this.value) window.location.href = this.value"
-                    >
-                        
+                    
+                    <details class="translation-toggle__menu">
+                        <summary
+                            class="translation-toggle__summary header-tool"
+                            aria-label="Choose language"
+                        >
+                            <span class="translation-toggle__summary-text">EN</span>
+                        </summary>
+                        <div class="translation-toggle__dropdown" role="menu" aria-label="Choose language">
                             
-                            <option value="/" selected>EN</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link is-current"
+                                    href="/"
+                                    role="menuitem"
+                                    aria-current="true"
+                                >
+                                    EN
+                                </a>
                             
-                            <option value="/zh-cn/">ZH</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/zh-cn/"
+                                    role="menuitem"
+                                    
+                                >
+                                    ZH
+                                </a>
                             
-                            <option value="/ja/">JA</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/ja/"
+                                    role="menuitem"
+                                    
+                                >
+                                    JA
+                                </a>
                             
-                            <option value="/es/">ES</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/es/"
+                                    role="menuitem"
+                                    
+                                >
+                                    ES
+                                </a>
                             
-                            <option value="/fr/">FR</option>
-                        
-                    </select>
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/fr/"
+                                    role="menuitem"
+                                    
+                                >
+                                    FR
+                                </a>
+                            
+                        </div>
+                    </details>
                 
             
         </div>
     
+
 
 
             
@@ -365,6 +404,8 @@
                     
                     <span>2 min read</span>
                     
+                        <span>238 words</span>
+                    
                     
 
 
@@ -379,41 +420,44 @@
         <div class="translation-toggle translation-toggle--inline">
             
                 
-                    <a
-                        class="translation-toggle__text-link"
-                        href="/zh-cn/article/quick-note/"
-                        title="Switch language: Chinese"
-                    >
-                        <span class="translation-toggle__label">Chinese</span>
-                    </a>
-                
-                    <a
-                        class="translation-toggle__text-link"
-                        href="/ja/article/quick-note/"
-                        title="Switch language: Japanese"
-                    >
-                        <span class="translation-toggle__label">Japanese</span>
-                    </a>
-                
-                    <a
-                        class="translation-toggle__text-link"
-                        href="/es/article/quick-note/"
-                        title="Switch language: Spanish"
-                    >
-                        <span class="translation-toggle__label">Spanish</span>
-                    </a>
-                
-                    <a
-                        class="translation-toggle__text-link"
-                        href="/fr/article/quick-note/"
-                        title="Switch language: French"
-                    >
-                        <span class="translation-toggle__label">French</span>
-                    </a>
+                    
+                        <a
+                            class="translation-toggle__text-link"
+                            href="/zh-cn/article/quick-note/"
+                            title="Switch language: Chinese"
+                        >
+                            <span class="translation-toggle__label">Chinese</span>
+                        </a>
+                    
+                        <a
+                            class="translation-toggle__text-link"
+                            href="/ja/article/quick-note/"
+                            title="Switch language: Japanese"
+                        >
+                            <span class="translation-toggle__label">Japanese</span>
+                        </a>
+                    
+                        <a
+                            class="translation-toggle__text-link"
+                            href="/es/article/quick-note/"
+                            title="Switch language: Spanish"
+                        >
+                            <span class="translation-toggle__label">Spanish</span>
+                        </a>
+                    
+                        <a
+                            class="translation-toggle__text-link"
+                            href="/fr/article/quick-note/"
+                            title="Switch language: French"
+                        >
+                            <span class="translation-toggle__label">French</span>
+                        </a>
+                    
                 
             
         </div>
     
+
 
                 </div>
                 <blockquote class="article-page__description">A compact post for testing common Markdown elements in the English article layout.</blockquote>
@@ -516,7 +560,19 @@
 </table>
 <h2 id="image">Image</h2>
 <p>The local bundle image should appear both as the cover and as an inline asset:</p>
-<p><img src="/article/quick-note/cover.webp" alt="Sample cover reused inline"></p>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/quick-note/cover.webp" data-lightbox-image>
+        <img
+            src="/article/quick-note/cover.webp"
+            alt="Sample cover reused inline"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
 <h2 id="horizontal-rule">Horizontal Rule</h2>
 <hr>
 <h2 id="final-notes">Final Notes</h2>
@@ -579,6 +635,8 @@
 
     </div>
 
+    
+        <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">↑</button>
     
 
     <footer class="site-footer">

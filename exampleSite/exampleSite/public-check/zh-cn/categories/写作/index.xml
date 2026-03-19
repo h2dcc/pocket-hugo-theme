@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>写作 - Pocket Notes 中文</title>
+    <link>https://example.org/zh-cn/categories/%E5%86%99%E4%BD%9C/</link>
+    <description>写作</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 19 Mar 2026 03:33:36 &#43;0000</lastBuildDate>
+    <atom:link href="https://example.org/zh-cn/categories/%E5%86%99%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>给草稿留一间屋子</title>
+      <link>https://example.org/zh-cn/article/%E7%BB%99%E8%8D%89%E7%A8%BF%E7%95%99%E4%B8%80%E9%97%B4%E5%B1%8B%E5%AD%90/</link>
+      <pubDate>Sun, 01 Feb 2026 01:00:00 &#43;0000</pubDate>
+      <guid>https://example.org/zh-cn/article/%E7%BB%99%E8%8D%89%E7%A8%BF%E7%95%99%E4%B8%80%E9%97%B4%E5%B1%8B%E5%AD%90/</guid>
+      <description>一个双语 bundle 示例，写的是整理写作空间的小心得。</description>
+      <content:encoded><![CDATA[<p>这篇示例文章主要用来测试 Pocket Hugo Theme 的双语 bundle 与封面卡片效果。</p>
+<p>封面图现在已经显式写入 front matter，首页、文章页和 SEO 元信息都会指向同一张 cover.webp。</p>
+<p>卡片式布局在手机上尤其自然，标题、摘要和封面会组成一个易于扫读的阅读单元。</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

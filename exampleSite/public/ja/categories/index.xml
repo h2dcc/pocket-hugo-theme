@@ -4,12 +4,12 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>Categories - Pocket Notes 日本語</title>
+    <title>Categories - Pocket Notes</title>
     <link>http://localhost:1313/ja/categories/</link>
     <description>Categories</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 07:36:38 &#43;0000</lastBuildDate>
     <atom:link href="http://localhost:1313/ja/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

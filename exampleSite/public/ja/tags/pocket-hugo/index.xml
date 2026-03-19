@@ -4,12 +4,12 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>Pocket Hugo - Pocket Notes 日本語</title>
+    <title>Pocket Hugo - Pocket Notes</title>
     <link>http://localhost:1313/ja/tags/pocket-hugo/</link>
     <description>Pocket Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 07:36:38 &#43;0000</lastBuildDate>
     <atom:link href="http://localhost:1313/ja/tags/pocket-hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>モバイル編集デモ</title>
@@ -18,7 +18,19 @@
       <guid>http://localhost:1313/ja/article/mobile-editor-demo/</guid>
       <description>Pocket Hugo と組み合わせたときの読み心地を確認する日本語ページ。</description>
       <content:encoded><![CDATA[<p>このページは、モバイルで執筆した文章をそのまま落ち着いたカードと記事ページで見せる例です。</p>
-<p><img src="/article/mobile-editor-demo/reading-scene.webp" alt="Reading scene"></p>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/mobile-editor-demo/reading-scene.webp" data-lightbox-image>
+        <img
+            src="/article/mobile-editor-demo/reading-scene.webp"
+            alt="Reading scene"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
 ]]></content:encoded>
     </item>
   </channel>

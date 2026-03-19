@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Layout Test - Pocket Notes 日本語</title>
+    <link>https://example.org/ja/tags/layout-test/</link>
+    <description>Layout Test</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 19 Mar 2026 03:33:36 &#43;0000</lastBuildDate>
+    <atom:link href="https://example.org/ja/tags/layout-test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日曜のフィード実験</title>
+      <link>https://example.org/ja/article/sunday-feed-layout/</link>
+      <pubDate>Thu, 19 Mar 2026 02:10:00 &#43;0000</pubDate>
+      <guid>https://example.org/ja/article/sunday-feed-layout/</guid>
+      <description>穏やかなカード一覧を確認するための日本語サンプル。</description>
+      <content:encoded><![CDATA[<p>静かな文章でも、カード一覧では表紙画像と抜粋のバランスが重要です。</p>
+<ol>
+<li>画像の主張</li>
+<li>抜粋の長さ</li>
+<li>モバイル時の一覧密度</li>
+</ol>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

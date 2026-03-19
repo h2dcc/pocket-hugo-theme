@@ -17,6 +17,7 @@ outputs:
 
 The test site now mixes multilingual bundles, single-language bundles, flat Markdown posts, and bilingual static pages.
 
+
 ## Why this helps
 
 > 2026-03-18 20:05

@@ -71,7 +71,7 @@ copyright = "MIT licensed demo content"
 # Chinese language settings.
 [languages.zh-cn]
   languageName = "Chinese"
-  title = "Pocket Notes 中文"
+  title = "Pocket Notes"
   weight = 2
 
 [languages.zh-cn.params.sidebar]
@@ -80,7 +80,7 @@ copyright = "MIT licensed demo content"
 # Japanese language settings.
 [languages.ja]
   languageName = "Japanese"
-  title = "Pocket Notes 日本語"
+  title = "Pocket Notes"
   weight = 3
 
 [languages.ja.params.sidebar]
@@ -88,7 +88,7 @@ copyright = "MIT licensed demo content"
 # Spanish language settings.
 [languages.es]
   languageName = "Spanish"
-  title = "Pocket Notes Español"
+  title = "Pocket Notes"
   weight = 4
 
 [languages.es.params.sidebar]
@@ -97,11 +97,12 @@ copyright = "MIT licensed demo content"
 # French language settings.
 [languages.fr]
   languageName = "French"
-  title = "Pocket Notes Français"
+  title = "Pocket Notes"
   weight = 5
 
 [languages.fr.params.sidebar]
   subtitle = "Un thème visuel pour une écriture personnelle au long cours"
+  
 [languages.ja.menu]
   [[languages.ja.menu.main]]
     name = "ガイド"
@@ -171,8 +172,8 @@ copyright = "MIT licensed demo content"
   favicon = "/img/logo-default.svg"
   appleTouchIcon = "/img/avatar.webp"
   summaryLength = 0
-  articleWords = false
-  backToTop = false
+  articleWords = true
+  backToTop = true
 
   [params.footer]
     since = 2026
@@ -201,14 +202,14 @@ copyright = "MIT licensed demo content"
     readingTime = true
 
   [params.languageSwitcher]
-    # Show a select box in the header when available languages reach this count.
-    headerSelectThreshold = 3
+    #  With two site languages, use a direct switch icon; with more than two, use a dropdown list.
+    headerSelectThreshold = 2
 
   [params.comments]
-    # Enable comments globally.
-    enabled = false
+    # Enable comments globally. The example site keeps Twikoo on so the demo can show a real comment area.
+    enabled = true
     # Supported providers: "giscus" or "twikoo".
-    provider = "giscus"
+    provider = "twikoo"
 
     [params.comments.giscus]
       # repo = "owner/repo"
@@ -222,12 +223,17 @@ copyright = "MIT licensed demo content"
       inputPosition = "top"
       theme = "preferred_color_scheme"
       # lang = "en"
+      # jsUrl = "https://giscus.app/client.js"
 
     [params.comments.twikoo]
-      # envId = "https://your-service.example.com"
+      # The example site uses a demo service here. For your own site, apply for and replace this with your own Twikoo service URL.
+      envId = "https://twikoo.fosu.cc"
       # region = ""
-      # lang = "en-US"
-      # path = ""
+      lang = "en-US"
+      # This path is fixed to "theme" only for the shared demo comments.
+      # If you deploy your own site, you can usually remove it and let Twikoo use each page path automatically.
+      path = "theme"
+      # jsUrl = "https://cdn.jsdelivr.net/npm/twikoo@1.7.3/dist/twikoo.min.js"
 
   [params.colorScheme]
     toggle = true
@@ -251,10 +257,10 @@ copyright = "MIT licensed demo content"
     ]
 
     [params.widgets.titleVisibility]
-      archives = true
-      categories = true
+      archives = false
+      categories = false
       related = true
-      search = true
+      search = false
       tagCloud = true
       toc = true
 

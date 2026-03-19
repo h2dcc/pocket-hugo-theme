@@ -9,7 +9,7 @@
     <description>English</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 07:36:37 &#43;0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/english/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quick Note: Markdown Rendering Showcase</title>
@@ -83,7 +83,19 @@
 </table>
 <h2 id="image">Image</h2>
 <p>The local bundle image should appear both as the cover and as an inline asset:</p>
-<p><img src="/article/quick-note/cover.webp" alt="Sample cover reused inline"></p>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/quick-note/cover.webp" data-lightbox-image>
+        <img
+            src="/article/quick-note/cover.webp"
+            alt="Sample cover reused inline"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
 <h2 id="horizontal-rule">Horizontal Rule</h2>
 <hr>
 <h2 id="final-notes">Final Notes</h2>

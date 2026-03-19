@@ -3,6 +3,7 @@ title: "Mobile Writing Workflow Demo"
 description: "A multilingual bundle demo for translation switching, cover images, and long-form layout."
 date: 2026-03-18T08:30:00+08:00
 slug: "mobile-editor-demo"
+comments: true
 categories:
   - Design
 tags:

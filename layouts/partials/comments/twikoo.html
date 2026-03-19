@@ -1,7 +1,7 @@
 {{ with .Site.Params.comments.twikoo }}
 <section class="comments-card comments-card--twikoo">
     <div id="tcomment"></div>
-    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.all.min.js"></script>
+    <script src="{{ .jsUrl | default "https://cdn.jsdelivr.net/npm/twikoo@1.7.3/dist/twikoo.min.js" }}"></script>
     {{ $lang := cond (eq $.Site.Language.Lang "zh-cn") "zh-CN" "en-US" }}
     <script>
         twikoo.init({

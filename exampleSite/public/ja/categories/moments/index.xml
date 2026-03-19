@@ -4,12 +4,12 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>Moments - Pocket Notes 日本語</title>
+    <title>Moments - Pocket Notes</title>
     <link>http://localhost:1313/ja/categories/moments/</link>
     <description>Moments</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 07:36:38 &#43;0000</lastBuildDate>
     <atom:link href="http://localhost:1313/ja/categories/moments/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown 表示サンプル</title>
@@ -66,7 +66,19 @@
       </tr>
   </tbody>
 </table>
-<p><img src="/article/quick-note/cover.webp" alt="Quick note cover"></p>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/quick-note/cover.webp" data-lightbox-image>
+        <img
+            src="/article/quick-note/cover.webp"
+            alt="Quick note cover"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
 ]]></content:encoded>
     </item>
   </channel>

@@ -14,19 +14,29 @@
     {{ if gt (len $translations) 0 }}
         <div class="translation-toggle translation-toggle--{{ $variant }}">
             {{ if eq $variant "header" }}
-                {{ if ge $totalLanguages $threshold }}
-                    <label class="visually-hidden" for="site-language-select">{{ T "language.select" }}</label>
-                    <select
-                        id="site-language-select"
-                        class="translation-toggle__select translation-toggle__select--compact"
-                        aria-label="{{ T "language.select" }}"
-                        onchange="if (this.value) window.location.href = this.value"
-                    >
-                        {{ range $page.AllTranslations }}
-                            {{ $abbr := upper (replaceRE "-.*$" "" .Language.Lang) }}
-                            <option value="{{ .RelPermalink }}"{{ if eq .Language.Lang $currentLanguageCode }} selected{{ end }}>{{ $abbr }}</option>
-                        {{ end }}
-                    </select>
+                {{ if gt $totalLanguages $threshold }}
+                    {{ $currentAbbr := upper (replaceRE "-.*$" "" $currentLanguageCode) }}
+                    <details class="translation-toggle__menu">
+                        <summary
+                            class="translation-toggle__summary header-tool"
+                            aria-label="{{ T "language.select" }}"
+                        >
+                            <span class="translation-toggle__summary-text">{{ $currentAbbr }}</span>
+                        </summary>
+                        <div class="translation-toggle__dropdown" role="menu" aria-label="{{ T "language.select" }}">
+                            {{ range $page.AllTranslations }}
+                                {{ $abbr := upper (replaceRE "-.*$" "" .Language.Lang) }}
+                                <a
+                                    class="translation-toggle__dropdown-link{{ if eq .Language.Lang $currentLanguageCode }} is-current{{ end }}"
+                                    href="{{ .RelPermalink }}"
+                                    role="menuitem"
+                                    {{ if eq .Language.Lang $currentLanguageCode }}aria-current="true"{{ end }}
+                                >
+                                    {{ $abbr }}
+                                </a>
+                            {{ end }}
+                        </div>
+                    </details>
                 {{ else }}
                     {{ with index $translations 0 }}
                         <a
@@ -40,14 +50,27 @@
                     {{ end }}
                 {{ end }}
             {{ else }}
-                {{ range $translations }}
-                    <a
-                        class="translation-toggle__text-link"
-                        href="{{ .RelPermalink }}"
-                        title="{{ T "language.switch" }}: {{ .Language.LanguageName }}"
-                    >
-                        <span class="translation-toggle__label">{{ .Language.LanguageName }}</span>
-                    </a>
+                {{ if gt $totalLanguages $threshold }}
+                    {{ range $translations }}
+                        <a
+                            class="translation-toggle__text-link"
+                            href="{{ .RelPermalink }}"
+                            title="{{ T "language.switch" }}: {{ .Language.LanguageName }}"
+                        >
+                            <span class="translation-toggle__label">{{ .Language.LanguageName }}</span>
+                        </a>
+                    {{ end }}
+                {{ else }}
+                    {{ with index $translations 0 }}
+                        <a
+                            class="translation-toggle__text-link translation-toggle__text-link--icon"
+                            href="{{ .RelPermalink }}"
+                            title="{{ T "language.switch" }}: {{ .Language.LanguageName }}"
+                            aria-label="{{ T "language.switch" }}: {{ .Language.LanguageName }}"
+                        >
+                            {{ partial "helpers/icon.html" "language" }}
+                        </a>
+                    {{ end }}
                 {{ end }}
             {{ end }}
         </div>

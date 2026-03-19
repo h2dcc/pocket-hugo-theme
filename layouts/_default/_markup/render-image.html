@@ -1,0 +1,24 @@
+{{- $dest := .Destination | safeURL -}}
+{{- $src := $dest -}}
+{{- if and .Page (not (or (hasPrefix .Destination "http://") (hasPrefix .Destination "https://") (hasPrefix .Destination "/") (hasPrefix .Destination "#") (hasPrefix .Destination "data:"))) -}}
+    {{- $resource := .Page.Resources.GetMatch .Destination -}}
+    {{- if not $resource -}}
+        {{- $resource = .Page.Resources.GetMatch (path.Base .Destination) -}}
+    {{- end -}}
+    {{- with $resource -}}
+        {{- $src = .RelPermalink -}}
+    {{- end -}}
+{{- end -}}
+
+<figure class="article-image">
+    <a class="article-image__link" href="{{ $src }}" data-lightbox-image>
+        <img
+            src="{{ $src }}"
+            alt="{{ .PlainText }}"
+            loading="lazy"
+            decoding="async"
+            {{ with .Title }} title="{{ . }}"{{ end }}
+        >
+    </a>
+    {{ with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

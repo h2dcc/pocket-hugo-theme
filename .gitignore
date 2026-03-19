@@ -1,0 +1,10 @@
+public/
+resources/
+.hugo_build.lock
+exampleSite/public/
+exampleSite/resources/
+exampleSite/public-check/
+exampleSite/.hugo_build.lock
+__pycache__/
+*.py[cod]
+scripts/*.py

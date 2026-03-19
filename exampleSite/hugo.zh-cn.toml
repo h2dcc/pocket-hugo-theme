@@ -213,13 +213,13 @@ copyright = "MIT licensed demo content"
   readingTime = true
 
   # 是否显示文章字数统计。
-  articleWords = false
+  articleWords = true
 
   # 是否启用返回顶部按钮。
-  backToTop = false
+  backToTop = true
 
   # 是否启用图片灯箱。
-  fancybox = false
+  fancybox = true
 
   # 是否启用说说页面。
   enableTalks = true
@@ -229,15 +229,15 @@ copyright = "MIT licensed demo content"
 
   # 语言切换选项。
   [params.languageSwitcher]
-    # 当可切换语言达到这个数量时，在顶部语言图标旁显示下拉选择框。
+    # 站点只设置两种语言时，显示直接切换图标；多于两种时，显示下拉列表。
     headerSelectThreshold = 3
 
   # 评论系统选项。
   [params.comments]
     # 是否全局启用评论。
-    enabled = false
+    enabled = true
     # 支持的评论提供方："giscus" 或 "twikoo"。
-    provider = "giscus"
+    provider = "twikoo"
 
     [params.comments.giscus]
       # repo = "owner/repo"
@@ -250,13 +250,13 @@ copyright = "MIT licensed demo content"
       emitMetadata = "0"
       inputPosition = "top"
       theme = "preferred_color_scheme"
-      # lang = "zh-CN"
+      # lang = "zh-CN"`r`n      # jsUrl = "https://giscus.app/client.js"
 
     [params.comments.twikoo]
-      # envId = "https://your-service.example.com"
+      # envId = "https://twikoo.fosu.cc"
       # region = ""
-      # lang = "zh-CN"
-      # path = ""
+      # lang = "en"
+      # path = ""`r`n      # jsUrl = "https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.all.min.js"
 # 首页社交链接。
 [[params.social]]
 name = "GitHub"

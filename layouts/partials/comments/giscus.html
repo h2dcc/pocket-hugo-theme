@@ -1,6 +1,6 @@
 {{ with .Site.Params.comments.giscus }}
 <section class="comments-card comments-card--giscus">
-    <script src="https://giscus.app/client.js"
+    <script src="{{ .jsUrl | default "https://giscus.app/client.js" }}"
         data-repo="{{ .repo }}"
         data-repo-id="{{ .repoId }}"
         data-category="{{ .category }}"

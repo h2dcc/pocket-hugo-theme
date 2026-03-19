@@ -1,6 +1,7 @@
 ---
 title: "About"
 slug: "about"
+comments: false
 menu:
   main:
     weight: -40

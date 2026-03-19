@@ -9,7 +9,7 @@
     <description>Mobile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 07:36:37 &#43;0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/mobile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mobile Writing Workflow Demo</title>
@@ -26,7 +26,19 @@
 <li>reading rhythm on narrow screens</li>
 </ul>
 <h2 id="image-test">Image test</h2>
-<p><img src="/article/mobile-editor-demo/reading-scene.webp" alt="Reading scene"></p>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/mobile-editor-demo/reading-scene.webp" data-lightbox-image>
+        <img
+            src="/article/mobile-editor-demo/reading-scene.webp"
+            alt="Reading scene"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
 <p>If both language versions render correctly, the multilingual bundle path is working.</p>]]></content:encoded>
     </item>
     <item>

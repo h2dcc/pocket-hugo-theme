@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Pocket Hugo - Pocket Notes Español</title>
+    <link>https://example.org/es/tags/pocket-hugo/</link>
+    <description>Pocket Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 19 Mar 2026 03:33:36 &#43;0000</lastBuildDate>
+    <atom:link href="https://example.org/es/tags/pocket-hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Demo de edición móvil</title>
+      <link>https://example.org/es/article/mobile-editor-demo/</link>
+      <pubDate>Thu, 19 Mar 2026 02:20:00 &#43;0000</pubDate>
+      <guid>https://example.org/es/article/mobile-editor-demo/</guid>
+      <description>Una página en español para probar la combinación entre Pocket Hugo y el tema.</description>
+      <content:encoded><![CDATA[<p>Este ejemplo muestra cómo una nota escrita desde el móvil puede terminar publicada con una portada clara y una lectura limpia.</p>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/mobile-editor-demo/reading-scene.webp" data-lightbox-image>
+        <img
+            src="/article/mobile-editor-demo/reading-scene.webp"
+            alt="Reading scene"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

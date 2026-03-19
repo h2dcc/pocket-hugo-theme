@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <title>
-    写作 · Pocket Notes 中文
+    写作 · Pocket Notes
 
 </title>
     <link rel="icon" type="image/svg+xml" href="/img/logo-default.svg">
@@ -35,9 +35,9 @@
 <link rel="canonical" href="http://localhost:1313/zh-cn/categories/%E5%86%99%E4%BD%9C/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:site_name" content="Pocket Notes 中文">
+<meta property="og:site_name" content="Pocket Notes">
 <meta property="og:title" content="
-    写作 · Pocket Notes 中文
+    写作 · Pocket Notes
 
 ">
 <meta property="og:description" content="一款适合个人长期写作的图文式主题">
@@ -45,7 +45,7 @@
 <meta property="og:url" content="http://localhost:1313/zh-cn/categories/%E5%86%99%E4%BD%9C/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="
-    写作 · Pocket Notes 中文
+    写作 · Pocket Notes
 
 ">
 <meta name="twitter:description" content="一款适合个人长期写作的图文式主题">
@@ -66,7 +66,7 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "headline": "\"写作\"",
-  "name": "\"\\n    写作 · Pocket Notes 中文\\n\\n\"",
+  "name": "\"\\n    写作 · Pocket Notes\\n\\n\"",
   "description": "\"一款适合个人长期写作的图文式主题\"",
   "url": "\"http://localhost:1313/zh-cn/categories/%E5%86%99%E4%BD%9C/\"",
   "inLanguage": "\"zh-cn\"",
@@ -74,7 +74,7 @@
   
   "publisher": {
     "@type": "Organization",
-    "name": "\"Pocket Notes 中文\""
+    "name": "\"Pocket Notes\""
   }
 }
 </script>
@@ -123,12 +123,12 @@
 
             
                 <a class="site-brand__avatar" href="/zh-cn/">
-                    <img src="/img/avatar.webp" alt="Pocket Notes 中文">
+                    <img src="/img/avatar.webp" alt="Pocket Notes">
                 </a>
             
 
             <div class="site-brand__text">
-                <a class="site-brand__title" href="/zh-cn/">Pocket Notes 中文</a>
+                <a class="site-brand__title" href="/zh-cn/">Pocket Notes</a>
                 <p class="site-brand__subtitle">一款适合个人长期写作的图文式主题</p>
             </div>
         </div>
@@ -268,34 +268,73 @@
         <div class="translation-toggle translation-toggle--header">
             
                 
-                    <label class="visually-hidden" for="site-language-select">选择语言</label>
-                    <select
-                        id="site-language-select"
-                        class="translation-toggle__select translation-toggle__select--compact"
-                        aria-label="选择语言"
-                        onchange="if (this.value) window.location.href = this.value"
-                    >
-                        
+                    
+                    <details class="translation-toggle__menu">
+                        <summary
+                            class="translation-toggle__summary header-tool"
+                            aria-label="选择语言"
+                        >
+                            <span class="translation-toggle__summary-text">ZH</span>
+                        </summary>
+                        <div class="translation-toggle__dropdown" role="menu" aria-label="选择语言">
                             
-                            <option value="/">EN</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/"
+                                    role="menuitem"
+                                    
+                                >
+                                    EN
+                                </a>
                             
-                            <option value="/zh-cn/" selected>ZH</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link is-current"
+                                    href="/zh-cn/"
+                                    role="menuitem"
+                                    aria-current="true"
+                                >
+                                    ZH
+                                </a>
                             
-                            <option value="/ja/">JA</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/ja/"
+                                    role="menuitem"
+                                    
+                                >
+                                    JA
+                                </a>
                             
-                            <option value="/es/">ES</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/es/"
+                                    role="menuitem"
+                                    
+                                >
+                                    ES
+                                </a>
                             
-                            <option value="/fr/">FR</option>
-                        
-                    </select>
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/fr/"
+                                    role="menuitem"
+                                    
+                                >
+                                    FR
+                                </a>
+                            
+                        </div>
+                    </details>
                 
             
         </div>
     
+
 
 
             
@@ -396,7 +435,7 @@
         
         
             <section class="widget-simple widget-simple--search">
-    <h2 class="widget-simple__title">搜索</h2>
+    
     <form class="widget-search" action="/zh-cn/search/" method="get">
         <input type="search" name="q" placeholder="">
     </form>
@@ -406,7 +445,7 @@
         
         
             <section class="widget-simple widget-simple--archives">
-        <h2 class="widget-simple__title">归档</h2>
+        
         <div class="widget-simple__list">
             
                 
@@ -426,7 +465,7 @@
         
         
             <section class="widget-simple widget-simple--categories">
-    <h2 class="widget-simple__title">分类</h2>
+    
     <div class="widget-simple__tabs">
         
             <a class="widget-simple__tab" href="/zh-cn/categories/%E5%86%99%E4%BD%9C/">写作</a>
@@ -497,10 +536,12 @@
     </div>
 
     
+        <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">↑</button>
+    
 
     <footer class="site-footer">
     <p>
-        &copy; 2026 Pocket Notes 中文
+        &copy; 2026 Pocket Notes
          - MIT licensed demo content
     </p>
 </footer>

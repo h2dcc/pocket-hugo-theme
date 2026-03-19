@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>French - Pocket Notes Français</title>
+    <link>https://example.org/fr/tags/french/</link>
+    <description>French</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Thu, 19 Mar 2026 03:33:36 &#43;0000</lastBuildDate>
+    <atom:link href="https://example.org/fr/tags/french/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Week-end photo et lecture</title>
+      <link>https://example.org/fr/article/weekend-photo-notes/</link>
+      <pubDate>Thu, 19 Mar 2026 02:25:00 &#43;0000</pubDate>
+      <guid>https://example.org/fr/article/weekend-photo-notes/</guid>
+      <description>Un exemple français pour tester une carte visuelle orientée lecture.</description>
+      <content:encoded><![CDATA[<p>Cette variation sert surtout à vérifier le comportement d une couverture large, d un titre plus long et d un résumé mesuré.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Fenêtre tranquille</title>
+      <link>https://example.org/fr/article/quiet-window-demo/</link>
+      <pubDate>Thu, 19 Mar 2026 01:55:00 &#43;0000</pubDate>
+      <guid>https://example.org/fr/article/quiet-window-demo/</guid>
+      <description>Une petite page française pour juger le confort des cartes sur mobile.</description>
+      <content:encoded><![CDATA[<p>Une carte calme dépend autant de l image que des marges et de la longueur du résumé.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Notes depuis le train</title>
+      <link>https://example.org/fr/article/notes-from-the-train/</link>
+      <pubDate>Thu, 19 Mar 2026 01:45:00 &#43;0000</pubDate>
+      <guid>https://example.org/fr/article/notes-from-the-train/</guid>
+      <description>Un exemple français pour vérifier la lecture d une carte illustrée.</description>
+      <content:encoded><![CDATA[<p>Ce court texte permet de tester l équilibre entre couverture, titre, description et densité visuelle.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Exemple Markdown</title>
+      <link>https://example.org/fr/article/quick-note/</link>
+      <pubDate>Thu, 19 Mar 2026 01:15:00 &#43;0000</pubDate>
+      <guid>https://example.org/fr/article/quick-note/</guid>
+      <description>Une courte page pour vérifier le rendu des éléments Markdown en français.</description>
+      <content:encoded><![CDATA[<p>Cette page sert à vérifier rapidement le rendu Markdown de <code>pocket-hugo-theme</code>.</p>
+<h2 id="mise-en-forme">Mise en forme</h2>
+<p>On peut tester ici le <strong>gras</strong>, <em>l italique</em>, <em><strong>l emphase combinée</strong></em>, le <code>code en ligne</code> et un <a href="https://gohugo.io/">lien vers Hugo</a>.</p>
+<h2 id="listes">Listes</h2>
+<ul>
+<li>Densité des cartes</li>
+<li>Lisibilité sur mobile</li>
+<li>Respiration des métadonnées</li>
+</ul>
+<ol>
+<li>Rédiger le brouillon.</li>
+<li>Ajouter l image de couverture.</li>
+<li>Vérifier le résultat sur téléphone.</li>
+</ol>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Ajouter le front matter</li>
+<li><input checked="" disabled="" type="checkbox"> Utiliser une image locale</li>
+<li><input disabled="" type="checkbox"> Remplacer le texte de démonstration</li>
+</ul>
+<h2 id="citation">Citation</h2>
+<blockquote>
+<p>Un bon thème de lecture laisse la place au contenu.</p>
+</blockquote>
+<h2 id="code">Code</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;pocket-hugo-theme&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">defaultContentLanguage</span> <span class="p">=</span> <span class="s2">&#34;fr&#34;</span>
+</span></span></code></pre></div><h2 id="tableau">Tableau</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Élément</th>
+          <th>Ce que l on teste</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Titres</td>
+          <td>Le rythme</td>
+      </tr>
+      <tr>
+          <td>Listes</td>
+          <td>Les retraits</td>
+      </tr>
+      <tr>
+          <td>Tableaux</td>
+          <td>Le débordement mobile</td>
+      </tr>
+  </tbody>
+</table>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/quick-note/cover.webp" data-lightbox-image>
+        <img
+            src="/article/quick-note/cover.webp"
+            alt="Quick note cover"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

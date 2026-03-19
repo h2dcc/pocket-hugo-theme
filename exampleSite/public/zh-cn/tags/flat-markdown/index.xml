@@ -4,12 +4,12 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>Flat Markdown - Pocket Notes 中文</title>
+    <title>Flat Markdown - Pocket Notes</title>
     <link>http://localhost:1313/zh-cn/tags/flat-markdown/</link>
     <description>Flat Markdown</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 07:36:38 &#43;0000</lastBuildDate>
     <atom:link href="http://localhost:1313/zh-cn/tags/flat-markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>快速记录：Markdown 渲染示例</title>
@@ -83,7 +83,19 @@
 </table>
 <h2 id="图片">图片</h2>
 <p>下面这张图会重复使用 bundle 里的 <code>cover.webp</code>，方便一起检查封面图和正文内联图的显示。</p>
-<p><img src="/article/quick-note/cover.webp" alt="Markdown rendering sample"></p>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/quick-note/cover.webp" data-lightbox-image>
+        <img
+            src="/article/quick-note/cover.webp"
+            alt="Markdown rendering sample"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
 <h2 id="分隔线">分隔线</h2>
 <hr>
 <h2 id="最后说明">最后说明</h2>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Pocket Notes 日本語</title>
+    <link>https://example.org/ja/</link>
+    <description>Pocket Notes 日本語</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 19 Mar 2026 03:33:36 &#43;0000</lastBuildDate>
+    <atom:link href="https://example.org/ja/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>モバイル編集デモ</title>
+      <link>https://example.org/ja/article/mobile-editor-demo/</link>
+      <pubDate>Thu, 19 Mar 2026 02:30:00 &#43;0000</pubDate>
+      <guid>https://example.org/ja/article/mobile-editor-demo/</guid>
+      <description>Pocket Hugo と組み合わせたときの読み心地を確認する日本語ページ。</description>
+      <content:encoded><![CDATA[<p>このページは、モバイルで執筆した文章をそのまま落ち着いたカードと記事ページで見せる例です。</p>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/mobile-editor-demo/reading-scene.webp" data-lightbox-image>
+        <img
+            src="/article/mobile-editor-demo/reading-scene.webp"
+            alt="Reading scene"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>日曜のフィード実験</title>
+      <link>https://example.org/ja/article/sunday-feed-layout/</link>
+      <pubDate>Thu, 19 Mar 2026 02:10:00 &#43;0000</pubDate>
+      <guid>https://example.org/ja/article/sunday-feed-layout/</guid>
+      <description>穏やかなカード一覧を確認するための日本語サンプル。</description>
+      <content:encoded><![CDATA[<p>静かな文章でも、カード一覧では表紙画像と抜粋のバランスが重要です。</p>
+<ol>
+<li>画像の主張</li>
+<li>抜粋の長さ</li>
+<li>モバイル時の一覧密度</li>
+</ol>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>小さな画面のハムレット</title>
+      <link>https://example.org/ja/article/hamlet-in-a-small-window/</link>
+      <pubDate>Thu, 19 Mar 2026 01:40:00 &#43;0000</pubDate>
+      <guid>https://example.org/ja/article/hamlet-in-a-small-window/</guid>
+      <description>短い引用とカード型レイアウトの相性を確認する日本語デモ。</description>
+      <content:encoded><![CDATA[<p>この短いサンプルは、引用中心の文章がモバイルのカードでどう見えるかを確かめるためのものです。</p>
+<blockquote>
+<p>言葉が短くても、余白とカバー画像で印象は大きく変わります。</p>
+</blockquote>
+<ul>
+<li>タイトルの折り返し</li>
+<li>説明文の長さ</li>
+<li>カード一覧での視線移動</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Markdown 表示サンプル</title>
+      <link>https://example.org/ja/article/quick-note/</link>
+      <pubDate>Thu, 19 Mar 2026 01:15:00 &#43;0000</pubDate>
+      <guid>https://example.org/ja/article/quick-note/</guid>
+      <description>日本語記事でよく使う Markdown 要素の見え方を確認するための短いサンプルです。</description>
+      <content:encoded><![CDATA[<p>このページは <code>pocket-hugo-theme</code> の Markdown 表示を手早く確認するためのサンプルです。</p>
+<h2 id="行内スタイル">行内スタイル</h2>
+<p><strong>太字</strong>、<em>斜体</em>、<em><strong>複合強調</strong></em>、<code>インラインコード</code>、そして <a href="https://gohugo.io/">Hugo</a> へのリンクを確認できます。</p>
+<h2 id="リスト">リスト</h2>
+<ul>
+<li>カード一覧の余白</li>
+<li>モバイルでの読みやすさ</li>
+<li>メタ情報のまとまり</li>
+</ul>
+<ol>
+<li>下書きを書く</li>
+<li>カバー画像を追加する</li>
+<li>モバイルで読み直す</li>
+</ol>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> front matter を追加</li>
+<li><input checked="" disabled="" type="checkbox"> ローカル画像を使用</li>
+<li><input disabled="" type="checkbox"> 本番原稿に差し替える</li>
+</ul>
+<h2 id="引用">引用</h2>
+<blockquote>
+<p>良い記事テーマは、読んでいるあいだ静かに背景へ下がる。</p>
+</blockquote>
+<h2 id="コード">コード</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;pocket-hugo-theme&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">defaultContentLanguage</span> <span class="p">=</span> <span class="s2">&#34;ja&#34;</span>
+</span></span></code></pre></div><h2 id="表">表</h2>
+<table>
+  <thead>
+      <tr>
+          <th>要素</th>
+          <th>確認点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>見出し</td>
+          <td>リズム</td>
+      </tr>
+      <tr>
+          <td>リスト</td>
+          <td>余白</td>
+      </tr>
+      <tr>
+          <td>表</td>
+          <td>モバイルでの折り返し</td>
+      </tr>
+  </tbody>
+</table>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/quick-note/cover.webp" data-lightbox-image>
+        <img
+            src="/article/quick-note/cover.webp"
+            alt="Quick note cover"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

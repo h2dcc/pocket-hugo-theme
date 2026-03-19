@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <title>
-    快速记录：Markdown 渲染示例 · Pocket Notes 中文
+    快速记录：Markdown 渲染示例 · Pocket Notes
 
 </title>
     <link rel="icon" type="image/svg+xml" href="/img/logo-default.svg">
@@ -31,9 +31,9 @@
 <link rel="canonical" href="http://localhost:1313/zh-cn/article/quick-note/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:site_name" content="Pocket Notes 中文">
+<meta property="og:site_name" content="Pocket Notes">
 <meta property="og:title" content="
-    快速记录：Markdown 渲染示例 · Pocket Notes 中文
+    快速记录：Markdown 渲染示例 · Pocket Notes
 
 ">
 <meta property="og:description" content="一篇用来测试中文文章常见 Markdown 元素渲染效果的示例文章。">
@@ -41,7 +41,7 @@
 <meta property="og:url" content="http://localhost:1313/zh-cn/article/quick-note/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="
-    快速记录：Markdown 渲染示例 · Pocket Notes 中文
+    快速记录：Markdown 渲染示例 · Pocket Notes
 
 ">
 <meta name="twitter:description" content="一篇用来测试中文文章常见 Markdown 元素渲染效果的示例文章。">
@@ -78,7 +78,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "\"快速记录：Markdown 渲染示例\"",
-  "name": "\"\\n    快速记录：Markdown 渲染示例 · Pocket Notes 中文\\n\\n\"",
+  "name": "\"\\n    快速记录：Markdown 渲染示例 · Pocket Notes\\n\\n\"",
   "description": "\"一篇用来测试中文文章常见 Markdown 元素渲染效果的示例文章。\"",
   "url": "\"http://localhost:1313/zh-cn/article/quick-note/\"",
   "inLanguage": "\"zh-cn\"",
@@ -86,7 +86,7 @@
   "dateModified": "\"2026-03-19T09:15:00+08:00\"",
   "publisher": {
     "@type": "Organization",
-    "name": "\"Pocket Notes 中文\""
+    "name": "\"Pocket Notes\""
   },
   "image": "\"http://localhost:1313/article/quick-note/cover.webp\""
 }
@@ -134,12 +134,12 @@
 
             
                 <a class="site-brand__avatar" href="/zh-cn/">
-                    <img src="/img/avatar.webp" alt="Pocket Notes 中文">
+                    <img src="/img/avatar.webp" alt="Pocket Notes">
                 </a>
             
 
             <div class="site-brand__text">
-                <a class="site-brand__title" href="/zh-cn/">Pocket Notes 中文</a>
+                <a class="site-brand__title" href="/zh-cn/">Pocket Notes</a>
                 <p class="site-brand__subtitle">一款适合个人长期写作的图文式主题</p>
             </div>
         </div>
@@ -279,34 +279,73 @@
         <div class="translation-toggle translation-toggle--header">
             
                 
-                    <label class="visually-hidden" for="site-language-select">选择语言</label>
-                    <select
-                        id="site-language-select"
-                        class="translation-toggle__select translation-toggle__select--compact"
-                        aria-label="选择语言"
-                        onchange="if (this.value) window.location.href = this.value"
-                    >
-                        
+                    
+                    <details class="translation-toggle__menu">
+                        <summary
+                            class="translation-toggle__summary header-tool"
+                            aria-label="选择语言"
+                        >
+                            <span class="translation-toggle__summary-text">ZH</span>
+                        </summary>
+                        <div class="translation-toggle__dropdown" role="menu" aria-label="选择语言">
                             
-                            <option value="/">EN</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/"
+                                    role="menuitem"
+                                    
+                                >
+                                    EN
+                                </a>
                             
-                            <option value="/zh-cn/" selected>ZH</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link is-current"
+                                    href="/zh-cn/"
+                                    role="menuitem"
+                                    aria-current="true"
+                                >
+                                    ZH
+                                </a>
                             
-                            <option value="/ja/">JA</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/ja/"
+                                    role="menuitem"
+                                    
+                                >
+                                    JA
+                                </a>
                             
-                            <option value="/es/">ES</option>
-                        
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/es/"
+                                    role="menuitem"
+                                    
+                                >
+                                    ES
+                                </a>
                             
-                            <option value="/fr/">FR</option>
-                        
-                    </select>
+                                
+                                <a
+                                    class="translation-toggle__dropdown-link"
+                                    href="/fr/"
+                                    role="menuitem"
+                                    
+                                >
+                                    FR
+                                </a>
+                            
+                        </div>
+                    </details>
                 
             
         </div>
     
+
 
 
             
@@ -361,6 +400,8 @@
                     
                     <span>1 分钟</span>
                     
+                        <span>441 字</span>
+                    
                     
 
 
@@ -375,41 +416,44 @@
         <div class="translation-toggle translation-toggle--inline">
             
                 
-                    <a
-                        class="translation-toggle__text-link"
-                        href="/article/quick-note/"
-                        title="切换语言: English"
-                    >
-                        <span class="translation-toggle__label">English</span>
-                    </a>
-                
-                    <a
-                        class="translation-toggle__text-link"
-                        href="/ja/article/quick-note/"
-                        title="切换语言: Japanese"
-                    >
-                        <span class="translation-toggle__label">Japanese</span>
-                    </a>
-                
-                    <a
-                        class="translation-toggle__text-link"
-                        href="/es/article/quick-note/"
-                        title="切换语言: Spanish"
-                    >
-                        <span class="translation-toggle__label">Spanish</span>
-                    </a>
-                
-                    <a
-                        class="translation-toggle__text-link"
-                        href="/fr/article/quick-note/"
-                        title="切换语言: French"
-                    >
-                        <span class="translation-toggle__label">French</span>
-                    </a>
+                    
+                        <a
+                            class="translation-toggle__text-link"
+                            href="/article/quick-note/"
+                            title="切换语言: English"
+                        >
+                            <span class="translation-toggle__label">English</span>
+                        </a>
+                    
+                        <a
+                            class="translation-toggle__text-link"
+                            href="/ja/article/quick-note/"
+                            title="切换语言: Japanese"
+                        >
+                            <span class="translation-toggle__label">Japanese</span>
+                        </a>
+                    
+                        <a
+                            class="translation-toggle__text-link"
+                            href="/es/article/quick-note/"
+                            title="切换语言: Spanish"
+                        >
+                            <span class="translation-toggle__label">Spanish</span>
+                        </a>
+                    
+                        <a
+                            class="translation-toggle__text-link"
+                            href="/fr/article/quick-note/"
+                            title="切换语言: French"
+                        >
+                            <span class="translation-toggle__label">French</span>
+                        </a>
+                    
                 
             
         </div>
     
+
 
                 </div>
                 <blockquote class="article-page__description">一篇用来测试中文文章常见 Markdown 元素渲染效果的示例文章。</blockquote>
@@ -512,7 +556,19 @@
 </table>
 <h2 id="图片">图片</h2>
 <p>下面这张图会重复使用 bundle 里的 <code>cover.webp</code>，方便一起检查封面图和正文内联图的显示。</p>
-<p><img src="/article/quick-note/cover.webp" alt="Markdown rendering sample"></p>
+<p><figure class="article-image">
+    <a class="article-image__link" href="/article/quick-note/cover.webp" data-lightbox-image>
+        <img
+            src="/article/quick-note/cover.webp"
+            alt="Markdown rendering sample"
+            loading="lazy"
+            decoding="async"
+            
+        >
+    </a>
+    
+</figure>
+</p>
 <h2 id="分隔线">分隔线</h2>
 <hr>
 <h2 id="最后说明">最后说明</h2>
@@ -523,6 +579,25 @@
 
         
 
+
+    
+        
+<section class="comments-card comments-card--twikoo">
+    <div id="tcomment"></div>
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.7.3/dist/twikoo.min.js"></script>
+    
+    <script>
+        twikoo.init({
+            envId: 'https:\/\/twikoo.fosu.cc',
+            el: '#tcomment',
+            lang: 'en-US',
+            path: 'theme',
+            
+        });
+    </script>
+</section>
+
+    
 
     </article>
 
@@ -587,10 +662,12 @@
     </div>
 
     
+        <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">↑</button>
+    
 
     <footer class="site-footer">
     <p>
-        &copy; 2026 Pocket Notes 中文
+        &copy; 2026 Pocket Notes
          - MIT licensed demo content
     </p>
 </footer>

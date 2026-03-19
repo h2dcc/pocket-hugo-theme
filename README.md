@@ -7,6 +7,8 @@ and lightweight personal publishing.
 [Pocket Hugo](https://github.com/h2dcc/pocket-hugo), but it also works as a
 standalone Hugo theme for multilingual blogs, notes, and long-form writing.
 
+![Pocket Hugo Theme screenshot](https://raw.githubusercontent.com/h2dcc/pocket-hugo-theme/master/images/screenshot.png)
+
 ## Features
 
 - Multilingual publishing with translation links, canonical handling, `hreflang` metadata, and a configurable 3-plus-language header switcher
@@ -116,7 +118,7 @@ Pocket Hugo encourages a writing-first workflow, and this theme is shaped around
 ## Release Prep
 
 - images/screenshot.png and images/tn.png are included for Hugo theme listing previews.
-- 	heme.toml, LICENSE, and exampleSite/ are included for a release-ready initial commit.
+- theme.toml, LICENSE, and exampleSite/ are included for a release-ready initial commit.
 - The example site content covers multilingual bundles, single-language bundles, flat Markdown, static pages, and cover-driven cards.
 
 ## Language Switcher

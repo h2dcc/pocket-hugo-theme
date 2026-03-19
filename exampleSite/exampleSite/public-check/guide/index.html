@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>
+    Guide · Pocket Notes
+
+</title>
+    <link rel="icon" type="image/svg+xml" href="/img/logo-default.svg">
+    <link rel="apple-touch-icon" href="/img/avatar.webp">
+    <meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1623" media="(prefers-color-scheme: dark)">
+    
+
+
+
+
+    
+        
+    
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+    
+
+
+<meta name="description" content="This page explains how to install, configure, and use pocket-hugo-theme in a real Hugo site.
+Install The Theme If you manage themes with git submodules:
+git submodule add …">
+<link rel="canonical" href="https://example.org/zh-cn/guide/">
+<meta name="robots" content="noindex,follow,max-image-preview:large">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pocket Notes">
+<meta property="og:title" content="
+    Guide · Pocket Notes
+
+">
+<meta property="og:description" content="This page explains how to install, configure, and use pocket-hugo-theme in a real Hugo site.
+Install The Theme If you manage themes with git submodules:
+git submodule add …">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://example.org/guide/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="
+    Guide · Pocket Notes
+
+">
+<meta name="twitter:description" content="This page explains how to install, configure, and use pocket-hugo-theme in a real Hugo site.
+Install The Theme If you manage themes with git submodules:
+git submodule add …">
+
+
+    
+    
+    
+    
+
+
+
+    <link rel="alternate" hreflang="en" href="https://example.org/guide/">
+
+    <link rel="alternate" hreflang="zh-cn" href="https://example.org/zh-cn/guide/">
+
+    <link rel="alternate" hreflang="ja" href="https://example.org/ja/guide/">
+
+    <link rel="alternate" hreflang="es" href="https://example.org/es/guide/">
+
+    <link rel="alternate" hreflang="fr" href="https://example.org/fr/guide/">
+
+
+    
+        <link rel="alternate" hreflang="x-default" href="https://example.org/zh-cn/guide/">
+    
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "\"Guide\"",
+  "name": "\"\\n    Guide · Pocket Notes\\n\\n\"",
+  "description": "\"This page explains how to install, configure, and use pocket-hugo-theme in a real Hugo site.\\nInstall The Theme If you manage themes with git submodules:\\ngit submodule add …\"",
+  "url": "\"https://example.org/guide/\"",
+  "inLanguage": "\"en\"",
+  "datePublished": "\"0001-01-01T00:00:00Z\"",
+  "dateModified": "\"0001-01-01T00:00:00Z\"",
+  "publisher": {
+    "@type": "Organization",
+    "name": "\"Pocket Notes\""
+  }
+}
+</script>
+
+    
+        <link rel="stylesheet" href="/css/main.css">
+    
+    
+</head>
+<body class="template-single">
+    <script>
+    (function () {
+        var key = 'StackColorScheme';
+        var media = window.matchMedia('(prefers-color-scheme: dark)');
+        var stored = null;
+
+        try {
+            stored = localStorage.getItem(key);
+        } catch (e) {
+            stored = null;
+        }
+
+        var resolved = stored === 'dark' || stored === 'light'
+            ? stored
+            : (media.matches ? 'dark' : 'light');
+
+        document.documentElement.dataset.theme = resolved;
+        document.documentElement.dataset.scheme = resolved;
+        document.documentElement.style.colorScheme = resolved;
+    })();
+</script>
+
+    <header class="site-header">
+    <div class="site-header__inner">
+        <div class="site-brand">
+            
+            
+                
+                    
+                        
+                    
+                
+            
+
+            
+                <a class="site-brand__avatar" href="/">
+                    <img src="/img/avatar.webp" alt="Pocket Notes">
+                </a>
+            
+
+            <div class="site-brand__text">
+                <a class="site-brand__title" href="/">Pocket Notes</a>
+                <p class="site-brand__subtitle">A cover-driven theme for long-term personal writing</p>
+            </div>
+        </div>
+
+        <div class="site-header__nav">
+            <nav class="main-nav" aria-label="Main navigation">
+                <a class="main-nav__link" href="/">Home</a>
+                
+                    
+                    
+                        <a class="main-nav__link" href="/talks/" >Talks</a>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                        <a class="main-nav__link" href="/links/" >Links</a>
+                    
+                
+                    
+                    
+                        <a class="main-nav__link" href="/guide/" >Guide</a>
+                    
+                
+                    
+                    
+                        <a class="main-nav__link" href="/about/" >About</a>
+                    
+                
+            </nav>
+
+            
+                <nav class="social-nav" aria-label="Social links">
+                    
+                        
+                        
+                        
+                        
+                            <a
+                                class="social-nav__link"
+                                href="https://github.com/h2dcc/pocket-hugo-theme"
+                                title="GitHub"
+                                target="_blank" rel="me noopener noreferrer"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                            </a>
+                        
+                    
+                        
+                        
+                        
+                        
+                            <a
+                                class="social-nav__link"
+                                href="https://www.facebook.com/"
+                                title="Facebook"
+                                target="_blank" rel="me noopener noreferrer"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <path d="M13.5 21v-7h2.3l.4-3h-2.7V9.2c0-.9.3-1.5 1.6-1.5H16V5.1c-.5-.1-1.4-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4V11H7.5v3h2.4v7h3.6Z"/>
+</svg>
+
+                            </a>
+                        
+                    
+                        
+                        
+                        
+                        
+                            <a
+                                class="social-nav__link"
+                                href="https://twitter.com/"
+                                title="Twitter"
+                                target="_blank" rel="me noopener noreferrer"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <path d="M18.9 2H22l-6.8 7.8L23 22h-6.1l-4.8-6.2L6.7 22H3.6l7.3-8.3L1.5 2h6.3l4.4 5.8L18.9 2Zm-1.1 18h1.7L6.6 3.9H4.8L17.8 20Z"/>
+</svg>
+
+                            </a>
+                        
+                    
+                        
+                        
+                        
+                        
+                            <a
+                                class="social-nav__link"
+                                href="/index.xml"
+                                title="RSS"
+                                
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                            </a>
+                        
+                    
+                </nav>
+            
+        </div>
+
+        <div class="header-tools">
+            
+
+
+    
+    
+
+
+
+    
+    
+    
+    
+
+    
+        <div class="translation-toggle translation-toggle--header">
+            
+                
+                    <label class="visually-hidden" for="site-language-select">Choose language</label>
+                    <select
+                        id="site-language-select"
+                        class="translation-toggle__select translation-toggle__select--compact"
+                        aria-label="Choose language"
+                        onchange="if (this.value) window.location.href = this.value"
+                    >
+                        
+                            
+                            <option value="/" selected>EN</option>
+                        
+                            
+                            <option value="/zh-cn/">ZH</option>
+                        
+                            
+                            <option value="/ja/">JA</option>
+                        
+                            
+                            <option value="/es/">ES</option>
+                        
+                            
+                            <option value="/fr/">FR</option>
+                        
+                    </select>
+                
+            
+        </div>
+    
+
+
+            
+                <button class="header-tool header-tool--toggle" id="dark-mode-toggle" type="button" data-toggle-color-scheme>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                </button>
+            
+        </div>
+    </div>
+</header>
+
+    <div class="site-shell">
+        <main class="site-main">
+            
+    
+    <article class="article-page">
+        <header class="article-page__header">
+            
+                
+            
+
+            <div class="article-page__meta">
+                <h1>Guide</h1>
+                <div class="meta-line">
+                    
+                    
+                    <span>2 min read</span>
+                    
+                        <span>225 words</span>
+                    
+                    
+
+
+
+
+    
+    
+    
+    
+
+    
+        <div class="translation-toggle translation-toggle--inline">
+            
+                
+                    <a
+                        class="translation-toggle__text-link"
+                        href="/zh-cn/guide/"
+                        title="Switch language: Chinese"
+                    >
+                        <span class="translation-toggle__label">Chinese</span>
+                    </a>
+                
+                    <a
+                        class="translation-toggle__text-link"
+                        href="/ja/guide/"
+                        title="Switch language: Japanese"
+                    >
+                        <span class="translation-toggle__label">Japanese</span>
+                    </a>
+                
+                    <a
+                        class="translation-toggle__text-link"
+                        href="/es/guide/"
+                        title="Switch language: Spanish"
+                    >
+                        <span class="translation-toggle__label">Spanish</span>
+                    </a>
+                
+                    <a
+                        class="translation-toggle__text-link"
+                        href="/fr/guide/"
+                        title="Switch language: French"
+                    >
+                        <span class="translation-toggle__label">French</span>
+                    </a>
+                
+            
+        </div>
+    
+
+                </div>
+                
+            </div>
+        </header>
+
+        
+
+        <div class="article-page__content">
+            <div class="article-content">
+                <p>This page explains how to install, configure, and use <code>pocket-hugo-theme</code> in a real Hugo site.</p>
+<h2 id="install-the-theme">Install The Theme</h2>
+<p>If you manage themes with git submodules:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule add https://github.com/h2dcc/pocket-hugo-theme.git themes/pocket-hugo-theme
+</span></span></code></pre></div><p>Then enable it in your site config:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;pocket-hugo-theme&#34;</span>
+</span></span></code></pre></div><h2 id="minimum-setup">Minimum Setup</h2>
+<p>At minimum, you usually want to define:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">featuredImageField</span> <span class="p">=</span> <span class="s2">&#34;image&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">favicon</span> <span class="p">=</span> <span class="s2">&#34;/img/logo-default.svg&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">sidebar</span><span class="p">.</span><span class="nx">avatar</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enabled</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">local</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">src</span> <span class="p">=</span> <span class="s2">&#34;img/avatar.webp&#34;</span>
+</span></span></code></pre></div><h2 id="content-structures">Content Structures</h2>
+<p>The theme is designed to work well with several common Hugo patterns.</p>
+<h3 id="flat-markdown">Flat Markdown</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">content/posts/note.md
+</span></span></code></pre></div><p>Useful for quick notes and lightweight articles.</p>
+<h3 id="single-language-bundle">Single-language Bundle</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">content/posts/story/index.md
+</span></span><span class="line"><span class="cl">content/posts/story/cover.webp
+</span></span></code></pre></div><p>Useful when an article needs local images or attachments.</p>
+<h3 id="multilingual-bundle">Multilingual Bundle</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">content/posts/story/index.md
+</span></span><span class="line"><span class="cl">content/posts/story/index.zh-cn.md
+</span></span><span class="line"><span class="cl">content/posts/story/cover.webp
+</span></span></code></pre></div><p>Useful when you want multiple language versions to share the same bundle resources.</p>
+<h2 id="pocket-hugo-workflow">Pocket Hugo Workflow</h2>
+<p>This theme is the best-fit companion for Pocket Hugo because it expects a writing-first workflow:</p>
+<ul>
+<li>cover images are promoted clearly on homepage cards</li>
+<li>article pages stay calm and readable on mobile</li>
+<li>compact front matter works well for both notes and essays</li>
+</ul>
+<h2 id="widget-titles">Widget Titles</h2>
+<p>You can decide whether widget titles should be visible:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">widgets</span><span class="p">.</span><span class="nx">titleVisibility</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">archives</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">categories</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">related</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">search</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tagCloud</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">toc</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></div><h2 id="suggested-next-steps">Suggested Next Steps</h2>
+<ol>
+<li>Replace the demo social links with your own profiles.</li>
+<li>Add your own cover images and article bundles.</li>
+<li>Tune sidebar widgets for homepage, static pages, and article pages.</li>
+</ol>
+
+            </div>
+        </div>
+
+        
+
+
+    
+        
+<section class="comments-card comments-card--twikoo">
+    <div id="tcomment"></div>
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.7.3/dist/twikoo.min.js"></script>
+    
+    <script>
+        twikoo.init({
+            envId: 'https:\/\/twikoo.fosu.cc',
+            el: '#tcomment',
+            lang: 'en-US',
+            path: 'theme',
+            
+        });
+    </script>
+</section>
+
+    
+
+    </article>
+
+        </main>
+
+        
+    
+    <aside class="sidebar-right">
+    
+
+    
+        
+        
+            <section class="widget-simple widget-simple--search">
+    
+    <form class="widget-search" action="/search/" method="get">
+        <input type="search" name="q" placeholder="">
+    </form>
+</section>
+        
+    
+        
+        
+            <section class="widget-simple widget-simple--archives">
+        
+        <div class="widget-simple__list">
+            
+                
+                <a class="widget-simple__row" href="/archives/#2026">
+                    <span>2026</span>
+                    <span>9</span>
+                </a>
+            
+            <a class="widget-simple__row widget-simple__row--more" href="/archives/">
+                <span>More</span>
+            </a>
+        </div>
+    </section>
+
+        
+    
+        
+        
+            <section class="widget-simple widget-simple--categories">
+    <h2 class="widget-simple__title">Categories</h2>
+    <div class="widget-simple__tabs">
+        
+            <a class="widget-simple__tab" href="/categories/design/">Design</a>
+        
+            <a class="widget-simple__tab" href="/categories/travel/">Travel</a>
+        
+            <a class="widget-simple__tab" href="/categories/writing/">Writing</a>
+        
+            <a class="widget-simple__tab" href="/categories/moments/">Moments</a>
+        
+            <a class="widget-simple__tab" href="/categories/reading/">Reading</a>
+        
+            <a class="widget-simple__tab" href="/categories/workflow/">Workflow</a>
+        
+    </div>
+</section>
+        
+    
+        
+        
+            <section class="widget-simple">
+    <h2 class="widget-simple__title">Tags</h2>
+    <div class="widget-simple__tabs">
+        
+            <a class="widget-simple__tab" href="/tags/bundle/">Bundle</a>
+        
+            <a class="widget-simple__tab" href="/tags/english/">English</a>
+        
+            <a class="widget-simple__tab" href="/tags/mobile/">Mobile</a>
+        
+            <a class="widget-simple__tab" href="/tags/notes/">Notes</a>
+        
+            <a class="widget-simple__tab" href="/tags/travel/">Travel</a>
+        
+            <a class="widget-simple__tab" href="/tags/cards/">Cards</a>
+        
+            <a class="widget-simple__tab" href="/tags/design/">Design</a>
+        
+            <a class="widget-simple__tab" href="/tags/drafts/">Drafts</a>
+        
+            <a class="widget-simple__tab" href="/tags/habits/">Habits</a>
+        
+            <a class="widget-simple__tab" href="/tags/hamlet/">Hamlet</a>
+        
+            <a class="widget-simple__tab" href="/tags/hugo/">Hugo</a>
+        
+            <a class="widget-simple__tab" href="/tags/markdown-demo/">Markdown Demo</a>
+        
+            <a class="widget-simple__tab" href="/tags/multilingual/">Multilingual</a>
+        
+            <a class="widget-simple__tab" href="/tags/publishing/">Publishing</a>
+        
+            <a class="widget-simple__tab" href="/tags/workflow/">Workflow</a>
+        
+            <a class="widget-simple__tab" href="/tags/writing/">Writing</a>
+        
+    </div>
+</section>
+        
+    
+
+    
+
+    
+        
+        
+    
+</aside>
+
+    </div>
+
+    
+        <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">↑</button>
+    
+
+    <footer class="site-footer">
+    <p>
+        &copy; 2026 Pocket Notes
+         - MIT licensed demo content
+    </p>
+</footer>
+
+    
+        <script src="/js/main.js" defer></script>
+    
+    
+</body>
+</html>
