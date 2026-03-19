@@ -169,8 +169,8 @@ copyright = "MIT licensed demo content"
 # Theme options.
 [params]
   featuredImageField = "image"
-  favicon = "/img/logo-default.svg"
-  appleTouchIcon = "/img/avatar.webp"
+  favicon = "/img/logo-default.png"
+  appleTouchIcon = "/img/logo-default.png"
   summaryLength = 0
   articleWords = true
   backToTop = true
