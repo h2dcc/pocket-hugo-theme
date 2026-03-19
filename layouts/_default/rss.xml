@@ -9,7 +9,8 @@
 {{- else -}}
   {{- $pages = .RegularPages -}}
 {{- end -}}
-{{- $limit := .Site.Config.Services.RSS.Limit | default 5 -}}
+{{- $configuredLimit := int (.Site.Config.Services.RSS.Limit | default 5) -}}
+{{- $limit := cond (lt $configuredLimit 1) (len $pages) $configuredLimit -}}
 {{- $pages = first $limit (sort $pages "Date" "desc") -}}
 {{- $title := "" -}}
 {{- if .IsHome -}}
