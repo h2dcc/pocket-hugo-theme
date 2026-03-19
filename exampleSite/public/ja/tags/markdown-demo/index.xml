@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Markdown Demo - Pocket Notes 日本語</title>
+    <link>http://localhost:1313/ja/tags/markdown-demo/</link>
+    <description>Markdown Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/ja/tags/markdown-demo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markdown 表示サンプル</title>
+      <link>http://localhost:1313/ja/article/quick-note/</link>
+      <pubDate>Thu, 19 Mar 2026 01:15:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/ja/article/quick-note/</guid>
+      <description>日本語記事でよく使う Markdown 要素の見え方を確認するための短いサンプルです。</description>
+      <content:encoded><![CDATA[<p>このページは <code>pocket-hugo-theme</code> の Markdown 表示を手早く確認するためのサンプルです。</p>
+<h2 id="行内スタイル">行内スタイル</h2>
+<p><strong>太字</strong>、<em>斜体</em>、<em><strong>複合強調</strong></em>、<code>インラインコード</code>、そして <a href="https://gohugo.io/">Hugo</a> へのリンクを確認できます。</p>
+<h2 id="リスト">リスト</h2>
+<ul>
+<li>カード一覧の余白</li>
+<li>モバイルでの読みやすさ</li>
+<li>メタ情報のまとまり</li>
+</ul>
+<ol>
+<li>下書きを書く</li>
+<li>カバー画像を追加する</li>
+<li>モバイルで読み直す</li>
+</ol>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> front matter を追加</li>
+<li><input checked="" disabled="" type="checkbox"> ローカル画像を使用</li>
+<li><input disabled="" type="checkbox"> 本番原稿に差し替える</li>
+</ul>
+<h2 id="引用">引用</h2>
+<blockquote>
+<p>良い記事テーマは、読んでいるあいだ静かに背景へ下がる。</p>
+</blockquote>
+<h2 id="コード">コード</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;pocket-hugo-theme&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">defaultContentLanguage</span> <span class="p">=</span> <span class="s2">&#34;ja&#34;</span>
+</span></span></code></pre></div><h2 id="表">表</h2>
+<table>
+  <thead>
+      <tr>
+          <th>要素</th>
+          <th>確認点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>見出し</td>
+          <td>リズム</td>
+      </tr>
+      <tr>
+          <td>リスト</td>
+          <td>余白</td>
+      </tr>
+      <tr>
+          <td>表</td>
+          <td>モバイルでの折り返し</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="/article/quick-note/cover.webp" alt="Quick note cover"></p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

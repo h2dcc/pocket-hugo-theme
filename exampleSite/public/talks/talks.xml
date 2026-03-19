@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Lawtee Talks</title>
+    <link>http://localhost:1313/talks/</link>
+    <description>Lawtee Talks</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/talks/talks.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Added more demo content</title>
+      <link>http://localhost:1313/talks/#202603182010</link>
+      <guid isPermaLink="true">http://localhost:1313/talks/#202603182010</guid>
+      <pubDate>Wed, 18 Mar 2026 12:10:00 &#43;0000</pubDate>
+      <description>
+The test site now mixes multilingual bundles, single-language bundles, flat Markdown posts, and bilingual static pages.</description>
+      <content:encoded><![CDATA[The test site now mixes multilingual bundles, single-language bundles, flat Markdown posts, and bilingual static pages.]]></content:encoded>
+    </item><item>
+      <title>Why this helps</title>
+      <link>http://localhost:1313/talks/#202603182005</link>
+      <guid isPermaLink="true">http://localhost:1313/talks/#202603182005</guid>
+      <pubDate>Wed, 18 Mar 2026 12:05:00 &#43;0000</pubDate>
+      <description>
+A varied content set makes it easier to spot regressions in cards, translation toggles, archive pages, and mobile reading layout.</description>
+      <content:encoded><![CDATA[A varied content set makes it easier to spot regressions in cards, translation toggles, archive pages, and mobile reading layout.]]></content:encoded>
+    </item>
+  </channel>
+</rss>

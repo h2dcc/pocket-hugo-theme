@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Writing - Pocket Notes 日本語</title>
+    <link>http://localhost:1313/ja/categories/writing/</link>
+    <description>Writing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/ja/categories/writing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日曜のフィード実験</title>
+      <link>http://localhost:1313/ja/article/sunday-feed-layout/</link>
+      <pubDate>Thu, 19 Mar 2026 02:10:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/ja/article/sunday-feed-layout/</guid>
+      <description>穏やかなカード一覧を確認するための日本語サンプル。</description>
+      <content:encoded><![CDATA[<p>静かな文章でも、カード一覧では表紙画像と抜粋のバランスが重要です。</p>
+<ol>
+<li>画像の主張</li>
+<li>抜粋の長さ</li>
+<li>モバイル時の一覧密度</li>
+</ol>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>小さな画面のハムレット</title>
+      <link>http://localhost:1313/ja/article/hamlet-in-a-small-window/</link>
+      <pubDate>Thu, 19 Mar 2026 01:40:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/ja/article/hamlet-in-a-small-window/</guid>
+      <description>短い引用とカード型レイアウトの相性を確認する日本語デモ。</description>
+      <content:encoded><![CDATA[<p>この短いサンプルは、引用中心の文章がモバイルのカードでどう見えるかを確かめるためのものです。</p>
+<blockquote>
+<p>言葉が短くても、余白とカバー画像で印象は大きく変わります。</p>
+</blockquote>
+<ul>
+<li>タイトルの折り返し</li>
+<li>説明文の長さ</li>
+<li>カード一覧での視線移動</li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

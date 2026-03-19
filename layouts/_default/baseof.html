@@ -29,6 +29,10 @@
         {{ block "right-sidebar" . }}{{ end }}
     </div>
 
+    {{ if .Site.Params.backToTop }}
+        <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">↑</button>
+    {{ end }}
+
     {{ partial "site-footer.html" . }}
 
     {{ with resources.Get "js/main.js" }}

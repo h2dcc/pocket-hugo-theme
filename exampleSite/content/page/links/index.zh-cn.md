@@ -17,8 +17,4 @@ menu:
     description: 
     website: https://github.com/h2dcc/pocket-hugo-theme
     image: pocket-hugo-theme-logo.webp
-  - title: Hugo
-    description: 构建速度非常快的静态站点生成器。
-    website: https://gohugo.io
-    image: https://gohugo.io/favicon.ico
 {{< /friendlinks >}}

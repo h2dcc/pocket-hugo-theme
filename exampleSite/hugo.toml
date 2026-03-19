@@ -102,12 +102,77 @@ copyright = "MIT licensed demo content"
 
 [languages.fr.params.sidebar]
   subtitle = "Un thème visuel pour une écriture personnelle au long cours"
+[languages.ja.menu]
+  [[languages.ja.menu.main]]
+    name = "ガイド"
+    url = "/ja/guide/"
+    weight = 10
+
+  [[languages.ja.menu.main]]
+    name = "リンク"
+    url = "/ja/links/"
+    weight = 20
+
+  [[languages.ja.menu.main]]
+    name = "トーク"
+    url = "/ja/talks/"
+    weight = 30
+
+  [[languages.ja.menu.main]]
+    name = "概要"
+    url = "/ja/about/"
+    weight = 40
+
+[languages.es.menu]
+  [[languages.es.menu.main]]
+    name = "Guía"
+    url = "/es/guide/"
+    weight = 10
+
+  [[languages.es.menu.main]]
+    name = "Enlaces"
+    url = "/es/links/"
+    weight = 20
+
+  [[languages.es.menu.main]]
+    name = "Notas"
+    url = "/es/talks/"
+    weight = 30
+
+  [[languages.es.menu.main]]
+    name = "Acerca de"
+    url = "/es/about/"
+    weight = 40
+
+[languages.fr.menu]
+  [[languages.fr.menu.main]]
+    name = "Guide"
+    url = "/fr/guide/"
+    weight = 10
+
+  [[languages.fr.menu.main]]
+    name = "Liens"
+    url = "/fr/links/"
+    weight = 20
+
+  [[languages.fr.menu.main]]
+    name = "Notes"
+    url = "/fr/talks/"
+    weight = 30
+
+  [[languages.fr.menu.main]]
+    name = "À propos"
+    url = "/fr/about/"
+    weight = 40
 
 # Theme options.
 [params]
   featuredImageField = "image"
   favicon = "/img/logo-default.svg"
   appleTouchIcon = "/img/avatar.webp"
+  summaryLength = 0
+  articleWords = false
+  backToTop = false
 
   [params.footer]
     since = 2026
@@ -140,8 +205,29 @@ copyright = "MIT licensed demo content"
     headerSelectThreshold = 3
 
   [params.comments]
+    # Enable comments globally.
     enabled = false
-    provider = ""
+    # Supported providers: "giscus" or "twikoo".
+    provider = "giscus"
+
+    [params.comments.giscus]
+      # repo = "owner/repo"
+      # repoId = "..."
+      # category = "Announcements"
+      # categoryId = "..."
+      mapping = "pathname"
+      strict = "0"
+      reactionsEnabled = "1"
+      emitMetadata = "0"
+      inputPosition = "top"
+      theme = "preferred_color_scheme"
+      # lang = "en"
+
+    [params.comments.twikoo]
+      # envId = "https://your-service.example.com"
+      # region = ""
+      # lang = "en-US"
+      # path = ""
 
   [params.colorScheme]
     toggle = true
@@ -174,7 +260,7 @@ copyright = "MIT licensed demo content"
 
   [[params.social]]
   name = "GitHub"
-  url = "https://github.com/h2dcc"
+  url = "https://github.com/h2dcc/pocket-hugo-theme"
   icon = "brand-github"
 
   [[params.social]]

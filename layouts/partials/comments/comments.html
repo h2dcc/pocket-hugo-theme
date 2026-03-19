@@ -1,0 +1,9 @@
+{{ $page := . }}
+{{ $provider := lower ($page.Site.Params.comments.provider | default "") }}
+{{ if and $page.IsPage (not (eq $page.Params.comments false)) ($page.Site.Params.comments.enabled) }}
+    {{ if eq $provider "giscus" }}
+        {{ partial "comments/giscus.html" $page }}
+    {{ else if eq $provider "twikoo" }}
+        {{ partial "comments/twikoo.html" $page }}
+    {{ end }}
+{{ end }}

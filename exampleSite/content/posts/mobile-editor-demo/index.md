@@ -4,7 +4,7 @@ description: "A multilingual bundle demo for translation switching, cover images
 date: 2026-03-18T08:30:00+08:00
 slug: "mobile-editor-demo"
 categories:
-  - Theme Test
+  - Design
 tags:
   - Hugo
   - Bundle

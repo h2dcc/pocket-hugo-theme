@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Reading - Pocket Notes Español</title>
+    <link>http://localhost:1313/es/categories/reading/</link>
+    <description>Reading</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/es/categories/reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prueba de imagen de portada</title>
+      <link>http://localhost:1313/es/article/a-cover-image-test/</link>
+      <pubDate>Thu, 19 Mar 2026 02:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/es/article/a-cover-image-test/</guid>
+      <description>Una entrada de ejemplo en español para comprobar la portada dentro del flujo de lectura.</description>
+      <content:encoded><![CDATA[<p>Aquí la imagen no es decorativa: sostiene la identidad de la tarjeta y también acompaña la lectura dentro del artículo.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

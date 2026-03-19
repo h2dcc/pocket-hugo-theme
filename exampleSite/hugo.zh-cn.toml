@@ -120,6 +120,68 @@ copyright = "MIT licensed demo content"
       subtitle = "Un thème visuel pour une écriture personnelle au long cours"
       keywords = ["Hugo", "theme", "writing", "multilingual"]
       author = "Pocket Hugo"
+[languages.ja.menu]
+  [[languages.ja.menu.main]]
+    name = "ガイド"
+    url = "/ja/guide/"
+    weight = 10
+
+  [[languages.ja.menu.main]]
+    name = "リンク"
+    url = "/ja/links/"
+    weight = 20
+
+  [[languages.ja.menu.main]]
+    name = "トーク"
+    url = "/ja/talks/"
+    weight = 30
+
+  [[languages.ja.menu.main]]
+    name = "概要"
+    url = "/ja/about/"
+    weight = 40
+
+[languages.es.menu]
+  [[languages.es.menu.main]]
+    name = "Guía"
+    url = "/es/guide/"
+    weight = 10
+
+  [[languages.es.menu.main]]
+    name = "Enlaces"
+    url = "/es/links/"
+    weight = 20
+
+  [[languages.es.menu.main]]
+    name = "Notas"
+    url = "/es/talks/"
+    weight = 30
+
+  [[languages.es.menu.main]]
+    name = "Acerca de"
+    url = "/es/about/"
+    weight = 40
+
+[languages.fr.menu]
+  [[languages.fr.menu.main]]
+    name = "Guide"
+    url = "/fr/guide/"
+    weight = 10
+
+  [[languages.fr.menu.main]]
+    name = "Liens"
+    url = "/fr/links/"
+    weight = 20
+
+  [[languages.fr.menu.main]]
+    name = "Notes"
+    url = "/fr/talks/"
+    weight = 30
+
+  [[languages.fr.menu.main]]
+    name = "À propos"
+    url = "/fr/about/"
+    weight = 40
 
 # 站点级参数。
 [params]
@@ -145,16 +207,16 @@ copyright = "MIT licensed demo content"
   footer = "Built with Hugo"
 
   # 首页卡片默认摘要长度。
-  summaryLength = 110
+  summaryLength = 0
 
   # 是否在文章页显示预计阅读时长。
   readingTime = true
 
   # 是否显示文章字数统计。
-  articleWords = true
+  articleWords = false
 
   # 是否启用返回顶部按钮。
-  backToTop = true
+  backToTop = false
 
   # 是否启用图片灯箱。
   fancybox = false
@@ -170,10 +232,35 @@ copyright = "MIT licensed demo content"
     # 当可切换语言达到这个数量时，在顶部语言图标旁显示下拉选择框。
     headerSelectThreshold = 3
 
+  # 评论系统选项。
+  [params.comments]
+    # 是否全局启用评论。
+    enabled = false
+    # 支持的评论提供方："giscus" 或 "twikoo"。
+    provider = "giscus"
+
+    [params.comments.giscus]
+      # repo = "owner/repo"
+      # repoId = "..."
+      # category = "Announcements"
+      # categoryId = "..."
+      mapping = "pathname"
+      strict = "0"
+      reactionsEnabled = "1"
+      emitMetadata = "0"
+      inputPosition = "top"
+      theme = "preferred_color_scheme"
+      # lang = "zh-CN"
+
+    [params.comments.twikoo]
+      # envId = "https://your-service.example.com"
+      # region = ""
+      # lang = "zh-CN"
+      # path = ""
 # 首页社交链接。
 [[params.social]]
 name = "GitHub"
-url = "https://github.com/h2dcc"
+url = "https://github.com/h2dcc/pocket-hugo-theme"
 icon = "brand-github"
 
 [[params.social]]

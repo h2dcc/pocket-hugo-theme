@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Pages - Pocket Notes Français</title>
+    <link>http://localhost:1313/fr/page/</link>
+    <description>Pages</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/fr/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>À propos</title>
+      <link>http://localhost:1313/fr/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/fr/about/</guid>
+      <description>Une courte présentation du thème et de ce site de démonstration.</description>
+      <content:encoded><![CDATA[<p><code>pocket-hugo-theme</code> est un thème Hugo conçu pour une écriture personnelle au long cours et une publication multilingue.</p>
+<ul>
+<li>Des cartes guidées par l image de couverture</li>
+<li>Un rythme de lecture calme sur mobile</li>
+<li>Une bonne compatibilité avec les bundles monolingues, multilingues et le Markdown simple</li>
+</ul>
+<p>Cet <code>exampleSite</code> sert à vérifier l accueil, les pages fixes, le sélecteur de langue et la présentation des articles.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Guide</title>
+      <link>http://localhost:1313/fr/guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/fr/guide/</guid>
+      <description>Installation de base et aperçu local de Pocket Hugo Theme.</description>
+      <content:encoded><![CDATA[<h2 id="installation">Installation</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule add https://github.com/h2dcc/pocket-hugo-theme.git themes/pocket-hugo-theme
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;pocket-hugo-theme&#34;</span>
+</span></span></code></pre></div><h2 id="aperçu-local">Aperçu local</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server --source exampleSite --themesDir ../..
+</span></span></code></pre></div><h2 id="points-à-vérifier">Points à vérifier</h2>
+<ul>
+<li>La densité des cartes avec couverture</li>
+<li>Le rythme de lecture sur les pages d article</li>
+<li>Le comportement du sélecteur de langue</li>
+<li>L ordre des widgets de la colonne latérale</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Liens</title>
+      <link>http://localhost:1313/fr/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/fr/links/</guid>
+      <description>Projets liés et liens recommandés.</description>
+      <content:encoded><![CDATA[<h2 id="sister-projects">Sister Projects</h2>
+<section class="links-grid">
+    <div class="links-grid__items">
+        <a class="friend-card" href="" target="_blank" rel="noopener noreferrer">
+                
+                    <div class="friend-card__media">
+                        <img src="/links/pocket-hugo-logo.webp" alt="Liens">
+                    </div>
+                
+                <div class="friend-card__body">
+                    <strong>Pocket Hugo</strong>
+                    <span>Un outil web pour écrire et organiser du contenu Hugo.</span>
+                </div>
+            </a>
+        <a class="friend-card" href="" target="_blank" rel="noopener noreferrer">
+                
+                    <div class="friend-card__media">
+                        <img src="/links/pocket-hugo-theme-logo.webp" alt="Liens">
+                    </div>
+                
+                <div class="friend-card__body">
+                    <strong>Pocket Hugo Theme</strong>
+                    <span>Le thème compagnon pensé pour présenter ce contenu.</span>
+                </div>
+            </a>
+        
+    </div>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Notes</title>
+      <link>http://localhost:1313/fr/talks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/fr/talks/</guid>
+      <description>Une page de démonstration pour de courtes mises à jour.</description>
+      <content:encoded><![CDATA[<p>Cette page montre comment afficher de courtes mises à jour dans un flux léger.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

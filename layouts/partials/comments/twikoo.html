@@ -1,16 +1,16 @@
-<section class="comments-card">
-    <script src="/jsdelivr/twik.all.min.js"></script>
+{{ with .Site.Params.comments.twikoo }}
+<section class="comments-card comments-card--twikoo">
     <div id="tcomment"></div>
-    {{ with .Site.Params.comments.twikoo }}
+    <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.all.min.js"></script>
     {{ $lang := cond (eq $.Site.Language.Lang "zh-cn") "zh-CN" "en-US" }}
     <script>
         twikoo.init({
             envId: '{{ .envId }}',
             el: '#tcomment',
             lang: '{{ .lang | default $lang }}',
+            path: '{{ .path | default $.RelPermalink }}',
             {{ with .region }}region: '{{ . }}',{{ end }}
-            {{ with .path }}path: '{{ . }}',{{ end }}
         });
     </script>
-    {{ end }}
 </section>
+{{ end }}

@@ -9,6 +9,16 @@
 
 {{ $coverVariant := cond (eq $variant "taxonomy") "taxonomy" "card" }}
 {{ $cover := partial "helpers/cover.html" (dict "page" $page "variant" $coverVariant) }}
+{{ $summaryLength := int ($page.Site.Params.summaryLength | default 0) }}
+{{ $summary := "" }}
+{{ with $page.Params.description }}
+    {{ $summary = . | plainify }}
+{{ else }}
+    {{ $summary = $page.Summary | plainify }}
+{{ end }}
+{{ if and (gt $summaryLength 0) $summary }}
+    {{ $summary = truncate $summaryLength $summary }}
+{{ end }}
 <article class="post-card{{ if $cover.exists }} post-card--with-cover{{ end }}{{ with $variant }} post-card--{{ . }}{{ end }}">
     {{ if $cover.exists }}
         <a class="post-card__cover" href="{{ $page.RelPermalink }}">
@@ -18,6 +28,9 @@
 
     <div class="post-card__body">
         <h2 class="post-card__title"><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
+        {{ with $summary }}
+            <p class="post-card__excerpt">{{ . }}</p>
+        {{ end }}
 
         {{ if $showMeta }}
             <div class="post-card__meta">

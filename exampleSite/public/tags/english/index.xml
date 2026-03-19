@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>English - Pocket Notes</title>
+    <link>http://localhost:1313/tags/english/</link>
+    <description>English</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/english/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quick Note: Markdown Rendering Showcase</title>
+      <link>http://localhost:1313/article/quick-note/</link>
+      <pubDate>Thu, 19 Mar 2026 01:15:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/article/quick-note/</guid>
+      <description>A compact post for testing common Markdown elements in the English article layout.</description>
+      <content:encoded><![CDATA[<p>This post is a compact Markdown rendering showcase for <code>pocket-hugo-theme</code>. It is meant to stress the article layout with the symbols and block styles people use most often.</p>
+<h2 id="inline-formatting">Inline Formatting</h2>
+<p>You can check <strong>bold text</strong>, <em>italic text</em>, <em><strong>combined emphasis</strong></em>, <code>inline code</code>, and a standard <a href="https://gohugo.io/">link to Hugo</a>.</p>
+<p>You can also test superscript-like notation such as H<del>2</del>O, keyboard-style hints like <code>Ctrl + K</code>, and escaped characters such as <code>*literal asterisks*</code>.</p>
+<h2 id="lists">Lists</h2>
+<h3 id="unordered-list">Unordered List</h3>
+<ul>
+<li>Cover-first cards should still feel calm on mobile.</li>
+<li>Metadata needs to stay readable at narrow widths.</li>
+<li>Spacing matters as much as typography.</li>
+</ul>
+<h3 id="ordered-list">Ordered List</h3>
+<ol>
+<li>Draft the post.</li>
+<li>Add a cover image.</li>
+<li>Review the mobile reading rhythm.</li>
+</ol>
+<h3 id="task-list">Task List</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Add front matter</li>
+<li><input checked="" disabled="" type="checkbox"> Add a local cover image</li>
+<li><input disabled="" type="checkbox"> Replace demo copy with production writing</li>
+</ul>
+<h2 id="quote">Quote</h2>
+<blockquote>
+<p>Good article themes disappear while you read.</p>
+<p>Great ones also make browsing pleasant before you click.</p>
+</blockquote>
+<h2 id="code-blocks">Code Blocks</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;pocket-hugo-theme&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">defaultContentLanguage</span> <span class="p">=</span> <span class="s2">&#34;en&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mainSections</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;posts&#34;</span><span class="p">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">article</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Markdown Rendering Showcase&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cover</span><span class="o">:</span> <span class="s2">&#34;cover.webp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">mobileReady</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h2 id="table">Table</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Element</th>
+          <th>Why it matters</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Headings</td>
+          <td>Establish content rhythm</td>
+      </tr>
+      <tr>
+          <td>Lists</td>
+          <td>Reveal spacing and indentation</td>
+      </tr>
+      <tr>
+          <td>Tables</td>
+          <td>Stress overflow behavior on mobile</td>
+      </tr>
+      <tr>
+          <td>Code blocks</td>
+          <td>Show padding, font, and wrapping</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="image">Image</h2>
+<p>The local bundle image should appear both as the cover and as an inline asset:</p>
+<p><img src="/article/quick-note/cover.webp" alt="Sample cover reused inline"></p>
+<h2 id="horizontal-rule">Horizontal Rule</h2>
+<hr>
+<h2 id="final-notes">Final Notes</h2>
+<p>If this article looks balanced on both desktop and phone, the theme is usually in a strong place for real essays, changelogs, notes, and documentation pages.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Notes from the Train</title>
+      <link>http://localhost:1313/article/notes-from-the-train/</link>
+      <pubDate>Tue, 10 Feb 2026 01:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/article/notes-from-the-train/</guid>
+      <description>An English-only bundle demo with a compact travel diary voice.</description>
+      <content:encoded><![CDATA[<p>This demo post exists to verify a cover-driven page bundle in <strong>Pocket Hugo Theme</strong>. The image is declared explicitly in front matter so homepage cards, article headers, SEO metadata, and related-content blocks all point to the same asset.</p>
+<p>To be, or not to be, that is the question.
+Whether &rsquo;tis nobler in the mind to suffer.
+The slings and arrows of outrageous fortune.</p>
+<p>A mobile-first card layout should still feel calm on a small screen. Short paragraphs, a visible cover, and restrained metadata usually make the reading flow easier to scan.</p>
+<p>This paragraph is filler text on purpose. It gives the homepage, archives page, and taxonomy pages enough material to show varied summaries without depending on a real production article.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Publish, Pause, Re-read</title>
+      <link>http://localhost:1313/article/publish-pause-re-read/</link>
+      <pubDate>Sun, 08 Feb 2026 01:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/article/publish-pause-re-read/</guid>
+      <description>An English-only bundle demo about slow publishing habits.</description>
+      <content:encoded><![CDATA[<p>This demo post exists to verify a cover-driven page bundle in <strong>Pocket Hugo Theme</strong>. The image is declared explicitly in front matter so homepage cards, article headers, SEO metadata, and related-content blocks all point to the same asset.</p>
+<p>To be, or not to be, that is the question.
+Whether &rsquo;tis nobler in the mind to suffer.
+The slings and arrows of outrageous fortune.</p>
+<p>A mobile-first card layout should still feel calm on a small screen. Short paragraphs, a visible cover, and restrained metadata usually make the reading flow easier to scan.</p>
+<p>This paragraph is filler text on purpose. It gives the homepage, archives page, and taxonomy pages enough material to show varied summaries without depending on a real production article.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Hamlet in a Small Window</title>
+      <link>http://localhost:1313/article/hamlet-in-a-small-window/</link>
+      <pubDate>Fri, 06 Feb 2026 01:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/article/hamlet-in-a-small-window/</guid>
+      <description>An English-only bundle demo using a public-domain Shakespeare excerpt.</description>
+      <content:encoded><![CDATA[<p>This demo post exists to verify a cover-driven page bundle in <strong>Pocket Hugo Theme</strong>. The image is declared explicitly in front matter so homepage cards, article headers, SEO metadata, and related-content blocks all point to the same asset.</p>
+<p>To be, or not to be, that is the question.
+Whether &rsquo;tis nobler in the mind to suffer.
+The slings and arrows of outrageous fortune.</p>
+<p>A mobile-first card layout should still feel calm on a small screen. Short paragraphs, a visible cover, and restrained metadata usually make the reading flow easier to scan.</p>
+<p>This paragraph is filler text on purpose. It gives the homepage, archives page, and taxonomy pages enough material to show varied summaries without depending on a real production article.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

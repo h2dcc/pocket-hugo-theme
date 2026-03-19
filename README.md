@@ -19,6 +19,7 @@ standalone Hugo theme for multilingual blogs, notes, and long-form writing.
 - Optional right-sidebar QR block
 - Configurable widget title visibility
 - Responsive layout with light and dark color schemes
+- Optional Giscus or Twikoo comments, configurable summary trimming, article word count, and a back-to-top button
 
 ## Requirements
 
@@ -53,6 +54,9 @@ Core configuration usually looks like this. For a full copy-ready example, see `
 [params]
   favicon = "/img/logo-default.svg"
   appleTouchIcon = "/img/avatar.webp"
+  summaryLength = 0
+  articleWords = false
+  backToTop = false
 
 [params.widgets.titleVisibility]
   archives = true
@@ -78,7 +82,9 @@ A GitHub Pages demo can be published from `exampleSite/`.
 
 - Expected demo URL: `https://h2dcc.github.io/pocket-hugo-theme/`
 - The repository includes `.github/workflows/deploy-demo.yml` to build and deploy the demo automatically.
-- In the repository settings, set Pages to use **GitHub Actions** as the source.## Content Types
+- In the repository settings, set Pages to use **GitHub Actions** as the source.
+
+## Content Types
 
 The theme works well with three common Hugo writing patterns:
 
@@ -118,3 +124,28 @@ Pocket Hugo encourages a writing-first workflow, and this theme is shaped around
 - Article and card translation links are rendered as plain text language names without pill borders.
 - When the site has three or more languages, the header icon becomes a passive indicator and the actual switching is handled by the select box beside it.
 - Configure the threshold with `[params.languageSwitcher].headerSelectThreshold`.
+## Comments
+
+The theme supports two optional comment providers:
+
+- `giscus`: recommended for a zero-server setup with GitHub Discussions
+- `twikoo`: useful if you already run a Twikoo service
+
+Example configuration:
+
+```toml
+[params.comments]
+  enabled = false
+  provider = "giscus"
+
+  [params.comments.giscus]
+    # repo = "owner/repo"
+    # repoId = "..."
+    # category = "Announcements"
+    # categoryId = "..."
+    mapping = "pathname"
+    theme = "preferred_color_scheme"
+
+  [params.comments.twikoo]
+    # envId = "https://your-service.example.com"
+```

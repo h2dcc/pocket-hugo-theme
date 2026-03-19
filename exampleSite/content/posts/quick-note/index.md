@@ -2,12 +2,11 @@
 image: cover.webp
 title: "Quick Note: Markdown Rendering Showcase"
 description: "A compact post for testing common Markdown elements in the English article layout."
-date: 2026-03-16T11:15:00+08:00
+date: 2026-03-19T09:15:00+08:00
 slug: "quick-note"
 categories:
   - Moments
 tags:
-  - Flat Markdown
   - English
   - Markdown Demo
 ---

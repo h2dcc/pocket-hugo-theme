@@ -25,6 +25,21 @@
                         </span>
                     {{ end }}
                     {{ if (.Params.readingTime | default .Site.Params.article.readingTime) }}<span>{{ if eq .Site.Language.Lang "zh-cn" }}{{ .ReadingTime }} 分钟{{ else }}{{ .ReadingTime }} min read{{ end }}</span>{{ end }}
+                    {{ if (.Params.articleWords | default .Site.Params.articleWords) }}
+                        <span>
+                            {{- if eq .Site.Language.Lang "zh-cn" -}}
+                                {{ .WordCount }} 字
+                            {{- else if eq .Site.Language.Lang "ja" -}}
+                                {{ .WordCount }}語
+                            {{- else if eq .Site.Language.Lang "es" -}}
+                                {{ .WordCount }} palabras
+                            {{- else if eq .Site.Language.Lang "fr" -}}
+                                {{ .WordCount }} mots
+                            {{- else -}}
+                                {{ .WordCount }} words
+                            {{- end -}}
+                        </span>
+                    {{ end }}
                     {{ partial "helpers/translation-toggle.html" . }}
                 </div>
                 {{ with .Description }}<blockquote class="article-page__description">{{ . }}</blockquote>{{ end }}
@@ -43,9 +58,7 @@
             </div>
         </div>
 
-        {{ if and .IsPage (not (eq .Params.comments false)) (.Site.Params.comments.enabled) (eq .Site.Params.comments.provider "twikoo") }}
-            {{ partial "comments/twikoo.html" . }}
-        {{ end }}
+        {{ partial "comments/comments.html" . }}
     </article>
 {{ end }}
 

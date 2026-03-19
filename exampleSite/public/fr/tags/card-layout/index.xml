@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Card Layout - Pocket Notes Français</title>
+    <link>http://localhost:1313/fr/tags/card-layout/</link>
+    <description>Card Layout</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/fr/tags/card-layout/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fenêtre tranquille</title>
+      <link>http://localhost:1313/fr/article/quiet-window-demo/</link>
+      <pubDate>Thu, 19 Mar 2026 01:55:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/fr/article/quiet-window-demo/</guid>
+      <description>Une petite page française pour juger le confort des cartes sur mobile.</description>
+      <content:encoded><![CDATA[<p>Une carte calme dépend autant de l image que des marges et de la longueur du résumé.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

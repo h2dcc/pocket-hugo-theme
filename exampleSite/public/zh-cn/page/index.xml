@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Pages - Pocket Notes 中文</title>
+    <link>http://localhost:1313/zh-cn/page/</link>
+    <description>Pages</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 19 Mar 2026 02:50:47 &#43;0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh-cn/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>归档</title>
+      <link>http://localhost:1313/zh-cn/archives/</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/zh-cn/archives/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>
+指南
+</title>
+      <link>http://localhost:1313/zh-cn/guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/zh-cn/guide/</guid>
+      <description>这个页面用来说明怎么安装、配置并使用 pocket-hugo-theme。
+安装主题
+如果你使用 git submodule 管理 Hugo 主题，可以直接这样安装：
+git submodule add https://github.com/h2dcc/pocket-hugo-theme.git themes/pocket-hugo-theme 然后在 Hugo 配置里启用它：
+theme = &amp;#34;pocket-hugo-theme&amp;#34; 最小配置
+至少建议先设置这几项：
+</description>
+      <content:encoded><![CDATA[<p>这个页面用来说明怎么安装、配置并使用 <code>pocket-hugo-theme</code>。</p>
+<h2></h2>
+<p>安装主题</p>
+<p>如果你使用 git submodule 管理 Hugo 主题，可以直接这样安装：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule add https://github.com/h2dcc/pocket-hugo-theme.git themes/pocket-hugo-theme
+</span></span></code></pre></div><p>然后在 Hugo 配置里启用它：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;pocket-hugo-theme&#34;</span>
+</span></span></code></pre></div><h2></h2>
+<p>最小配置</p>
+<p>至少建议先设置这几项：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">featuredImageField</span> <span class="p">=</span> <span class="s2">&#34;image&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">favicon</span> <span class="p">=</span> <span class="s2">&#34;/img/logo-default.svg&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">sidebar</span><span class="p">.</span><span class="nx">avatar</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enabled</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">local</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">src</span> <span class="p">=</span> <span class="s2">&#34;img/avatar.webp&#34;</span>
+</span></span></code></pre></div><h2></h2>
+<p>内容结构</p>
+<p>这个主题会比较适合 Hugo 里常见的三种写作方式：</p>
+<h3 id="flat-markdown">Flat Markdown</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">content/posts/note.md
+</span></span></code></pre></div><p>适合快速笔记和轻量文章。</p>
+<h3></h3>
+<p>单语 Bundle</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">content/posts/story/index.md
+</span></span><span class="line"><span class="cl">content/posts/story/cover.webp
+</span></span></code></pre></div><p>适合需要本地图片或附件的文章。</p>
+<h3></h3>
+<p>多语 Bundle</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">content/posts/story/index.md
+</span></span><span class="line"><span class="cl">content/posts/story/index.zh-cn.md
+</span></span><span class="line"><span class="cl">content/posts/story/cover.webp
+</span></span></code></pre></div><p>适合多个语种共享同一组 bundle 资源的场景。</p>
+<h2 id="pocket-hugo">Pocket Hugo</h2>
+<p>搭配</p>
+<p>这个主题之所以适合 Pocket Hugo，重点不只是“能用”，而是在写作、发布和浏览节奏上更契合。</p>
+<ul>
+<li></li>
+</ul>
+<h2 id="首页会更突出封面卡片的浏览体验">首页会更突出封面卡片的浏览体验</h2>
+<h2 id="文章页在手机上更容易读">文章页在手机上更容易读</h2>
+<p>简洁的 front matter 配置也能得到比较完整的展示</p>
+<h2 id="widget">Widget</h2>
+<p>标题开关</p>
+<p>你可以在配置里决定右侧 widget 的标题是否显示：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">widgets</span><span class="p">.</span><span class="nx">titleVisibility</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">archives</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">categories</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">related</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">search</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tagCloud</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">toc</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></div><h2></h2>
+<p>建议的下一步</p>
+<ol>
+<li></li>
+</ol>
+<p>把示例 social 链接改成你自己的账号
+2.
+给文章补上自己的封面图和 bundle 资源
+3.
+按照你的写作习惯调整 homepage、static 和 page 的 widgets</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>关于</title>
+      <link>http://localhost:1313/zh-cn/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/zh-cn/about/</guid>
+      <description>Pocket Notes 是一个专门用来测试 Pocket Hugo Theme 的双语示例站点。
+这里能测试什么 多语言 bundle 单语言 bundle flat Markdown archives、links、search、talks 页面 内容量不大，但结构足够丰富，方便快速发现主题问题。
+</description>
+      <content:encoded><![CDATA[<p>Pocket Notes 是一个专门用来测试 Pocket Hugo Theme 的双语示例站点。</p>
+<h2 id="这里能测试什么">这里能测试什么</h2>
+<ul>
+<li>多语言 bundle</li>
+<li>单语言 bundle</li>
+<li>flat Markdown</li>
+<li>archives、links、search、talks 页面</li>
+</ul>
+<p>内容量不大，但结构足够丰富，方便快速发现主题问题。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>链接</title>
+      <link>http://localhost:1313/zh-cn/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/zh-cn/links/</guid>
+      <description>这个页面用来测试主题自带的 friendlinks shortcode。
+Pocket Hugo 面向浏览器的 Hugo 写作与发布工具。 Pocket Hugo Theme </description>
+      <content:encoded><![CDATA[<p>这个页面用来测试主题自带的 <code>friendlinks</code> shortcode。</p>
+<section class="links-grid">
+    <div class="links-grid__items">
+        <a class="friend-card" href="https://github.com/h2dcc/pocket-hugo" target="_blank" rel="noopener noreferrer">
+                
+                    <div class="friend-card__media">
+                        <img src="/links/pocket-hugo-logo.webp" alt="链接">
+                    </div>
+                
+                <div class="friend-card__body">
+                    <strong>Pocket Hugo</strong>
+                    <span>面向浏览器的 Hugo 写作与发布工具。</span>
+                </div>
+            </a>
+        <a class="friend-card" href="https://github.com/h2dcc/pocket-hugo-theme" target="_blank" rel="noopener noreferrer">
+                
+                    <div class="friend-card__media">
+                        <img src="/links/pocket-hugo-theme-logo.webp" alt="链接">
+                    </div>
+                
+                <div class="friend-card__body">
+                    <strong>Pocket Hugo Theme</strong>
+                    
+                </div>
+            </a>
+        
+    </div>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>说说</title>
+      <link>http://localhost:1313/zh-cn/talks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/zh-cn/talks/</guid>
+      <description>已补更多示例内容 2026-03-18 20:10
+测试站现在同时包含多语言 bundle、单语言 bundle、flat Markdown，以及中英双语静态页面。
+这样更容易发现问题 2026-03-18 20:05
+内容结构更丰富之后，首页卡片、语言切换、归档页和手机阅读节奏都更容易暴露问题。
+</description>
+      <content:encoded><![CDATA[<h2 id="已补更多示例内容">已补更多示例内容</h2>
+<blockquote>
+<p>2026-03-18 20:10</p>
+</blockquote>
+<p>测试站现在同时包含多语言 bundle、单语言 bundle、flat Markdown，以及中英双语静态页面。</p>
+<h2 id="这样更容易发现问题">这样更容易发现问题</h2>
+<blockquote>
+<p>2026-03-18 20:05</p>
+</blockquote>
+<p>内容结构更丰富之后，首页卡片、语言切换、归档页和手机阅读节奏都更容易暴露问题。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>搜索</title>
+      <link>http://localhost:1313/zh-cn/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <guid>http://localhost:1313/zh-cn/search/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+  </channel>
+</rss>
