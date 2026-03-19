@@ -198,12 +198,16 @@ copyright = "MIT licensed demo content"
       # height = 110
 
   [params.article]
+    # Limit images inside article content.
+    limitContentImageHeight = false
+    # Maximum rendered height for article-content images when the limit is enabled.
+    contentImageMaxHeight = "320px"
     toc = true
     readingTime = true
 
   [params.languageSwitcher]
     #  With two site languages, use a direct switch icon; with more than two, use a dropdown list.
-    headerSelectThreshold = 2
+    headerSelectThreshold = 3
 
   [params.comments]
     # Enable comments globally. The example site keeps Twikoo on so the demo can show a real comment area.

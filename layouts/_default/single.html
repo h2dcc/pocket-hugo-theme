@@ -2,6 +2,12 @@
 
 {{ define "main" }}
     {{ $sidebarScope := cond (eq .Type "page") "static" "page" }}
+    {{ $limitContentImageHeight := .Site.Params.article.limitContentImageHeight | default false }}
+    {{ $contentImageMaxHeight := .Site.Params.article.contentImageMaxHeight | default "320px" }}
+    {{ $articleContentStyle := "" }}
+    {{ if $limitContentImageHeight }}
+        {{ $articleContentStyle = printf "--article-content-image-max-height: %s; --article-content-image-fullwidth-height: %s; --article-content-image-fullwidth-fit: cover;" $contentImageMaxHeight $contentImageMaxHeight }}
+    {{ end }}
     <article class="article-page">
         <header class="article-page__header">
             {{ with partial "helpers/cover.html" (dict "page" . "variant" "single") }}
@@ -53,7 +59,7 @@
         {{ end }}
 
         <div class="article-page__content">
-            <div class="article-content">
+            <div class="article-content"{{ with $articleContentStyle }} style="{{ . }}"{{ end }}>
                 {{ .Content }}
             </div>
         </div>

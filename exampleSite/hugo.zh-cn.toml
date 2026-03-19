@@ -215,6 +215,16 @@ copyright = "MIT licensed demo content"
   # 是否显示文章字数统计。
   articleWords = true
 
+  [params.article]
+    # 是否限制正文图片显示高度。
+    limitContentImageHeight = false
+    # 开启限制后，正文图片允许显示的最大高度。
+    contentImageMaxHeight = "320px"
+    # 是否显示文章目录。
+    toc = true
+    # 是否显示预计阅读时长。
+    readingTime = true
+
   # 是否启用返回顶部按钮。
   backToTop = true
 

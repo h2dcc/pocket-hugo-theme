@@ -4,6 +4,7 @@ resources/
 exampleSite/public/
 exampleSite/resources/
 exampleSite/public-check/
+exampleSite/exampleSite/
 exampleSite/.hugo_build.lock
 __pycache__/
 *.py[cod]
