@@ -35,7 +35,7 @@ jobs:
         run: |
           hugo \
             --source exampleSite \
-            --themesDir .. \
+            --themesDir ../.. \
             --config hugo.toml \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
