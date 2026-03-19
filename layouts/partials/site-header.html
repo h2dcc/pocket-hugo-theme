@@ -1,18 +1,16 @@
 <header class="site-header">
     <div class="site-header__inner">
         <div class="site-brand">
-            {{ $avatar := resources.Get "img/logo-default.svg" }}
+            {{ $avatar := "/img/logo-default.svg" | relURL }}
             {{ with .Site.Params.sidebar.avatar }}
                 {{ if and (default true .enabled) .local }}
-                    {{ with resources.Get .src }}
-                        {{ $avatar = . }}
-                    {{ end }}
+                    {{ $avatar = .src | relURL }}
                 {{ end }}
             {{ end }}
 
             {{ with $avatar }}
                 <a class="site-brand__avatar" href="{{ $.Site.Home.RelPermalink }}">
-                    <img src="{{ .RelPermalink }}" alt="{{ $.Site.Title }}">
+                    <img src="{{ . }}" alt="{{ $.Site.Title }}">
                 </a>
             {{ end }}
 

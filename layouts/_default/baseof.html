@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <title>{{ partial "helpers/title.html" . }}</title>
-    <link rel="icon" type="image/svg+xml" href="{{ .Site.Params.favicon | default "/img/logo-default.svg" | relURL }}">
+    {{ $favicon := .Site.Params.favicon | default "/img/logo-default.svg" }}
+    {{ $faviconType := "image/x-icon" }}
+    {{ if hasSuffix $favicon ".svg" }}
+        {{ $faviconType = "image/svg+xml" }}
+    {{ else if hasSuffix $favicon ".png" }}
+        {{ $faviconType = "image/png" }}
+    {{ else if hasSuffix $favicon ".webp" }}
+        {{ $faviconType = "image/webp" }}
+    {{ end }}
+    <link rel="icon" type="{{ $faviconType }}" href="{{ $favicon | relURL }}">
     <link rel="apple-touch-icon" href="{{ .Site.Params.appleTouchIcon | default "/img/avatar.webp" | relURL }}">
     <meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f1623" media="(prefers-color-scheme: dark)">
