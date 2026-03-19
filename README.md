@@ -71,7 +71,14 @@ Core configuration usually looks like this. For a full copy-ready example, see `
   url = "https://github.com/yourname/yourrepo"
 ```
 
-## Content Types
+
+## Demo
+
+A GitHub Pages demo can be published from `exampleSite/`.
+
+- Expected demo URL: `https://h2dcc.github.io/pocket-hugo-theme/`
+- The repository includes `.github/workflows/deploy-demo.yml` to build and deploy the demo automatically.
+- In the repository settings, set Pages to use **GitHub Actions** as the source.## Content Types
 
 The theme works well with three common Hugo writing patterns:
 
