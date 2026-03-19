@@ -231,7 +231,7 @@ copyright = "MIT licensed demo content"
 
     [params.comments.twikoo]
       # The example site uses a demo service here. For your own site, apply for and replace this with your own Twikoo service URL.
-      envId = "https://twikoo.fosu.cc"
+      envId = "https://twikoo.fosu.ccc"
       # region = ""
       lang = "en-US"
       # This path is fixed to "theme" only for the shared demo comments.
