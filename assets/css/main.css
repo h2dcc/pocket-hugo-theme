@@ -64,7 +64,11 @@ html[data-theme=dark] {
 }
 
 * { box-sizing: border-box; }
-html { font-size: 62.5%; }
+html {
+  font-size: 62.5%;
+  overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
+}
 body {
   margin: 0;
   background: var(--bg);
