@@ -1,31 +1,31 @@
 ---
-title: "Mobile Writing Workflow Demo"
-description: "A multilingual bundle demo for translation switching, cover images, and long-form layout."
+title: "Multilingual Bundle Demo"
+description: "A multilingual sample article for testing translation switchers, cover images, comments, and long-form layout."
 date: 2026-03-18T08:30:00+08:00
 slug: "mobile-editor-demo"
 comments: true
 categories:
-  - Design
+  - Demo
 tags:
   - Hugo
   - Bundle
-  - Mobile
+  - Translation
 image: cover.webp
 ---
 
-This English page is the default version of a multilingual bundle.
+This is the default language page of a multilingual bundle.
 
 <!--more-->
 
-## What to inspect
+## Try it yourself
 
-- homepage cards and metadata
-- cover image rendering
-- translation switch visibility
-- reading rhythm on narrow screens
+- translation switch visibility on list and article pages
+- cover image rendering in both languages
+- comment area loading without blocking layout
+- long-form reading rhythm on narrow screens
 
 ## Image test
 
 ![Reading scene](reading-scene.webp)
 
-If both language versions render correctly, the multilingual bundle path is working.
+This article also points back to the [Backlinks Demo](/article/backlinks-demo/), so that the example site can demonstrate article-to-article references.

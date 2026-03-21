@@ -209,6 +209,14 @@ copyright = "MIT licensed demo content"
   # 首页卡片默认摘要长度。
   summaryLength = 0
 
+  [params.search]
+    # 搜索提供方，当前使用内置 JSON 搜索。
+    provider = "local"
+
+  [params.alpine]
+    # 是否全局加载 Alpine.js，方便自定义轻交互小组件。
+    enabled = true
+
   # 是否在文章页显示预计阅读时长。
   readingTime = true
 
@@ -224,6 +232,32 @@ copyright = "MIT licensed demo content"
     toc = true
     # 是否显示预计阅读时长。
     readingTime = true
+
+  [params.images.cover]
+    # 首页和文章卡片封面使用的 Hugo Fill 规格。
+    cardFill = "640x300 Center q85"
+    # 分类、标签等列表页封面使用的 Hugo Fill 规格。
+    taxonomyFill = "640x300 Center q85"
+
+  [params.images.content]
+    # 正文图片在不同端上的显示高度阈值。
+    mobileMaxHeight = "160px"
+    tabletMaxHeight = "250px"
+    desktopMaxHeight = "350px"
+    # 当正文图片被判定为 full-width 时使用的 object-fit 策略。
+    fullWidthFit = "cover"
+
+  [params.images.pipeline]
+    # 是否启用 Hugo 原生响应式图像派生。
+    responsive = true
+    # 统一输出格式，默认转成 webp。
+    format = "webp"
+    # 图像质量。
+    quality = 85
+    # 封面图派生宽度。
+    coverWidths = [480, 720, 960, 1280]
+    # 正文图派生宽度。
+    contentWidths = [640, 960, 1400]
 
   # 是否启用返回顶部按钮。
   backToTop = true

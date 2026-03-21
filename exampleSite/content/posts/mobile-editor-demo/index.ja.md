@@ -1,16 +1,18 @@
 ---
 image: cover.webp
-title: "モバイル編集デモ"
-description: "Pocket Hugo と組み合わせたときの読み心地を確認する日本語ページ。"
+title: "多言語バンドルのデモ"
+description: "言語切り替え、カバー画像、コメント欄を確認するための多言語サンプルです。"
 date: 2026-03-19T10:30:00+08:00
 slug: "mobile-editor-demo"
+comments: true
 categories:
-  - Testing
+  - Demo
 tags:
   - Japanese
-  - Pocket Hugo
+  - Bundle
+  - Translation
 ---
 
-このページは、モバイルで執筆した文章をそのまま落ち着いたカードと記事ページで見せる例です。
+このページは多言語 bundle のデモです。言語切り替えやコメント欄の動作を確認できます。
 
 ![Reading scene](reading-scene.webp)
