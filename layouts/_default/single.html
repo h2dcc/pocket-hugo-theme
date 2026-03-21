@@ -2,6 +2,7 @@
 
 {{ define "main" }}
     {{ $sidebarScope := cond (eq .Type "page") "static" "page" }}
+    {{ $transitionBase := partial "helpers/view-transition-name.html" . }}
     {{ $limitContentImageHeight := .Site.Params.article.limitContentImageHeight | default false }}
     {{ $contentImageMaxHeight := .Site.Params.article.contentImageMaxHeight | default "320px" }}
     {{ $articleContentStyle := "" }}
@@ -13,13 +14,13 @@
             {{ with partial "helpers/cover.html" (dict "page" . "variant" "single") }}
                 {{ if .exists }}
                     <div class="article-page__cover">
-                        <img src="{{ .permalink }}" alt="{{ $.Title }}">
+                        <img src="{{ .permalink }}" alt="{{ $.Title }}"{{ if $.Site.Params.viewTransitions }} style="view-transition-name: cover-{{ $transitionBase }};"{{ end }}>
                     </div>
                 {{ end }}
             {{ end }}
 
             <div class="article-page__meta">
-                <h1>{{ .Title }}</h1>
+                <h1{{ if .Site.Params.viewTransitions }} style="view-transition-name: title-{{ $transitionBase }};"{{ end }}>{{ .Title }}</h1>
                 <div class="meta-line">
                     {{ if not .Date.IsZero }}<span>{{ .Date | time.Format (or .Site.Params.dateFormat.published "2006-01-02") }}</span>{{ end }}
                     {{ with .Params.categories }}

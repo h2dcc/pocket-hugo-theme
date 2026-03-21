@@ -6,7 +6,7 @@ date: 2026-03-19T09:15:00+08:00
 slug: "quick-note"
 comments: false
 categories:
-  - Moments
+  - Demo
 tags:
   - English
   - Markdown Demo

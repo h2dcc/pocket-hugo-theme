@@ -1,0 +1,15 @@
+{{- $id := .Get "id" | default (.Get 0) -}}
+{{- $title := .Get "title" | default "YouTube video" -}}
+<figure class="shortcode-media shortcode-media--embed">
+  <div class="shortcode-embed">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/{{ $id }}"
+      title="{{ $title }}"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+  {{ with .Inner }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

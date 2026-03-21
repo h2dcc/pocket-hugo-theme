@@ -1,0 +1,10 @@
+{{- $date := .Get "date" | default "" -}}
+{{- $title := .Get "title" | default "" -}}
+<div class="shortcode-timeline__item">
+  <div class="shortcode-timeline__rail"></div>
+  <div class="shortcode-timeline__content">
+    {{ with $date }}<div class="shortcode-timeline__date">{{ . }}</div>{{ end }}
+    {{ with $title }}<div class="shortcode-timeline__title">{{ . | markdownify }}</div>{{ end }}
+    <div class="shortcode-timeline__body">{{ .Inner | markdownify }}</div>
+  </div>
+</div>

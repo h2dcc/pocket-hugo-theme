@@ -49,6 +49,9 @@ other = "タグ"
 [widget.related.title]
 other = "関連記事"
 
+[widget.backlinks.title]
+other = "このページへの参照"
+
 [search.title]
 other = "検索"
 

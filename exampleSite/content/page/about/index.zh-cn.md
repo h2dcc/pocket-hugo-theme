@@ -1,6 +1,7 @@
 ---
 title: "关于"
 slug: "about"
+draft: true
 menu:
   main:
     weight: -40

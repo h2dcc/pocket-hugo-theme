@@ -6,7 +6,7 @@ draft = false
 description = "A sample post for checking which other pages refer back to the current article."
 slug = "backlinks-demo"
 tags = ["backlinks", "wiki", "notes"]
-categories = ["Knowledge"]
+categories = ["Demo"]
 +++
 
 This page is meant to collect references from elsewhere in the example site. If the **Backlinks** widget is enabled, links from the content adapter demo and the multilingual bundle demo should eventually show up here.

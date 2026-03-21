@@ -1,0 +1,16 @@
+{{- $bvid := .Get "bvid" | default (.Get 0) -}}
+{{- $page := .Get "page" | default "1" -}}
+{{- $title := .Get "title" | default "Bilibili video" -}}
+<figure class="shortcode-media shortcode-media--embed">
+  <div class="shortcode-embed">
+    <iframe
+      src="https://player.bilibili.com/player.html?bvid={{ $bvid }}&page={{ $page }}"
+      title="{{ $title }}"
+      loading="lazy"
+      scrolling="no"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+  {{ with .Inner }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

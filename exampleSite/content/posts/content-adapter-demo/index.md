@@ -13,10 +13,60 @@ Pocket Hugo Theme now ships with a simple **content adapter** example. Instead o
 
 <!--more-->
 
-## Try it yourself
+## How it works
 
-- the `/projects/` section in the example site
-- generated pages that still feel like normal content
-- whether adapter-driven content blends in with handwritten posts
+This demo uses three moving parts:
 
-Visit the [Projects section](/projects/) after reading this page. It is a good example of Hugo doing more than just rendering Markdown files.
+1. `exampleSite/data/projects/en.json` and `exampleSite/data/projects/zh_cn.json`
+2. `exampleSite/content/projects/_content.gotmpl`
+3. the generated `/projects/` pages you can browse like any other Hugo content
+
+At build time, Hugo reads the JSON records, loops through them in `_content.gotmpl`, and creates normal pages with titles, slugs, descriptions, links, tags, and categories.
+
+## How to use it
+
+1. Copy the `content/projects/_content.gotmpl` example into your own site.
+2. Put your structured project data in a JSON file.
+3. Adjust the field names in `_content.gotmpl` if your data shape is different.
+4. Run `hugo` and open `/projects/`.
+
+You can treat the generated pages like regular content:
+
+- they appear in lists
+- they have permalinks
+- they can use the same single layout
+- they can be linked from other posts and pages
+
+## It can also read remote JSON
+
+The local `data/projects/*.json` files are just the safest demo setup. A more persuasive real-world use case is to fetch remote JSON during the build and turn that response into pages.
+
+For example, you can use a public endpoint such as GitHub issues:
+
+```gotmpl
+{{ with try (resources.GetRemote "https://api.github.com/repos/gohugoio/hugo/issues?per_page=6&state=open") }}
+  {{ with .Value }}
+    {{ $issues := . | transform.Unmarshal }}
+    {{ range $issues }}
+      {{ $.AddPage (dict
+        "path" (printf "issue-%v" .number)
+        "title" .title
+        "content" (dict
+          "mediaType" "text/markdown"
+          "value" (.body | default "No body content.")
+        )
+      ) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+The example site keeps this remote mode disabled by default so the demo remains stable offline, but the adapter file already includes a GitHub issue example you can turn on.
+
+## What to inspect
+
+- the [Projects section](/projects/)
+- one generated project page from that list
+- the JSON files and `_content.gotmpl` side by side
+
+This is a good example of Hugo doing more than just rendering Markdown files.

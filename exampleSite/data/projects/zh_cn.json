@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "pocket-hugo",
+    "title": "Pocket Hugo",
+    "description": "一个面向浏览器优先写作与发布流程的 Hugo 工具。",
+    "date": "2026-03-01T10:00:00+08:00",
+    "tags": ["Pocket Hugo", "发布", "工作流"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/h2dcc/pocket-hugo"
+      }
+    ],
+    "content": "Pocket Hugo 是这个主题的配套写作端项目，重点是 Hugo 内容的编辑、整理与浏览器优先发布流程。\n\n## 它主要想解决什么\n\nPocket Hugo 的核心思路是：写作、预览和发布都应该尽量轻量，而且更偏向浏览器原生体验，而不是完全依赖桌面端本地编辑器。它更像是在探索 Hugo 工作流能否变得更即时、更靠近真正的在线写作体验。\n\n## 为什么放进这个示例里\n\n这个页面来自 `data/projects/zh_cn.json`，再由 content adapter 在构建时自动生成，所以它可以很直观地展示 Hugo 如何把结构化数据变成普通页面。重点不只是列一个仓库，而是说明：结构化项目数据也能变成像文章一样可读的页面。\n\n## 和主题怎么配合\n\nPocket Hugo 和 Pocket Hugo Theme 可以看成一组：\n\n- Pocket Hugo 偏写作与发布\n- Pocket Hugo Theme 偏展示与阅读\n- 两者都依赖多语言内容、稳定布局和长期维护\n\n## 适合怎么对照看\n\n看完这个页面后，再打开一篇普通文章比较一下。理想状态下，这种自动生成的项目页不应该显得像站外贴进来的卡片。"
+  },
+  {
+    "slug": "pocket-hugo-theme",
+    "title": "Pocket Hugo Theme",
+    "description": "一个适合多语言写作、长文阅读与封面卡片展示的 Hugo 主题。",
+    "date": "2026-03-02T10:00:00+08:00",
+    "tags": ["主题", "多语言", "阅读"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/h2dcc/pocket-hugo-theme"
+      }
+    ],
+    "content": "Pocket Hugo Theme 是这套组合里的展示层，主要关注阅读节奏、封面图、双语发布和较长文章的呈现方式。\n\n## 它想解决什么问题\n\n很多 Hugo 主题在页面少的时候看起来还不错，但内容一多就容易散：多语言页面不统一，长文节奏不稳，固定页和文章页像两套东西，手机端又容易显得拥挤。Pocket Hugo Theme 更关注这些长期写作里的细节一致性。\n\n## 为什么放进这个示例里\n\n这个页面同样是从 JSON 在构建时生成的，不依赖远程 API，却足够说明 content adapter 的基本能力。它也顺便展示了一点：自动生成的页面完全可以复用主题原本的阅读体验，而不是变成一层特殊页面。\n\n## 适合怎么测试\n\n你可以把这个页面和普通文章页、links 页、talks 页放在一起对照看。一个好的 content adapter 示例，不应该让生成内容看起来像站点里的异类。"
+  },
+  {
+    "slug": "hugo",
+    "title": "Hugo",
+    "description": "一个以速度著称的静态网站生成器，擅长多语言、模板系统与图像处理。",
+    "date": "2026-03-03T10:00:00+08:00",
+    "tags": ["静态站", "生成器", "Go"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/gohugoio/hugo"
+      },
+      {
+        "title": "Website",
+        "url": "https://gohugo.io/"
+      }
+    ],
+    "content": "Hugo 就是这个主题示例背后的引擎。它在多语言内容、构建期模板、bundle、taxonomy 和图像处理这些方面都很强。\n\n## 为什么放在这里很合适\n\nContent Adapter 本身就很有 Hugo 风格：一条结构化记录在构建时直接变成站点页面，而不是一直停留在内容系统之外。对 Hugo 来说，这是一种很自然的扩展，而不是勉强拼上去的外部能力。\n\n## 这个例子真正想说明什么\n\n在这个示例里，Hugo 不只是把 Markdown 渲染成 HTML，它还同时做了这些事：\n\n- 在构建时把数据生成页面\n- 让这些页面进入列表和导航\n- 让多语言结构保持清楚\n- 让生成页复用同一套主题组件\n\n## 适合怎么对照看\n\n你可以把这个自动生成的项目页和普通文章页放在一起比较，看看两者是否都像站点原生内容。"
+  },
+  {
+    "slug": "pagefind",
+    "title": "Pagefind",
+    "description": "一个面向 Jamstack 和内容型站点的全静态搜索方案。",
+    "date": "2026-03-04T10:00:00+08:00",
+    "tags": ["搜索", "静态", "索引"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/CloudCannon/pagefind"
+      },
+      {
+        "title": "Website",
+        "url": "https://pagefind.app/"
+      }
+    ],
+    "content": "Pagefind 是一个很适合和生成式内容一起理解的例子。只要页面最终进入构建产物，静态搜索索引通常就能像对待手写页面一样对待这些自动生成内容。\n\n## 为什么这个例子有意思\n\n它能说明 Content Adapter 不只是适合项目页，也适合后续要进入搜索、归档、索引等构建环节的内容。也就是说，自动生成页面不应该只是“能打开”，而应该真正进入站点整体结构里。\n\n## 为什么放进这组数据里\n\n除了自家项目之外，示例站也需要一些更广义的生态项目。这样 `/projects/` 看起来才更像真实站点里的内容分区，而不是只放一排内部仓库。"
+  },
+  {
+    "slug": "excalidraw",
+    "title": "Excalidraw",
+    "description": "一个手绘风格的白板工具，适合做图解、笔记和可视化思考。",
+    "date": "2026-03-05T10:00:00+08:00",
+    "tags": ["绘图", "可视化", "笔记"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/excalidraw/excalidraw"
+      },
+      {
+        "title": "Website",
+        "url": "https://excalidraw.com/"
+      }
+    ],
+    "content": "Excalidraw 能给这组示例数据带来一点不同味道。自动生成页面不一定都要是软件发布说明或项目列表，它也可以用来整理写作者会长期使用的工具、参考资源或收藏对象。\n\n## 为什么这个例子更好玩\n\n如果 adapter 数据里全都是非常相似的 GitHub 仓库卡片，这个功能看起来就会比较单薄。Excalidraw 这种工具型项目能提醒人：生成页也可以用来整理你的工作流、工具箱和长期参考资源。\n\n## 它展示了什么\n\n这个页面想说明两件事：\n\n- 结构化数据不一定只能生成“项目发布页”\n- 自动生成的页面也仍然可以有一点说明性正文，而不只是元数据\n\n## 更接近真实站点的用法\n\n如果你维护一个设计工具清单、研究资料库或者写作工作流页面，这种 mixed dataset 往往比纯仓库列表更接近真实需求。"
+  },
+  {
+    "slug": "giscus",
+    "title": "Giscus",
+    "description": "一个基于 GitHub Discussions 的轻量评论系统。",
+    "date": "2026-03-06T10:00:00+08:00",
+    "tags": ["评论", "GitHub", "Discussions"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/giscus/giscus"
+      },
+      {
+        "title": "Website",
+        "url": "https://giscus.app/"
+      }
+    ],
+    "content": "Giscus 也是一个很好的例子，因为它属于静态站点生态里另一块很常见的拼图：内容、导航、评论和长期维护。\n\n## 为什么这个例子合适\n\nContent Adapter 生成的页面不只可以用来放“项目”，也可以用来整理站点所依赖的服务、工具和周边组件。对很多个人博客来说，评论、搜索、订阅、部署和写作工具本来就是同一个生态的一部分。\n\n## 它展示了什么\n\n这个页面想说明：自动生成内容也可以用来记录你站点周边的关键组件。这样 `/projects/` 就不只是作品墙，而会更像一个真正的“项目与工具分区”。"
+  }
+]

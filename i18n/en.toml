@@ -49,6 +49,9 @@ other = "Tags"
 [widget.related.title]
 other = "Related Posts"
 
+[widget.backlinks.title]
+other = "Referenced By"
+
 [search.title]
 other = "Search"
 

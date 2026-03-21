@@ -49,6 +49,9 @@ other = "标签"
 [widget.related.title]
 other = "相关文章"
 
+[widget.backlinks.title]
+other = "引用本文"
+
 [search.title]
 other = "搜索"
 

@@ -12,4 +12,21 @@ tags:
   - Navigation
 ---
 
-このページは Pocket Hugo Theme の **View Transitions API** 対応を確認するためのサンプルです。ホームのカードから開いて戻ると、切り替えの滑らかさを見比べられます。
+このページは Pocket Hugo Theme の **View Transitions API** 対応を確認するためのサンプルです。これは実験機能で、**初期設定では無効** になっています。
+
+<!--more-->
+
+## 有効化する方法
+
+`hugo.toml` に次を追加します。
+
+```toml
+[params]
+  viewTransitions = true
+```
+
+そのうえで、View Transitions API をサポートするブラウザで再ビルドしたサイトを確認してください。
+
+## 注意
+
+この機能を有効にすると、ダークモードではブラウザによってページ遷移時にまれに白いフラッシュが出る場合があります。

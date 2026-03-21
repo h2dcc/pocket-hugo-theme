@@ -174,13 +174,22 @@ copyright = "MIT licensed demo content"
   summaryLength = 0
   articleWords = true
   backToTop = true
-  viewTransitions = true
+  # Experimental: browser View Transitions API. Disabled by default because
+  # some browsers may still flash briefly during navigation.
+  viewTransitions = false
 
   [params.search]
     provider = "local"
 
   [params.alpine]
     enabled = true
+
+  [params.projects.remoteDemo]
+    # Experimental example for Content Adapters.
+    # Disabled by default so the demo remains stable offline.
+    enabled = false
+    source = "github-issues"
+    url = "https://api.github.com/repos/gohugoio/hugo/issues?per_page=6&state=open"
 
   [params.footer]
     since = 2026

@@ -1,0 +1,10 @@
+{{- $kind := .Get "type" | default (.Get 0) | default "info" -}}
+{{- $title := .Get "title" | default "" -}}
+<div class="shortcode-note shortcode-note--{{ $kind }}">
+  {{- with $title -}}
+    <div class="shortcode-note__title">{{ . | markdownify }}</div>
+  {{- end -}}
+  <div class="shortcode-note__body">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

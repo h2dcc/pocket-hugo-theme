@@ -1,0 +1,85 @@
+{{- $page := .page -}}
+{{- $resource := .resource -}}
+{{- $kind := .kind | default "content" -}}
+{{- $site := $page.Site -}}
+{{- $responsive := $site.Params.images.pipeline.responsive | default false -}}
+{{- $format := $site.Params.images.pipeline.format | default "webp" -}}
+{{- $quality := int ($site.Params.images.pipeline.quality | default 85) -}}
+
+{{- $result := dict
+    "src" $resource.RelPermalink
+    "srcset" ""
+    "sizes" ""
+    "width" $resource.Width
+    "height" $resource.Height
+    "original" $resource.RelPermalink
+    "processed" false
+-}}
+
+{{- if and $responsive (eq $resource.MediaType.MainType "image") -}}
+    {{- $widths := slice -}}
+    {{- $sizes := "100vw" -}}
+
+    {{- if eq $kind "cover" -}}
+        {{- $widths = $site.Params.images.pipeline.coverWidths | default (slice 480 720 960 1280) -}}
+        {{- $sizes = "(min-width: 1024px) 50vw, 100vw" -}}
+        {{- $fillSpec := $site.Params.images.cover.cardFill | default "640x300 Center q85" -}}
+        {{- with .fillSpec -}}
+            {{- $fillSpec = . -}}
+        {{- end -}}
+        {{- $numbers := findRE "\\d+" $fillSpec -}}
+        {{- $baseWidth := 640 -}}
+        {{- $baseHeight := 300 -}}
+        {{- if ge (len $numbers) 2 -}}
+            {{- $baseWidth = int (index $numbers 0) -}}
+            {{- $baseHeight = int (index $numbers 1) -}}
+        {{- end -}}
+        {{- $srcsetParts := slice -}}
+        {{- $largest := dict "src" $resource.RelPermalink "width" $resource.Width "height" $resource.Height -}}
+        {{- range $width := $widths -}}
+            {{- if le (int $width) $resource.Width -}}
+                {{- $height := div (mul (int $width) $baseHeight) $baseWidth -}}
+                {{- with $resource.Fill (printf "%dx%d Center %s q%d" (int $width) $height $format $quality) -}}
+                    {{- $srcsetParts = $srcsetParts | append (printf "%s %dw" .RelPermalink .Width) -}}
+                    {{- $largest = dict "src" .RelPermalink "width" .Width "height" .Height -}}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if gt (len $srcsetParts) 0 -}}
+            {{- $result = dict
+                "src" ($largest.src)
+                "srcset" (delimit $srcsetParts ", ")
+                "sizes" $sizes
+                "width" ($largest.width)
+                "height" ($largest.height)
+                "original" $resource.RelPermalink
+                "processed" true
+            -}}
+        {{- end -}}
+    {{- else -}}
+        {{- $widths = $site.Params.images.pipeline.contentWidths | default (slice 640 960 1400) -}}
+        {{- $srcsetParts := slice -}}
+        {{- $largest := dict "src" $resource.RelPermalink "width" $resource.Width "height" $resource.Height -}}
+        {{- range $width := $widths -}}
+            {{- if le (int $width) $resource.Width -}}
+                {{- with $resource.Resize (printf "%dx %s q%d" (int $width) $format $quality) -}}
+                    {{- $srcsetParts = $srcsetParts | append (printf "%s %dw" .RelPermalink .Width) -}}
+                    {{- $largest = dict "src" .RelPermalink "width" .Width "height" .Height -}}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if gt (len $srcsetParts) 0 -}}
+            {{- $result = dict
+                "src" ($largest.src)
+                "srcset" (delimit $srcsetParts ", ")
+                "sizes" $sizes
+                "width" $resource.Width
+                "height" $resource.Height
+                "original" $resource.RelPermalink
+                "processed" true
+            -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- return $result -}}

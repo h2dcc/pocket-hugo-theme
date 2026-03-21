@@ -1,22 +1,37 @@
 {{- $dest := .Destination | safeURL -}}
 {{- $src := $dest -}}
+{{- $href := $dest -}}
+{{- $srcset := "" -}}
+{{- $sizes := "" -}}
+{{- $width := 0 -}}
+{{- $height := 0 -}}
 {{- if and .Page (not (or (hasPrefix .Destination "http://") (hasPrefix .Destination "https://") (hasPrefix .Destination "/") (hasPrefix .Destination "#") (hasPrefix .Destination "data:"))) -}}
     {{- $resource := .Page.Resources.GetMatch .Destination -}}
     {{- if not $resource -}}
         {{- $resource = .Page.Resources.GetMatch (path.Base .Destination) -}}
     {{- end -}}
     {{- with $resource -}}
-        {{- $src = .RelPermalink -}}
+        {{- $pipeline := partial "helpers/image-pipeline.html" (dict "page" $.Page "resource" . "kind" "content") -}}
+        {{- $src = $pipeline.src -}}
+        {{- $href = $pipeline.original -}}
+        {{- $srcset = $pipeline.srcset -}}
+        {{- $sizes = $pipeline.sizes -}}
+        {{- $width = $pipeline.width -}}
+        {{- $height = $pipeline.height -}}
     {{- end -}}
 {{- end -}}
 
 <figure class="article-image">
-    <a class="article-image__link" href="{{ $src }}" data-lightbox-image>
+    <a class="article-image__link" href="{{ $href }}" data-lightbox-image>
         <img
             src="{{ $src }}"
             alt="{{ .PlainText }}"
             loading="lazy"
             decoding="async"
+            {{ with $srcset }}srcset="{{ . }}"{{ end }}
+            {{ with $sizes }}sizes="{{ . }}"{{ end }}
+            {{ with $width }}width="{{ . }}"{{ end }}
+            {{ with $height }}height="{{ . }}"{{ end }}
             {{ with .Title }} title="{{ . }}"{{ end }}
         >
     </a>

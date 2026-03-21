@@ -2,6 +2,7 @@
 title: "About"
 slug: "about"
 comments: false
+draft: true
 menu:
   main:
     weight: -40

@@ -1,0 +1,21 @@
+{{- $src := .Get "src" | default (.Get 0) -}}
+{{- $poster := .Get "poster" | default "" -}}
+{{- $title := .Get "title" | default "Video" -}}
+{{- $autoplay := eq (.Get "autoplay") "true" -}}
+{{- $loop := eq (.Get "loop") "true" -}}
+{{- $muted := eq (.Get "muted") "true" -}}
+{{- $playsinline := ne (.Get "playsinline") "false" -}}
+<figure class="shortcode-media shortcode-media--video">
+  <video
+    controls
+    preload="metadata"
+    title="{{ $title }}"
+    {{ with $poster }}poster="{{ . }}"{{ end }}
+    {{ if $autoplay }}autoplay{{ end }}
+    {{ if $loop }}loop{{ end }}
+    {{ if $muted }}muted{{ end }}
+    {{ if $playsinline }}playsinline{{ end }}>
+    <source src="{{ $src }}" />
+  </video>
+  {{ with .Inner }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

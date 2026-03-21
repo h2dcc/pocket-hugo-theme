@@ -1,7 +1,7 @@
 ---
 title: "Multilingual Bundle Demo"
 description: "A multilingual sample article for testing translation switchers, cover images, comments, and long-form layout."
-date: 2026-03-18T08:30:00+08:00
+date: 2026-02-18T08:30:00+08:00
 slug: "mobile-editor-demo"
 comments: true
 categories:

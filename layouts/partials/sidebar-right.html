@@ -22,6 +22,7 @@
     {{ end }}
 
     {{ if eq $scope "page" }}
+        {{ partial "widgets/backlinks.html" (dict "Context" $context) }}
         {{ partial "widgets/related.html" (dict "Context" $context) }}
     {{ end }}
 

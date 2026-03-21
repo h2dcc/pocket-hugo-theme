@@ -49,6 +49,9 @@ other = "Etiquetas"
 [widget.related.title]
 other = "Entradas relacionadas"
 
+[widget.backlinks.title]
+other = "Referencias a esta pagina"
+
 [search.title]
 other = "Buscar"
 

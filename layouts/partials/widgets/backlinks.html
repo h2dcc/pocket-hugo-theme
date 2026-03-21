@@ -1,0 +1,28 @@
+{{- $context := .Context -}}
+{{- $article := $context.Site.Params.article | default dict -}}
+{{- if and $context.IsPage ($article.backlinks | default false) -}}
+    {{- $limit := int ($article.backlinksLimit | default 5) -}}
+    {{- $showTitle := partial "helpers/widget-show-title.html" (dict "Context" $context "Widget" "backlinks") -}}
+    {{- $backlinks := slice -}}
+    {{- $target := $context.RelPermalink -}}
+    {{- range $page := $context.Site.RegularPages -}}
+        {{- if ne $page.RelPermalink $context.RelPermalink -}}
+            {{- $raw := $page.RawContent | default "" -}}
+            {{- if in $raw $target -}}
+                {{- $backlinks = $backlinks | append $page -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if gt (len $backlinks) 0 -}}
+<section class="widget-simple">
+    {{ if $showTitle }}<h2 class="widget-simple__title">{{ T "widget.backlinks.title" }}</h2>{{ end }}
+    <div class="widget-simple__list">
+        {{ range first $limit $backlinks }}
+            <a class="widget-simple__row widget-simple__row--related" href="{{ .RelPermalink }}">
+                <span>{{ .Title }}</span>
+            </a>
+        {{ end }}
+    </div>
+</section>
+    {{- end -}}
+{{- end -}}

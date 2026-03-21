@@ -5,7 +5,7 @@ description: "Une page d exemple pour verifier quelles autres pages renvoient ve
 date: 2026-03-19T09:45:00+08:00
 slug: "backlinks-demo"
 categories:
-  - Knowledge
+  - Demo
 tags:
   - Backlinks
   - Notes

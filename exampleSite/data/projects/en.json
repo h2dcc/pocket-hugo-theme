@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "pocket-hugo",
+    "title": "Pocket Hugo",
+    "description": "A browser-first publishing workflow for Hugo.",
+    "date": "2026-03-01T10:00:00+08:00",
+    "tags": ["Pocket Hugo", "Publishing", "Workflow"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/h2dcc/pocket-hugo"
+      }
+    ],
+    "content": "Pocket Hugo is the writing-side companion project for this theme. It focuses on editing, publishing, and browser-first workflows for Hugo sites.\n\n## What it does\n\nPocket Hugo is built around a simple idea: writing and publishing should feel lightweight, immediate, and browser-first. Instead of centering the workflow on a local desktop editor, it explores how far a Hugo workflow can go when creation, preview, and publishing are treated as web-native actions.\n\n## Why it fits this demo\n\nThis page is generated from `data/projects/en.json` by a content adapter, so the example site can show that Hugo can turn structured records into pages that still feel like normal content. The point is not only to list repos, but to show that structured project data can become readable pages with titles, descriptions, metadata, links, and body text.\n\n## Where it connects to the theme\n\nPocket Hugo and Pocket Hugo Theme make sense as a pair:\n\n- Pocket Hugo focuses on authoring and publishing\n- Pocket Hugo Theme focuses on presentation and reading\n- both benefit from multilingual content, calm layouts, and long-term maintainability\n\n## What to compare\n\nAfter reading this page, open a normal article and compare the two. The generated project page should not feel second-class or bolted on."
+  },
+  {
+    "slug": "pocket-hugo-theme",
+    "title": "Pocket Hugo Theme",
+    "description": "A calm, cover-driven theme for multilingual writing and long-form reading.",
+    "date": "2026-03-02T10:00:00+08:00",
+    "tags": ["Theme", "Multilingual", "Reading"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/h2dcc/pocket-hugo-theme"
+      }
+    ],
+    "content": "Pocket Hugo Theme is the presentation layer in this paired setup. It focuses on readable layouts, calm visual rhythm, multilingual publishing, and cover-driven article cards.\n\n## What the theme is trying to solve\n\nMany Hugo themes look fine on first glance but become less convincing when a site grows: multilingual pages drift apart, long essays lose rhythm, fixed pages feel different from posts, and mobile layouts become cramped. Pocket Hugo Theme tries to keep those pieces coherent.\n\n## Why it is in this demo\n\nThis page is created from JSON at build time, which makes it a compact example of Hugo content adapters without introducing any remote API dependency. It also shows that generated pages can reuse the same layout system as handwritten content without breaking the overall reading experience.\n\n## What to look for\n\nWhen you open this generated page, compare it with a regular article page and a fixed page such as links or talks. The adapter content should still look native inside the theme rather than like a special-case export."
+  },
+  {
+    "slug": "hugo",
+    "title": "Hugo",
+    "description": "A fast static site generator with strong multilingual, templating, and image-processing support.",
+    "date": "2026-03-03T10:00:00+08:00",
+    "tags": ["Static Site", "Generator", "Go"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/gohugoio/hugo"
+      },
+      {
+        "title": "Website",
+        "url": "https://gohugo.io/"
+      }
+    ],
+    "content": "Hugo is the engine behind this theme demo. It is especially strong at multilingual content, build-time templating, bundles, taxonomies, and image processing.\n\n## Why it matters in this demo\n\nContent adapters feel especially natural in Hugo because Hugo already treats content as something assembled at build time. Once a record becomes a page, it can join the same lists, taxonomies, navigation structures, RSS outputs, and layouts as handwritten Markdown.\n\n## What Hugo is good at here\n\nIn the context of this demo, Hugo is doing several useful jobs at once:\n\n- turning records into pages during the build\n- keeping multilingual content organized\n- handling bundles and resources cleanly\n- letting generated pages reuse the same theme components\n\n## What to compare\n\nCompare this generated project page with a regular article page. The goal is for both to feel equally native, even though one began as JSON and the other began as Markdown."
+  },
+  {
+    "slug": "pagefind",
+    "title": "Pagefind",
+    "description": "A static search engine designed for Jamstack and content-heavy sites.",
+    "date": "2026-03-04T10:00:00+08:00",
+    "tags": ["Search", "Static", "Indexing"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/CloudCannon/pagefind"
+      },
+      {
+        "title": "Website",
+        "url": "https://pagefind.app/"
+      }
+    ],
+    "content": "Pagefind is a good example of a tool that naturally fits structured or generated content. Once your pages exist in the final build, a static index can usually treat them the same way as handwritten content.\n\n## Why it is a useful example\n\nThis matters because content adapters are not just about rendering one more section. They are also about making generated content participate in everything else a content-heavy site needs: search, archives, feeds, related links, and navigation.\n\n## Why it belongs in this dataset\n\nA demo section feels more convincing when it includes entries that point beyond your own repos. Pagefind helps illustrate that generated pages can just as easily describe tools in the wider static-site ecosystem."
+  },
+  {
+    "slug": "excalidraw",
+    "title": "Excalidraw",
+    "description": "A hand-drawn style whiteboard for diagrams, notes, and visual thinking.",
+    "date": "2026-03-05T10:00:00+08:00",
+    "tags": ["Drawing", "Visual", "Notes"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/excalidraw/excalidraw"
+      },
+      {
+        "title": "Website",
+        "url": "https://excalidraw.com/"
+      }
+    ],
+    "content": "Excalidraw adds a different flavor to this demo dataset. Not every generated page has to be a software release note or a project portfolio item. Some can point to tools, resources, or references that writers actually use.\n\n## Why it is useful here\n\nA content adapter becomes more believable when the dataset is mixed. If every entry is just one more repository card, the feature looks narrow. Excalidraw makes the section feel closer to a real-world collection: a place where projects, tools, references, and workflow components can live together.\n\n## A good use case beyond projects\n\nImagine a site that keeps a curated toolkit page, a visual-note archive, or a research workflow list. Those are all cases where structured records can be easier to maintain than a folder full of nearly identical Markdown files.\n\n## What this entry demonstrates\n\nThis page shows that generated content can still hold a short narrative, not just metadata. A content adapter should help you create readable pages, not only compact lists."
+  },
+  {
+    "slug": "giscus",
+    "title": "Giscus",
+    "description": "A lightweight comment system powered by GitHub Discussions.",
+    "date": "2026-03-06T10:00:00+08:00",
+    "tags": ["Comments", "GitHub", "Discussions"],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/giscus/giscus"
+      },
+      {
+        "title": "Website",
+        "url": "https://giscus.app/"
+      }
+    ],
+    "content": "Giscus is another good example because it belongs to the same broader publishing stack around static sites: content, navigation, comments, and long-term maintainability.\n\n## Why it is useful in this demo\n\nA content adapter can also generate pages for integrations, services, or tools that belong to your site's ecosystem. That means the feature is not limited to showcasing projects. It can also document the parts that support a publishing stack.\n\n## What this page represents\n\nThis entry is a reminder that generated content can describe dependencies and choices around a site, not just the site’s main output. For personal publishing, that often includes comments, feeds, search, deployment, writing tools, and reading tools."
+  }
+]

@@ -2,6 +2,7 @@
 title: "Acerca de"
 description: "Una breve introducción al demo y al propósito de Pocket Hugo Theme."
 slug: "about"
+draft: true
 ---
 
 `pocket-hugo-theme` es un tema de Hugo pensado para escritura personal a largo plazo y publicación multilingüe.

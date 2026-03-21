@@ -9,14 +9,23 @@ tags = ["view-transitions", "animation", "navigation"]
 categories = ["Interaction"]
 +++
 
-This article exists to show the optional **View Transitions API** support in Pocket Hugo Theme. Open it from the homepage card, then go back and try another article to compare the visual continuity.
+This article exists to show the optional **View Transitions API** support in Pocket Hugo Theme. It is an experimental feature and stays **disabled by default**.
 
 <!--more-->
 
-## Try it yourself
+## How to enable it
 
-- cover image continuity from card to article
-- title movement between list and detail page
-- whether transitions stay subtle instead of flashy
+Add this to your `hugo.toml`:
+
+```toml
+[params]
+  viewTransitions = true
+```
+
+Then rebuild the site in a browser that supports the View Transitions API.
+
+## Notes
+
+After enabling this feature, some browsers may still show an occasional flash during navigation in dark mode.
 
 If you want another connected sample, continue to the [Responsive Image Pipeline Demo](/article/responsive-image-pipeline/).

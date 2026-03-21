@@ -2,6 +2,7 @@
 title: "À propos"
 description: "Une courte présentation du thème et de ce site de démonstration."
 slug: "about"
+draft: true
 ---
 
 `pocket-hugo-theme` est un thème Hugo conçu pour une écriture personnelle au long cours et une publication multilingue.

@@ -1,7 +1,7 @@
 +++
 image = "cover.webp"
 title = "多语言 Bundle 演示"
-date = 2026-03-14T09:30:00+08:00
+date = 2026-02-14T09:30:00+08:00
 draft = false
 description = "一篇用来测试语言切换、封面图、评论区和长文布局的多语言示例文章。"
 slug = "mobile-editor-demo"

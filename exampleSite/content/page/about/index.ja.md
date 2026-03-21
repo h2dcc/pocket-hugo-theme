@@ -2,6 +2,7 @@
 title: "概要"
 description: "Pocket Hugo Theme のデモページと使い方を紹介するページです。"
 slug: "about"
+draft: true
 ---
 
 `pocket-hugo-theme` は、個人の長期的な執筆と多言語公開のために設計された Hugo テーマです。

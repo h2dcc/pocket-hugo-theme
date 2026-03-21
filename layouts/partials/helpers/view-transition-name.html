@@ -1,0 +1,22 @@
+{{- $page := . -}}
+{{- if reflect.IsMap . -}}
+  {{- $page = .page -}}
+{{- end -}}
+{{- $base := "" -}}
+{{- with $page.File -}}
+  {{- $base = .Path -}}
+{{- end -}}
+{{- if not $base -}}
+  {{- $base = $page.RelPermalink | default $page.Permalink | default $page.Title -}}
+{{- end -}}
+{{- $base = $base | lower -}}
+{{- $base = replace $base "\\" "-" -}}
+{{- $base = replace $base "/" "-" -}}
+{{- $base = replace $base "." "-" -}}
+{{- $base = replace $base ":" "-" -}}
+{{- $base = replace $base " " "-" -}}
+{{- $base = replaceRE "[^a-z0-9_-]+" "-" $base -}}
+{{- $base = replaceRE "-+" "-" $base -}}
+{{- $base = strings.TrimPrefix "-" $base -}}
+{{- $base = strings.TrimSuffix "-" $base -}}
+{{- return $base -}}

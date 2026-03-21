@@ -1,0 +1,3 @@
+{{- $text := .Get 0 | default (.Get "text") | default "" -}}
+{{- $kind := .Get "type" | default "default" -}}
+<span class="shortcode-badge shortcode-badge--{{ $kind }}">{{ $text | markdownify }}</span>

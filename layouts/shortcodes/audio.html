@@ -1,0 +1,9 @@
+{{- $src := .Get "src" | default (.Get 0) -}}
+{{- $title := .Get "title" | default "" -}}
+<figure class="shortcode-media shortcode-media--audio">
+  {{ with $title }}<div class="shortcode-audio__title">{{ . }}</div>{{ end }}
+  <audio controls preload="metadata">
+    <source src="{{ $src }}">
+  </audio>
+  {{ with .Inner }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

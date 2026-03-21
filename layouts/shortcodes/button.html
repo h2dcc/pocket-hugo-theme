@@ -1,0 +1,4 @@
+{{- $href := .Get "href" | default (.Get 0) | default "#" -}}
+{{- $label := .Get "label" | default (.Get 1) | default "Open" -}}
+{{- $style := .Get "style" | default "primary" -}}
+<a class="shortcode-button shortcode-button--{{ $style }}" href="{{ $href }}">{{ $label | markdownify }}</a>

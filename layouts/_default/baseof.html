@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <title>{{ partial "helpers/title.html" . }}</title>
+    {{ partial "helpers/color-scheme.html" . }}
+    {{ if .Site.Params.viewTransitions }}
+        <style>
+            :root {
+                --vt-light-bg: #f4f6f8;
+                --vt-dark-bg: #0f1623;
+                --vt-light-text: #243041;
+                --vt-dark-text: #e6edf7;
+            }
+            html {
+                background: var(--vt-light-bg);
+            }
+            html[data-theme="dark"] {
+                background: var(--vt-dark-bg);
+            }
+            body {
+                margin: 0;
+                background: inherit;
+                color: var(--vt-light-text);
+            }
+            html[data-theme="dark"] body {
+                color: var(--vt-dark-text);
+            }
+            @view-transition {
+                navigation: auto;
+            }
+            ::view-transition-group(root),
+            ::view-transition-old(root),
+            ::view-transition-new(root) {
+                background: inherit;
+            }
+        </style>
+    {{ end }}
     {{ $favicon := .Site.Params.favicon | default "/img/logo-default.svg" }}
     {{ $faviconType := "image/x-icon" }}
     {{ if hasSuffix $favicon ".svg" }}
@@ -20,6 +53,9 @@
     <meta name="theme-color" content="#0f1623" media="(prefers-color-scheme: dark)">
     {{ partial "helpers/seo.html" . }}
     {{ with resources.Get "css/main.css" }}
+        {{ if $.Site.Params.viewTransitions }}
+            <link rel="preload" href="{{ .RelPermalink }}" as="style">
+        {{ end }}
         <link rel="stylesheet" href="{{ .RelPermalink }}">
     {{ end }}
     {{ range .AlternativeOutputFormats }}
@@ -27,7 +63,6 @@
     {{ end }}
 </head>
 <body class="{{ block `body-class` . }}{{ end }}">
-    {{ partial "helpers/color-scheme.html" . }}
     {{ partial "site-header.html" . }}
 
     <div class="site-shell">

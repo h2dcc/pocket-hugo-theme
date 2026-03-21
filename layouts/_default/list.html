@@ -3,6 +3,7 @@
 {{ define "main" }}
     {{ $isTaxonomyPage := or (eq .Data.Plural "categories") (eq .Data.Plural "tags") (eq .Type "categories") (eq .Type "tags") }}
     {{ $isCategoryPage := or (eq .Data.Plural "categories") (eq .Type "categories") }}
+    {{ $listContent := trim .Content " \n\r\t" }}
     <section class="list-page">
         <header class="section-head">
             <p class="section-head__eyebrow">{{ .Section | default .Type }}</p>
@@ -11,6 +12,12 @@
                 {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
             {{ end }}
         </header>
+
+        {{ if and (not $isTaxonomyPage) $listContent }}
+            <div class="article-content section-content">
+                {{ .Content }}
+            </div>
+        {{ end }}
 
         {{ $pages := .RegularPages }}
         {{ if not $pages }}

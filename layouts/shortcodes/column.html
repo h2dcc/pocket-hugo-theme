@@ -1,0 +1,4 @@
+{{- $span := .Get "span" | default "1" -}}
+<div class="shortcode-columns__item shortcode-columns__item--{{ $span }}">
+  {{ .Inner | markdownify }}
+</div>
