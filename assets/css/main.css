@@ -69,11 +69,15 @@ html {
   overflow-y: auto;
   scrollbar-gutter: stable both-edges;
 }
+
+@font-face { font-family: "fix-punct"; src: local("Arial"); unicode-range: U+0027; }
+@font-face { font-family: "confuse-punct"; src: local("SimSun"), local("Songti SC"), local("serif"); unicode-range: U+2018-2019, U+201C-201D, U+FF0C, U+3002, U+FF1B, U+FF1A, U+3001, U+2014; }
+
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 400 1.6rem/1.75 -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", "Helvetica Neue", Arial, sans-serif;
+  font: 400 1.6rem/1.75 "fix-punct", "confuse-punct", system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 html[lang="en"] body,
