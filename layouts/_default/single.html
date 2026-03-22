@@ -3,12 +3,25 @@
 {{ define "main" }}
     {{ $sidebarScope := cond (eq .Type "page") "static" "page" }}
     {{ $transitionBase := partial "helpers/view-transition-name.html" . }}
-    {{ $limitContentImageHeight := .Site.Params.article.limitContentImageHeight | default false }}
-    {{ $contentImageMaxHeight := .Site.Params.article.contentImageMaxHeight | default "320px" }}
-    {{ $articleContentStyle := "" }}
-    {{ if $limitContentImageHeight }}
-        {{ $articleContentStyle = printf "--article-content-image-max-height: %s; --article-content-image-fullwidth-height: %s; --article-content-image-fullwidth-fit: cover;" $contentImageMaxHeight $contentImageMaxHeight }}
+    {{ $contentImageConfig := .Site.Params.images.content | default dict }}
+    {{ $enableImageMaxHeight := $contentImageConfig.enableMaxHeight | default true }}
+    {{ $mobileImageMaxHeight := $contentImageConfig.mobileMaxHeight | default "160px" }}
+    {{ $tabletImageMaxHeight := $contentImageConfig.tabletMaxHeight | default "250px" }}
+    {{ $desktopImageMaxHeight := $contentImageConfig.desktopMaxHeight | default "350px" }}
+    {{ $fullWidthFit := $contentImageConfig.fullWidthFit | default "cover" }}
+    {{ $limitContentImageHeight := $contentImageConfig.limitHeight | default (.Site.Params.article.limitContentImageHeight | default false) }}
+    {{ $contentImageMaxHeight := $contentImageConfig.unifiedMaxHeight | default (.Site.Params.article.contentImageMaxHeight | default "320px") }}
+    {{ if not $enableImageMaxHeight }}
+        {{ $mobileImageMaxHeight = "none" }}
+        {{ $tabletImageMaxHeight = "none" }}
+        {{ $desktopImageMaxHeight = "none" }}
     {{ end }}
+    {{ if $limitContentImageHeight }}
+        {{ $mobileImageMaxHeight = $contentImageMaxHeight }}
+        {{ $tabletImageMaxHeight = $contentImageMaxHeight }}
+        {{ $desktopImageMaxHeight = $contentImageMaxHeight }}
+    {{ end }}
+    {{ $articleContentStyle := printf "--article-content-image-mobile-max-height: %s; --article-content-image-tablet-max-height: %s; --article-content-image-desktop-max-height: %s; --article-content-image-fullwidth-fit: %s;" $mobileImageMaxHeight $tabletImageMaxHeight $desktopImageMaxHeight $fullWidthFit }}
     <article class="article-page">
         <header class="article-page__header">
             {{ with partial "helpers/cover.html" (dict "page" . "variant" "single") }}
@@ -60,7 +73,7 @@
         {{ end }}
 
         <div class="article-page__content">
-            <div class="article-content"{{ with $articleContentStyle }} style="{{ . }}"{{ end }}>
+            <div class="article-content"{{ with $articleContentStyle }} {{ printf "style=%q" . | safeHTMLAttr }}{{ end }}>
                 {{ .Content }}
             </div>
         </div>

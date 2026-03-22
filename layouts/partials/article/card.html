@@ -10,6 +10,7 @@
 {{ $coverVariant := cond (eq $variant "taxonomy") "taxonomy" "card" }}
 {{ $cover := partial "helpers/cover.html" (dict "page" $page "variant" $coverVariant) }}
 {{ $transitionBase := partial "helpers/view-transition-name.html" $page }}
+{{ $showSummary := $page.Site.Params.article.showSummary | default true }}
 {{ $summaryLength := int ($page.Site.Params.summaryLength | default 0) }}
 {{ $summary := "" }}
 {{ with $page.Params.description }}
@@ -29,8 +30,8 @@
 
     <div class="post-card__body">
         <h2 class="post-card__title"{{ if $page.Site.Params.viewTransitions }} style="view-transition-name: title-{{ $transitionBase }};"{{ end }}><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
-        {{ with $summary }}
-            <p class="post-card__excerpt">{{ . }}</p>
+        {{ if and $showSummary $summary }}
+            <p class="post-card__excerpt">{{ $summary }}</p>
         {{ end }}
 
         {{ if $showMeta }}

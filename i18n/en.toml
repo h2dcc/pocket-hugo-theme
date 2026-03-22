@@ -55,6 +55,9 @@ other = "Referenced By"
 [search.title]
 other = "Search"
 
+[search.placeholder]
+other = "Search posts"
+
 [article.tableOfContents]
 other = "Contents"
 

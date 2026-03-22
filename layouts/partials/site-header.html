@@ -25,7 +25,7 @@
                 <a class="main-nav__link" href="{{ .Site.Home.RelPermalink }}">{{ T "nav.home" | default "Home" }}</a>
                 {{ range .Site.Menus.main }}
                     {{ $url := .URL }}
-                    {{ if and (not (in $url "/archives")) (not (in $url "/search")) }}
+                    {{ if and (ne $url $.Site.Home.RelPermalink) (not (in $url "/archives")) (not (in $url "/search")) }}
                         <a class="main-nav__link" href="{{ $url }}" {{ if eq .Params.newTab true }}target="_blank"{{ end }}>{{ .Name }}</a>
                     {{ end }}
                 {{ end }}

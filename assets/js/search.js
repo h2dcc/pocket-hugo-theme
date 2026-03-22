@@ -15,9 +15,11 @@
                         var tags = (item.tags || []).join(' ').toLowerCase();
                         var description = (item.description || '').toLowerCase();
                         var slug = (item.slug || '').toLowerCase();
+                        var content = (item.content || '').toLowerCase();
                         return item.title.toLowerCase().indexOf(keyword) > -1 ||
                             description.indexOf(keyword) > -1 ||
                             slug.indexOf(keyword) > -1 ||
+                            content.indexOf(keyword) > -1 ||
                             categories.indexOf(keyword) > -1 ||
                             tags.indexOf(keyword) > -1;
                     });

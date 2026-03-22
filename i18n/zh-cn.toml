@@ -55,6 +55,9 @@ other = "引用本文"
 [search.title]
 other = "搜索"
 
+[search.placeholder]
+other = "搜索文章"
+
 [article.tableOfContents]
 other = "目录"
 
