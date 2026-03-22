@@ -15,6 +15,6 @@ menu:
     image: pocket-hugo-logo.webp
   - title: Pocket Hugo Theme
     description: 一款适合个人长期写作的图文式主题
-    website: https://github.com/h2dcc/pocket-hugo-theme
+    website: https://theme.leftn.com
     image: pocket-hugo-theme-logo.webp
 {{< /friendlinks >}}

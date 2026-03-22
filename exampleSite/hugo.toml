@@ -180,6 +180,7 @@ copyright = "MIT licensed demo content"
 
   [params.search]
     provider = "local"
+    fullText = false
 
   [params.alpine]
     enabled = true
@@ -216,10 +217,7 @@ copyright = "MIT licensed demo content"
   [params.article]
     backlinks = true
     backlinksLimit = 5
-    # Limit images inside article content.
-    limitContentImageHeight = false
-    # Maximum rendered height for article-content images when the limit is enabled.
-    contentImageMaxHeight = "320px"
+    showSummary = true
     toc = true
     readingTime = true
 
@@ -230,10 +228,17 @@ copyright = "MIT licensed demo content"
     taxonomyFill = "640x300 Center q85"
 
   [params.images.content]
-    # These heights are used by the article image sizing logic and its light DOM classes.
+    # Enable or disable max-height control for inline article images.
+    enableMaxHeight = true
+    # Use one unified height on all breakpoints when enabled.
+    limitHeight = false
+    # Shared height used when limitHeight is true.
+    unifiedMaxHeight = "320px"
+    # Per-breakpoint image height thresholds.
     mobileMaxHeight = "160px"
     tabletMaxHeight = "250px"
     desktopMaxHeight = "350px"
+    # Object-fit used for full-width inline images.
     fullWidthFit = "cover"
 
   [params.images.pipeline]
@@ -359,3 +364,7 @@ copyright = "MIT licensed demo content"
     lineNos = false
     lineNumbersInTable = false
     tabWidth = 4
+
+
+
+

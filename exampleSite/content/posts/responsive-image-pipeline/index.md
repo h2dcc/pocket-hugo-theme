@@ -23,4 +23,5 @@ This article demonstrates the theme's **responsive image pipeline** for inline M
 - consistent image rhythm in article content
 - lightbox behavior when you click the image
 
-This page complements the [Cover Image Demo](/article/cover-image-demo/), which focuses on article headers and card covers instead.
+This page complements the [Image Configuration Reference](/article/image-config-reference/), which focuses on article headers and card covers instead.
+

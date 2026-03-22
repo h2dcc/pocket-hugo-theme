@@ -396,7 +396,7 @@ html[data-theme=dark] .header-tool--toggle svg:last-of-type { display: inline-bl
   width: auto;
   max-width: 100%;
   height: auto;
-  max-height: var(--article-content-image-max-height, none);
+  max-height: var(--article-content-image-desktop-max-height, none);
   transition: transform 0.2s ease;
 }
 .article-content .article-image.article-image--natural {
@@ -408,8 +408,8 @@ html[data-theme=dark] .header-tool--toggle svg:last-of-type { display: inline-bl
 }
 .article-content .article-image.article-image--fullwidth .article-image__link img {
   width: 100%;
-  height: var(--article-content-image-fullwidth-height, auto);
-  max-height: var(--article-content-image-max-height, none);
+  height: var(--article-content-image-desktop-max-height, auto);
+  max-height: var(--article-content-image-desktop-max-height, none);
   object-fit: var(--article-content-image-fullwidth-fit, initial);
 }
 .article-content .article-image__link:hover img {
@@ -1441,11 +1441,11 @@ html[data-theme=dark] .header-tool--toggle svg:last-of-type { display: inline-bl
   }
 
   .article-content .article-image__link img {
-    max-height: var(--article-content-image-max-height, none);
+    max-height: var(--article-content-image-mobile-max-height, none);
   }
 
   .article-content .article-image.article-image--fullwidth .article-image__link img {
-    height: var(--article-content-image-fullwidth-height, auto);
+    height: var(--article-content-image-mobile-max-height, auto);
   }
 
   .image-lightbox {
@@ -1493,11 +1493,11 @@ html[data-theme=dark] .header-tool--toggle svg:last-of-type { display: inline-bl
 
 @media (min-width: 768px) and (max-width: 1023.98px) {
   .article-content .article-image__link img {
-    max-height: var(--article-content-image-max-height, none);
+    max-height: var(--article-content-image-tablet-max-height, none);
   }
 
   .article-content .article-image.article-image--fullwidth .article-image__link img {
-    height: var(--article-content-image-fullwidth-height, auto);
+    height: var(--article-content-image-tablet-max-height, auto);
   }
 }
 

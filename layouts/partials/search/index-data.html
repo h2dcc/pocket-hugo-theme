@@ -1,6 +1,7 @@
 {{- $mainSections := .Site.MainSections | default (slice "post" "posts") -}}
 {{- $pages := where .Site.RegularPages "Type" "in" $mainSections -}}
 {{- $pages = where $pages "Params.hidden" "!=" true -}}
+{{- $fullText := .Site.Params.search.fullText | default false -}}
 [
 {{- range $index, $page := $pages -}}
     {{- $categories := slice -}}
@@ -17,6 +18,7 @@
         "permalink": {{ $page.RelPermalink | jsonify }},
         "description": {{ ($page.Description | default "") | jsonify }},
         "slug": {{ ($page.Params.slug | default "") | jsonify }},
+        "content": {{ cond $fullText ($page.Plain | default "") "" | jsonify }},
         "categories": {{ $categories | jsonify }},
         "tags": {{ $tags | jsonify }}
     }
