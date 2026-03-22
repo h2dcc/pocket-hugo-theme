@@ -19,6 +19,6 @@ This page demonstrates the built-in `friendlinks` shortcode with bilingual copy.
     image: pocket-hugo-logo.webp
   - title: Pocket Hugo Theme
     description: A cover-driven theme for long-term personal writing
-    website: https://github.com/h2dcc/pocket-hugo-theme
+    website: https://theme.leftn.com
     image: pocket-hugo-theme-logo.webp
 {{< /friendlinks >}}

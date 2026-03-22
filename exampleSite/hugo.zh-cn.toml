@@ -212,6 +212,8 @@ copyright = "MIT licensed demo content"
   [params.search]
     # 搜索提供方，当前使用内置 JSON 搜索。
     provider = "local"
+    # 是否把正文全文也写入搜索索引。
+    fullText = false
 
   [params.alpine]
     # 是否全局加载 Alpine.js，方便自定义轻交互小组件。
@@ -224,10 +226,12 @@ copyright = "MIT licensed demo content"
   articleWords = true
 
   [params.article]
-    # 是否限制正文图片显示高度。
-    limitContentImageHeight = false
-    # 开启限制后，正文图片允许显示的最大高度。
-    contentImageMaxHeight = "320px"
+    # 是否启用 backlinks 反链。
+    backlinks = true
+    # 反链最多展示多少条。
+    backlinksLimit = 5
+    # 列表页是否显示摘要。
+    showSummary = true
     # 是否显示文章目录。
     toc = true
     # 是否显示预计阅读时长。
@@ -240,6 +244,12 @@ copyright = "MIT licensed demo content"
     taxonomyFill = "640x300 Center q85"
 
   [params.images.content]
+    # 是否启用正文图片限高逻辑。
+    enableMaxHeight = true
+    # 是否一键统一手机、平板、桌面三端高度。
+    limitHeight = false
+    # 开启统一高度后使用的值。
+    unifiedMaxHeight = "320px"
     # 正文图片在不同端上的显示高度阈值。
     mobileMaxHeight = "160px"
     tabletMaxHeight = "250px"
@@ -363,3 +373,6 @@ icon = "rss"
   taxonomy = ["HTML", "RSS"]
   term = ["HTML", "RSS"]
   page = ["HTML"]
+
+
+
