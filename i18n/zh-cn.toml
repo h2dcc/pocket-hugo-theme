@@ -58,6 +58,33 @@ other = "搜索"
 [search.placeholder]
 other = "搜索文章"
 
+[palette.title]
+other = "配色"
+
+[palette.goldenSummerFields]
+other = "金色夏野"
+
+[palette.softPastelShades]
+other = "柔雾粉彩"
+
+[palette.blackGoldElegance]
+other = "黑金雅韵"
+
+[palette.freshGreens]
+other = "新鲜绿意"
+
+[palette.lightSteel]
+other = "浅钢银"
+
+[palette.deepSeaBlue]
+other = "深海蓝"
+
+[palette.morandiMist]
+  other = "莫兰迪雾"
+
+[palette.monochromeCore]
+  other = "纯黑白灰"
+
 [article.tableOfContents]
 other = "目录"
 

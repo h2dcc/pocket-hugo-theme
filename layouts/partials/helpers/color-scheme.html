@@ -1,21 +1,34 @@
 <script>
     (function () {
         var key = 'StackColorScheme';
+        var paletteKey = 'PocketPalettePreset';
         var media = window.matchMedia('(prefers-color-scheme: dark)');
+        var defaultTheme = {{ printf "%q" (.Site.Params.colorScheme.default | default "auto") | safeJS }};
+        var defaultPalette = {{ printf "%q" (.Site.Params.colorScheme.preset | default "golden-summer-fields") | safeJS }};
+        var validPalettes = ['golden-summer-fields', 'soft-pastel-shades', 'black-gold-elegance', 'fresh-greens', 'light-steel', 'deep-sea-blue', 'morandi-mist', 'monochrome-core'];
         var stored = null;
+        var storedPalette = null;
 
         try {
             stored = localStorage.getItem(key);
+            storedPalette = localStorage.getItem(paletteKey);
         } catch (e) {
             stored = null;
+            storedPalette = null;
         }
 
         var resolved = stored === 'dark' || stored === 'light'
             ? stored
-            : (media.matches ? 'dark' : 'light');
+            : ((defaultTheme === 'dark' || defaultTheme === 'light')
+                ? defaultTheme
+                : (media.matches ? 'dark' : 'light'));
+        var resolvedPalette = validPalettes.indexOf(storedPalette) > -1
+            ? storedPalette
+            : (validPalettes.indexOf(defaultPalette) > -1 ? defaultPalette : 'golden-summer-fields');
 
         document.documentElement.dataset.theme = resolved;
         document.documentElement.dataset.scheme = resolved;
+        document.documentElement.dataset.palette = resolvedPalette;
         document.documentElement.style.colorScheme = resolved;
     })();
 </script>

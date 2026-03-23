@@ -1,5 +1,13 @@
+{{- $layoutMode := .Site.Params.layout.listMode | default "double" -}}
+{{- if or (eq $layoutMode "single") (eq $layoutMode "compact") -}}
+    {{- $layoutMode = "single" -}}
+{{- else -}}
+    {{- $layoutMode = "double" -}}
+{{- end -}}
+{{- $contentWidth := cond (eq $layoutMode "single") "1080px" "1320px" -}}
+{{- $defaultPalette := .Site.Params.colorScheme.preset | default "golden-summer-fields" -}}
 <!DOCTYPE html>
-<html lang="{{ .Language.Lang | default .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}">
+<html lang="{{ .Language.Lang | default .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}" data-layout-mode="{{ $layoutMode }}" data-palette="{{ $defaultPalette }}" {{ printf "style=%q" (printf "--content-width:%s;" $contentWidth) | safeHTMLAttr }}>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -55,7 +55,32 @@
         <div class="header-tools">
             {{ partial "helpers/translation-toggle.html" (dict "page" .Site.Home "variant" "header") }}
 
-            {{ if (default false .Site.Params.colorScheme.toggle) }}
+            {{ if (or (.Site.Params.colorScheme.showPicker | default false) (.Site.Params.colorScheme.showPalettePicker | default false)) }}
+                <details class="palette-picker translation-toggle__menu" data-palette-picker>
+                    <summary class="header-tool header-tool--icon translation-toggle__summary" aria-label="{{ T "palette.title" | default "Color palette" }}">
+                        {{ partial "helpers/icon.html" "palette" }}
+                    </summary>
+                    <div class="palette-picker__dropdown translation-toggle__dropdown">
+                        {{ range (slice
+                            (dict "value" "golden-summer-fields" "label" (T "palette.goldenSummerFields" | default "Golden Summer Fields"))
+                            (dict "value" "soft-pastel-shades" "label" (T "palette.softPastelShades" | default "Soft Pastel Shades"))
+                            (dict "value" "black-gold-elegance" "label" (T "palette.blackGoldElegance" | default "Black & Gold Elegance"))
+                            (dict "value" "fresh-greens" "label" (T "palette.freshGreens" | default "Fresh Greens"))
+                            (dict "value" "light-steel" "label" (T "palette.lightSteel" | default "Light Steel"))
+                            (dict "value" "deep-sea-blue" "label" (T "palette.deepSeaBlue" | default "Deep Sea Blue"))
+                            (dict "value" "morandi-mist" "label" (T "palette.morandiMist" | default "Morandi Mist"))
+                            (dict "value" "monochrome-core" "label" (T "palette.monochromeCore" | default "Monochrome Core"))
+                        ) }}
+                            <button class="palette-picker__option palette-picker__option--{{ .value }}" type="button" data-palette-value="{{ .value }}" aria-label="{{ .label }}" title="{{ .label }}">
+                                <span class="palette-picker__swatch" aria-hidden="true"></span>
+                                <span class="visually-hidden">{{ .label }}</span>
+                            </button>
+                        {{ end }}
+                    </div>
+                </details>
+            {{ end }}
+
+            {{ if (or (.Site.Params.colorScheme.toggle | default false) (.Site.Params.colorSchemeToggle | default false)) }}
                 <button class="header-tool header-tool--toggle" id="dark-mode-toggle" type="button" data-toggle-color-scheme>
                     {{ partial "helpers/icon.html" "toggle-left" }}
                     {{ partial "helpers/icon.html" "toggle-right" }}

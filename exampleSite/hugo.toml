@@ -283,8 +283,20 @@ copyright = "MIT licensed demo content"
       # jsUrl = "https://cdn.jsdelivr.net/npm/twikoo@1.7.3/dist/twikoo.min.js"
 
   [params.colorScheme]
+    # Show the light/dark mode switch in the header.
     toggle = true
+    # Use "auto" to follow the system, or force "light" / "dark".
     default = "auto"
+    # Available presets:
+    # golden-summer-fields, soft-pastel-shades, black-gold-elegance,
+    # fresh-greens, light-steel, deep-sea-blue, morandi-mist, monochrome-core
+    preset = "morandi-mist"
+    # Show the palette preview picker in the header.
+    showPicker = true
+
+  [params.layout]
+    # double = 1320px wide list layout, single = 1080px wide list layout
+    listMode = "double"
 
   [params.widgets]
     homepage = [

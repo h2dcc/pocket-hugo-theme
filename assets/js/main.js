@@ -1,7 +1,10 @@
 (function () {
     var toggle = document.querySelector('[data-toggle-color-scheme]');
     var key = 'StackColorScheme';
+    var paletteKey = 'PocketPalettePreset';
     var media = window.matchMedia('(prefers-color-scheme: dark)');
+    var paletteOptions = ['golden-summer-fields', 'soft-pastel-shades', 'black-gold-elegance', 'fresh-greens', 'light-steel', 'deep-sea-blue', 'morandi-mist', 'monochrome-core'];
+    var paletteButtons = Array.prototype.slice.call(document.querySelectorAll('[data-palette-value]'));
     function getStoredTheme() {
         try {
             return localStorage.getItem(key);
@@ -14,10 +17,30 @@
             localStorage.setItem(key, value);
         } catch (e) {}
     }
+    function getStoredPalette() {
+        try {
+            return localStorage.getItem(paletteKey);
+        } catch (e) {
+            return null;
+        }
+    }
+    function setStoredPalette(value) {
+        try {
+            localStorage.setItem(paletteKey, value);
+        } catch (e) {}
+    }
     function applyTheme(theme) {
         document.documentElement.dataset.theme = theme;
         document.documentElement.dataset.scheme = theme;
         document.documentElement.style.colorScheme = theme;
+    }
+    function applyPalette(palette) {
+        document.documentElement.dataset.palette = palette;
+        paletteButtons.forEach(function (button) {
+            var active = button.getAttribute('data-palette-value') === palette;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
     }
     function resolveTheme() {
         var stored = getStoredTheme();
@@ -25,6 +48,14 @@
             return stored;
         }
         return media.matches ? 'dark' : 'light';
+    }
+    function resolvePalette() {
+        var stored = getStoredPalette();
+        if (paletteOptions.indexOf(stored) > -1) {
+            return stored;
+        }
+        var fallback = document.documentElement.dataset.palette || 'golden-summer-fields';
+        return paletteOptions.indexOf(fallback) > -1 ? fallback : 'golden-summer-fields';
     }
     if (toggle) {
         toggle.addEventListener('click', function () {
@@ -45,6 +76,17 @@
     } else if (media.addListener) {
         media.addListener(onMediaChange);
     }
+    paletteButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var palette = button.getAttribute('data-palette-value');
+            if (paletteOptions.indexOf(palette) === -1) return;
+            setStoredPalette(palette);
+            applyPalette(palette);
+            var details = button.closest('details');
+            if (details) details.open = false;
+        });
+    });
+    applyPalette(resolvePalette());
 
     document.querySelectorAll('.article-content pre').forEach(function (block) {
         var wrapper = block.parentElement;

@@ -58,6 +58,33 @@ other = "Search"
 [search.placeholder]
 other = "Search posts"
 
+[palette.title]
+other = "Color palette"
+
+[palette.goldenSummerFields]
+other = "Golden Summer Fields"
+
+[palette.softPastelShades]
+other = "Soft Pastel Shades"
+
+[palette.blackGoldElegance]
+other = "Black & Gold Elegance"
+
+[palette.freshGreens]
+other = "Fresh Greens"
+
+[palette.lightSteel]
+other = "Light Steel"
+
+[palette.deepSeaBlue]
+other = "Deep Sea Blue"
+
+[palette.morandiMist]
+  other = "Morandi Mist"
+
+[palette.monochromeCore]
+  other = "Monochrome Core"
+
 [article.tableOfContents]
 other = "Contents"
 
