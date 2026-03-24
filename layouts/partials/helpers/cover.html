@@ -8,6 +8,13 @@
 {{ $result := dict "exists" false "permalink" nil "srcset" "" "sizes" "" "width" 0 "height" 0 }}
 {{ $imageField := default "image" $page.Site.Params.featuredImageField }}
 {{ $imageValue := index $page.Params $imageField }}
+{{ $useDefaultCover := $page.Site.Params.images.cover.useDefault | default false }}
+{{ $defaultCover := $page.Site.Params.images.cover.default | default "" }}
+{{ $useFill := $page.Site.Params.images.cover.useFill | default true }}
+
+{{ if and (not $imageValue) $useDefaultCover $defaultCover }}
+    {{ $imageValue = $defaultCover }}
+{{ end }}
 
 {{ if $imageValue }}
     {{ $url := urls.Parse $imageValue }}
@@ -16,7 +23,7 @@
     {{ else }}
         {{ $resource := $page.Resources.GetMatch (printf "%s" ($imageValue | safeURL)) }}
         {{ if $resource }}
-            {{ if or (eq $variant "card") (eq $variant "taxonomy") }}
+            {{ if and $useFill (or (eq $variant "card") (eq $variant "taxonomy")) }}
                 {{ $fillSpec := $page.Site.Params.images.cover.cardFill | default "640x300 Center q85" }}
                 {{ if eq $variant "taxonomy" }}
                     {{ $fillSpec = $page.Site.Params.images.cover.taxonomyFill | default $fillSpec }}

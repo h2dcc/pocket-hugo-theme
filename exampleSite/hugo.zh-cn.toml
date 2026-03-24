@@ -2,7 +2,7 @@
 baseURL = "https://example.org/"
 
 # 网站标题，会显示在页头、浏览器标题和订阅信息里。
-title = "Pocket Notes"
+title = "Pocket Hugo"
 
 # 主题目录名称。
 theme = "pocket-hugo-theme"
@@ -61,7 +61,7 @@ copyright = "MIT licensed demo content"
     languageName = "简体中文"
     languageCode = "zh-CN"
     weight = 1
-    title = "Pocket Notes"
+    title = "Pocket Hugo"
     contentDir = "content"
 
     [languages.zh-cn.params]
@@ -74,7 +74,7 @@ copyright = "MIT licensed demo content"
     languageName = "English"
     languageCode = "en-US"
     weight = 2
-    title = "Pocket Notes"
+    title = "Pocket Hugo"
     contentDir = "content"
 
     [languages.en.params]
@@ -87,7 +87,7 @@ copyright = "MIT licensed demo content"
     languageName = "Japanese"
     languageCode = "ja-JP"
     weight = 3
-    title = "Pocket Notes 日本語"
+    title = "Pocket Hugo 日本語"
     contentDir = "content"
 
     [languages.ja.params]
@@ -99,7 +99,7 @@ copyright = "MIT licensed demo content"
     languageName = "Spanish"
     languageCode = "es-ES"
     weight = 4
-    title = "Pocket Notes Español"
+    title = "Pocket Hugo Español"
     contentDir = "content"
 
     [languages.es.params]
@@ -112,7 +112,7 @@ copyright = "MIT licensed demo content"
     languageName = "French"
     languageCode = "fr-FR"
     weight = 5
-    title = "Pocket Notes Français"
+    title = "Pocket Hugo Français"
     contentDir = "content"
 
     [languages.fr.params]
@@ -207,17 +207,38 @@ copyright = "MIT licensed demo content"
   footer = "Built with Hugo"
 
   # 首页卡片默认摘要长度。
+  # 设为 0 表示不截断，摘要会完整显示，不是“长度为 0”。
   summaryLength = 0
 
   [params.search]
-    # 搜索提供方，当前使用内置 JSON 搜索。
-    provider = "local"
-    # 是否把正文全文也写入搜索索引。
-    fullText = false
+      # 搜索提供方，当前使用内置 JSON 搜索。
+      provider = "local"
+      # 是否把正文全文也写入搜索索引。
+      fullText = false
+
+  [params.seo]
+      # 可选站点副标题，可用于标题结构。
+      tagline = "一款适合个人长期写作的图文式主题"
+      # 首页元描述，用于搜索引擎和社交平台摘要。
+      homeDescription = "Pocket Hugo Theme 是一款适合长文写作、说说流、友链页与多语言个人站的图文式 Hugo 主题。"
+      # SEO 描述的最大长度。
+      descriptionLength = 180
+      # 页面标题结构中使用的分隔符。
+      separator = " · "
+
+      [params.seo.title]
+        # 可用占位符：
+        # [site_name] [tagline] [separator]
+        # [post_title] [page_title] [group_title] [archive_title]
+        home = "[site_name]"
+        post = "[post_title][separator][site_name]"
+        page = "[page_title][separator][site_name]"
+        group = "[group_title][separator][site_name]"
+        archive = "[archive_title][separator][site_name]"
 
   [params.alpine]
-    # 是否全局加载 Alpine.js，方便自定义轻交互小组件。
-    enabled = true
+      # 是否全局加载 Alpine.js，方便自定义轻交互小组件。
+      enabled = true
 
   # 是否在文章页显示预计阅读时长。
   readingTime = true
@@ -226,22 +247,35 @@ copyright = "MIT licensed demo content"
   articleWords = true
 
   [params.article]
-    # 是否启用 backlinks 反链。
-    backlinks = true
-    # 反链最多展示多少条。
-    backlinksLimit = 5
-    # 列表页是否显示摘要。
-    showSummary = true
-    # 是否显示文章目录。
-    toc = true
-    # 是否显示预计阅读时长。
-    readingTime = true
+      # 是否启用 backlinks 反链。
+      backlinks = true
+      # 反链最多展示多少条。
+      backlinksLimit = 5
+      # 列表页是否显示摘要。
+      # 这里只影响首页、归档、分类、标签等文章卡片。
+      showListSummary = true
+      # 文章页标题下方是否显示 description。
+      # 这里只影响文章内页本身，不影响首页和列表页摘要。
+      showPageDescription = true
+      # 是否显示文章目录。
+      toc = true
+      # 是否显示预计阅读时长。
+      readingTime = true
 
   [params.images.cover]
-    # 首页和文章卡片封面使用的 Hugo Fill 规格。
-    cardFill = "640x300 Center q85"
-    # 分类、标签等列表页封面使用的 Hugo Fill 规格。
-    taxonomyFill = "640x300 Center q85"
+        # 列表页封面是否使用 Hugo Fill 裁切。
+        # 设为 false 时会尽量保留原图，不再生成裁切后的封面。
+        useFill = false
+        # 首页和文章卡片封面使用的 Hugo Fill 规格。
+        cardFill = "640x300 Center q85"
+        # 分类、标签等列表页封面使用的 Hugo Fill 规格。
+        taxonomyFill = "640x300 Center q85"
+        # og:image 和 twitter:image 使用的封面变体，常用 card 或 single。
+        openGraphVariant = "card"
+        # 当文章没有设置封面图时，是否启用默认封面。
+        useDefault = false
+        # 默认封面图地址，可写本地路径或远程链接。
+        default = "/img/default-cover.webp"
 
   [params.images.content]
     # 是否启用正文图片限高逻辑。
@@ -294,10 +328,10 @@ copyright = "MIT licensed demo content"
 
   # 评论系统选项。
   [params.comments]
-    # 是否全局启用评论。
-    enabled = true
-    # 支持的评论提供方："giscus" 或 "twikoo"。
-    provider = "twikoo"
+      # 是否全局启用评论。
+      enabled = true
+      # 支持的评论提供方："giscus"、"twikoo" 或 "custom"。
+      provider = "twikoo"
 
     [params.comments.giscus]
       # repo = "owner/repo"

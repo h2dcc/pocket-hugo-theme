@@ -2,7 +2,7 @@
 baseURL = "https://example.org/"
 
 # Site title shown in the header, browser title, and feeds.
-title = "Pocket Notes"
+title = "Pocket Hugo"
 
 # Theme folder name.
 theme = "pocket-hugo-theme"
@@ -62,7 +62,7 @@ copyright = "MIT licensed demo content"
 # English language settings.
 [languages.en]
   languageName = "English"
-  title = "Pocket Notes"
+  title = "Pocket Hugo"
   weight = 1
 
 [languages.en.params.sidebar]
@@ -71,7 +71,7 @@ copyright = "MIT licensed demo content"
 # Chinese language settings.
 [languages.zh-cn]
   languageName = "Chinese"
-  title = "Pocket Notes"
+  title = "Pocket Hugo"
   weight = 2
 
 [languages.zh-cn.params.sidebar]
@@ -80,7 +80,7 @@ copyright = "MIT licensed demo content"
 # Japanese language settings.
 [languages.ja]
   languageName = "Japanese"
-  title = "Pocket Notes"
+  title = "Pocket Hugo"
   weight = 3
 
 [languages.ja.params.sidebar]
@@ -88,7 +88,7 @@ copyright = "MIT licensed demo content"
 # Spanish language settings.
 [languages.es]
   languageName = "Spanish"
-  title = "Pocket Notes"
+  title = "Pocket Hugo"
   weight = 4
 
 [languages.es.params.sidebar]
@@ -97,7 +97,7 @@ copyright = "MIT licensed demo content"
 # French language settings.
 [languages.fr]
   languageName = "French"
-  title = "Pocket Notes"
+  title = "Pocket Hugo"
   weight = 5
 
 [languages.fr.params.sidebar]
@@ -171,6 +171,8 @@ copyright = "MIT licensed demo content"
   featuredImageField = "image"
   favicon = "/img/logo-default.png"
   appleTouchIcon = "/img/logo-default.png"
+  # Summary length for homepage and list cards.
+  # Set to 0 to disable truncation and show the full summary instead.
   summaryLength = 0
   articleWords = true
   backToTop = true
@@ -181,6 +183,26 @@ copyright = "MIT licensed demo content"
   [params.search]
     provider = "local"
     fullText = false
+
+  [params.seo]
+    # Optional tagline used by title patterns.
+    tagline = "A cover-driven theme for long-term personal writing"
+    # Homepage meta description used by search engines and social previews.
+    homeDescription = "Pocket Hugo Theme is a multilingual, cover-driven Hugo theme for long-form writing, talks, links, and calm personal publishing."
+    # Maximum description length for SEO meta output.
+    descriptionLength = 180
+    # Separator string used by title patterns.
+    separator = " · "
+
+    [params.seo.title]
+      # Available placeholders:
+      # [site_name] [tagline] [separator]
+      # [post_title] [page_title] [group_title] [archive_title]
+      home = "[site_name]"
+      post = "[post_title][separator][site_name]"
+      page = "[page_title][separator][site_name]"
+      group = "[group_title][separator][site_name]"
+      archive = "[archive_title][separator][site_name]"
 
   [params.alpine]
     enabled = true
@@ -217,15 +239,27 @@ copyright = "MIT licensed demo content"
   [params.article]
     backlinks = true
     backlinksLimit = 5
-    showSummary = true
+    # Whether article lists render excerpts below titles.
+    showListSummary = true
+    # Whether single article/page headers render .Description below the title.
+    showPageDescription = true
     toc = true
     readingTime = true
 
   [params.images.cover]
-    # Hugo Fill spec used for homepage and card covers.
-    cardFill = "640x300 Center q85"
-    # Hugo Fill spec used for taxonomy cards.
-    taxonomyFill = "640x300 Center q85"
+      # Whether homepage/list covers should use Hugo Fill cropping.
+      # Set to false to keep the original image instead of generating a cropped cover.
+      useFill = false
+      # Hugo Fill spec used for homepage and card covers.
+      cardFill = "640x300 Center q85"
+      # Hugo Fill spec used for taxonomy cards.
+      taxonomyFill = "640x300 Center q85"
+      # Variant used for og:image and twitter:image. Usually "card" or "single".
+      openGraphVariant = "card"
+      # Use a fallback cover image when a post does not define one.
+      useDefault = true
+      # Local path or remote URL for the fallback cover image.
+      default = "/img/default-cover.webp"
 
   [params.images.content]
     # Enable or disable max-height control for inline article images.
@@ -259,10 +293,10 @@ copyright = "MIT licensed demo content"
     headerSelectThreshold = 3
 
   [params.comments]
-    # Enable comments globally. The example site keeps Twikoo on so the demo can show a real comment area.
-    enabled = true
-    # Supported providers: "giscus" or "twikoo".
-    provider = "twikoo"
+      # Enable comments globally. The example site keeps Twikoo on so the demo can show a real comment area.
+      enabled = true
+      # Supported providers: "giscus", "twikoo", or "custom".
+      provider = "twikoo"
 
     [params.comments.giscus]
       # repo = "owner/repo"

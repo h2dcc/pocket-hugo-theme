@@ -3,6 +3,7 @@
 {{ define "main" }}
     {{ $sidebarScope := cond (eq .Type "page") "static" "page" }}
     {{ $transitionBase := partial "helpers/view-transition-name.html" . }}
+    {{ $showPageDescription := .Site.Params.article.showPageDescription | default true }}
     {{ $contentImageConfig := .Site.Params.images.content | default dict }}
     {{ $enableImageMaxHeight := $contentImageConfig.enableMaxHeight | default true }}
     {{ $mobileImageMaxHeight := $contentImageConfig.mobileMaxHeight | default "160px" }}
@@ -62,7 +63,9 @@
                     {{ end }}
                     {{ partial "helpers/translation-toggle.html" . }}
                 </div>
-                {{ with .Description }}<blockquote class="article-page__description">{{ . }}</blockquote>{{ end }}
+                {{ if $showPageDescription }}
+                    {{ with .Description }}<blockquote class="article-page__description">{{ . }}</blockquote>{{ end }}
+                {{ end }}
             </div>
         </header>
 

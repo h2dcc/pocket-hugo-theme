@@ -62,12 +62,14 @@
     <meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f1623" media="(prefers-color-scheme: dark)">
     {{ partial "helpers/seo.html" . }}
+    {{ partial "custom/fonts.html" . }}
     {{ with resources.Get "css/main.css" }}
         {{ if $.Site.Params.viewTransitions }}
             <link rel="preload" href="{{ .RelPermalink }}" as="style">
         {{ end }}
         <link rel="stylesheet" href="{{ .RelPermalink }}">
     {{ end }}
+    {{ partial "custom/css.html" . }}
     {{ range .AlternativeOutputFormats }}
         <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
     {{ end }}

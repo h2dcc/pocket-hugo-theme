@@ -1,0 +1,31 @@
+{{- $page := . -}}
+{{- $seo := $page.Site.Params.seo | default dict -}}
+{{- $titleConfig := $seo.title | default dict -}}
+{{- $siteName := $page.Site.Title -}}
+{{- $tagline := $seo.tagline | default ($page.Site.Params.sidebar.subtitle | default "") -}}
+{{- $separator := $seo.separator | default " · " -}}
+{{- $pattern := "[page_title][separator][site_name]" -}}
+
+{{- if $page.IsHome -}}
+    {{- $pattern = $titleConfig.home | default "[site_name]" -}}
+{{- else if and $page.IsPage (ne $page.Type "page") -}}
+    {{- $pattern = $titleConfig.post | default "[post_title][separator][site_name]" -}}
+{{- else if $page.IsPage -}}
+    {{- $pattern = $titleConfig.page | default "[page_title][separator][site_name]" -}}
+{{- else if or (eq $page.Kind "taxonomy") (eq $page.Kind "term") -}}
+    {{- $pattern = $titleConfig.group | default "[group_title][separator][site_name]" -}}
+{{- else -}}
+    {{- $pattern = $titleConfig.archive | default "[archive_title][separator][site_name]" -}}
+{{- end -}}
+
+{{- $resolved := $pattern -}}
+{{- $resolved = replace $resolved "[site_name]" $siteName -}}
+{{- $resolved = replace $resolved "[tagline]" $tagline -}}
+{{- $resolved = replace $resolved "[separator]" $separator -}}
+{{- $resolved = replace $resolved "[post_title]" $page.Title -}}
+{{- $resolved = replace $resolved "[page_title]" $page.Title -}}
+{{- $resolved = replace $resolved "[group_title]" $page.Title -}}
+{{- $resolved = replace $resolved "[archive_title]" $page.Title -}}
+{{- $resolved = replaceRE `\s{2,}` " " $resolved -}}
+{{- $resolved = replaceRE `(^\s*[·|/-]+\s*)|(\s*[·|/-]+\s*$)` "" $resolved -}}
+{{- return strings.TrimSpace $resolved -}}

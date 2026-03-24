@@ -10,7 +10,7 @@
 {{ $coverVariant := cond (eq $variant "taxonomy") "taxonomy" "card" }}
 {{ $cover := partial "helpers/cover.html" (dict "page" $page "variant" $coverVariant) }}
 {{ $transitionBase := partial "helpers/view-transition-name.html" $page }}
-{{ $showSummary := $page.Site.Params.article.showSummary | default true }}
+{{ $showSummary := $page.Site.Params.article.showListSummary | default ($page.Site.Params.article.showSummary | default true) }}
 {{ $summaryLength := int ($page.Site.Params.summaryLength | default 0) }}
 {{ $summary := "" }}
 {{ with $page.Params.description }}

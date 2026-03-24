@@ -5,5 +5,7 @@
         {{ partial "comments/giscus.html" $page }}
     {{ else if eq $provider "twikoo" }}
         {{ partial "comments/twikoo.html" $page }}
+    {{ else if eq $provider "custom" }}
+        {{ partial "custom/comments.html" $page }}
     {{ end }}
 {{ end }}

@@ -1,5 +1,1 @@
-{{ if .IsHome }}
-    {{ .Site.Title }}
-{{ else }}
-    {{ printf "%s · %s" .Title .Site.Title }}
-{{ end }}
+{{ partial "helpers/seo-title-resolve.html" . }}

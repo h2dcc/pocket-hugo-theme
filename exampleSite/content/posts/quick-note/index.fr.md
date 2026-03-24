@@ -1,5 +1,4 @@
 ---
-image: cover.webp
 title: "Exemple Markdown"
 description: "Une courte page pour vérifier le rendu des éléments Markdown en français."
 date: 2026-03-19T09:15:00+08:00
