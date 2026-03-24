@@ -229,9 +229,18 @@ Example:
   - Variant used for `og:image` and `twitter:image`.
   - Usually `card` for a cropped social image, or `single` for the uncropped article cover.
 - `useDefault`
-  - Use a fallback cover image when the current post or page does not define one.
+- `listTitle`
+  - Whether generated gradient cards on homepage, taxonomy, archive, and other list pages show the outer title.
+  - This site-level switch only affects generated gradient cards, not normal image covers.
+- `fallbackMode`
+  - Fallback cover mode when the current post or page does not define one.
+  - Use `image` for a normal default image, or `gradient` for a generated title card.
+- `openGraphUseDefault`
+  - When the page has no own image, still use `default` as `og:image` / `twitter:image`.
+- `defaultMode`
+  - Legacy alias kept for backward compatibility.
 - `default`
-  - Local path or remote URL for the fallback cover image.
+  - Local path or remote URL for the fallback cover image when `fallbackMode = "image"`.
 
 Example:
 
@@ -241,9 +250,41 @@ Example:
   cardFill = "640x300 Center q85"
   taxonomyFill = "640x300 Center q85"
   openGraphVariant = "card"
-  useDefault = false
+  useDefault = true
+  fallbackMode = "gradient"
+  openGraphUseDefault = true
   default = "/img/default-cover.webp"
 ```
+
+### Per-page Title Cards
+
+You can force a generated title card from front matter even when the page has an `image`.
+
+Simple form:
+
+```yaml
+coverCard: "a"
+```
+
+- `a` to `h`: the 8 light presets
+- `A` to `H`: the 8 dark presets
+- any other value: automatic random preset
+
+When `coverCard` is set, the generated title card takes priority over `image`.
+
+To hide the repeated outer title for a single page:
+
+```yaml
+listTitle: false
+```
+
+- On list pages, this hides the outer card title.
+- On single pages, if the page is using a generated title card, it also hides the separate page title block.
+
+If you do nothing, the theme can still generate a fallback title card automatically when:
+
+- `params.images.cover.useDefault = true`
+- `params.images.cover.fallbackMode = "gradient"`
 
 ### Inline Content Images
 
@@ -390,6 +431,7 @@ The bundled `exampleSite/` demonstrates:
 
 - multilingual menus and translation links
 - article pages, talks, links, and about pages
+- title-card fallback behavior and all 16 title-card presets
 - shortcodes
 - content adapters
 - image configuration reference pages

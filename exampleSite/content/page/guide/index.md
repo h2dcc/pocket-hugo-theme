@@ -1,6 +1,7 @@
 ---
 title: "Guide"
 slug: "guide"
+listTitle: false
 comments: true
 menu:
   main:

@@ -11,6 +11,11 @@ outputs:
   - TalksJSON
 ---
 
+## Add 16 showcase of Cardtitle
+> 2026-03-24 15:10
+
+The theme now includes 16 sets of exquisite color schemes for card titles, which you can view on the demo page.
+
 ## Added more demo content
 
 > 2026-03-18 20:10

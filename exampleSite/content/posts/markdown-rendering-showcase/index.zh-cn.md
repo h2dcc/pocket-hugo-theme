@@ -1,8 +1,9 @@
 ---
-title: "快速记录：Markdown 渲染示例"
+title: "Markdown 渲染示例"
 description: "一篇用来测试中文文章常见 Markdown 元素渲染效果的示例文章。"
 date: 2026-03-19T09:15:00+08:00
 slug: "quick-note"
+coverCard: "E"
 categories:
   - 瞬间
 tags:

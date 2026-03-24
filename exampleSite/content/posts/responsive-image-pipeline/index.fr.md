@@ -2,7 +2,7 @@
 image: cover.webp
 title: "Demonstration du pipeline d images"
 description: "Un exemple pour verifier les tailles derivees, le rendu dans le corps du texte et la lightbox."
-date: 2026-03-19T10:25:00+08:00
+date: 2026-03-21T10:25:00+08:00
 slug: "responsive-image-pipeline"
 categories:
   - Images

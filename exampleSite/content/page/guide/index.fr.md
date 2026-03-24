@@ -2,6 +2,7 @@
 title: "Guide"
 description: "Installation de base et aperçu local de Pocket Hugo Theme."
 slug: "guide"
+listTitle: false
 ---
 
 ## Installation

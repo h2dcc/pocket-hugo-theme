@@ -1,0 +1,141 @@
+{{ $page := . }}
+{{ $coverCard := $page.Params.coverCard | default dict }}
+{{ $code := "" }}
+{{ if and $coverCard (not (reflect.IsMap $coverCard)) }}
+    {{ $code = printf "%v" $coverCard }}
+{{ end }}
+{{ $palette := "" }}
+{{ with $page.Params.coverCardPalette }}
+    {{ $palette = lower . }}
+{{ else }}
+    {{ if and (reflect.IsMap $coverCard) ($coverCard.palette) }}
+        {{ $palette = lower $coverCard.palette }}
+    {{ end }}
+{{ end }}
+{{ $tone := "" }}
+{{ with $page.Params.coverCardTone }}
+    {{ $tone = lower . }}
+{{ else }}
+    {{ if and (reflect.IsMap $coverCard) ($coverCard.tone) }}
+        {{ $tone = lower $coverCard.tone }}
+    {{ end }}
+{{ end }}
+{{ $validPalettes := slice "golden-summer-fields" "soft-pastel-shades" "black-gold-elegance" "morandi-mist" "fresh-greens" "light-steel" "deep-sea-blue" "monochrome-core" }}
+{{ $validTones := slice "light" "dark" }}
+{{ $result := dict "palette" "golden-summer-fields" "tone" "light" }}
+{{ if $code }}
+    {{ $orderedPalettes := slice "golden-summer-fields" "soft-pastel-shades" "black-gold-elegance" "morandi-mist" "fresh-greens" "light-steel" "deep-sea-blue" "monochrome-core" }}
+    {{ $codeMap := dict
+        "a" (dict "palette" (index $orderedPalettes 0) "tone" "light")
+        "b" (dict "palette" (index $orderedPalettes 1) "tone" "light")
+        "c" (dict "palette" (index $orderedPalettes 2) "tone" "light")
+        "d" (dict "palette" (index $orderedPalettes 3) "tone" "light")
+        "e" (dict "palette" (index $orderedPalettes 4) "tone" "light")
+        "f" (dict "palette" (index $orderedPalettes 5) "tone" "light")
+        "g" (dict "palette" (index $orderedPalettes 6) "tone" "light")
+        "h" (dict "palette" (index $orderedPalettes 7) "tone" "light")
+        "A" (dict "palette" (index $orderedPalettes 0) "tone" "dark")
+        "B" (dict "palette" (index $orderedPalettes 1) "tone" "dark")
+        "C" (dict "palette" (index $orderedPalettes 2) "tone" "dark")
+        "D" (dict "palette" (index $orderedPalettes 3) "tone" "dark")
+        "E" (dict "palette" (index $orderedPalettes 4) "tone" "dark")
+        "F" (dict "palette" (index $orderedPalettes 5) "tone" "dark")
+        "G" (dict "palette" (index $orderedPalettes 6) "tone" "dark")
+        "H" (dict "palette" (index $orderedPalettes 7) "tone" "dark")
+    }}
+    {{ with index $codeMap $code }}
+        {{ $result = . }}
+    {{ else }}
+        {{ $filePath := "" }}
+        {{ with $page.File }}
+            {{ $filePath = .Path }}
+        {{ end }}
+        {{ $seed := printf "%s|%s|%s|%s" $filePath $page.RelPermalink $page.Title $code }}
+        {{ $hash := md5 $seed }}
+        {{ $digit := slicestr $hash 0 1 }}
+        {{ $variants := dict
+            "0" (dict "palette" "golden-summer-fields" "tone" "light")
+            "1" (dict "palette" "golden-summer-fields" "tone" "dark")
+            "2" (dict "palette" "soft-pastel-shades" "tone" "light")
+            "3" (dict "palette" "soft-pastel-shades" "tone" "dark")
+            "4" (dict "palette" "black-gold-elegance" "tone" "light")
+            "5" (dict "palette" "black-gold-elegance" "tone" "dark")
+            "6" (dict "palette" "morandi-mist" "tone" "light")
+            "7" (dict "palette" "morandi-mist" "tone" "dark")
+            "8" (dict "palette" "fresh-greens" "tone" "light")
+            "9" (dict "palette" "fresh-greens" "tone" "dark")
+            "a" (dict "palette" "light-steel" "tone" "light")
+            "b" (dict "palette" "light-steel" "tone" "dark")
+            "c" (dict "palette" "deep-sea-blue" "tone" "light")
+            "d" (dict "palette" "deep-sea-blue" "tone" "dark")
+            "e" (dict "palette" "monochrome-core" "tone" "light")
+            "f" (dict "palette" "monochrome-core" "tone" "dark")
+        }}
+        {{ $result = index $variants $digit | default $result }}
+    {{ end }}
+{{ else if and $palette (in $validPalettes $palette) }}
+    {{ if and $tone (in $validTones $tone) }}
+        {{ $result = dict "palette" $palette "tone" $tone }}
+    {{ else }}
+        {{ $filePath := "" }}
+        {{ with $page.File }}
+            {{ $filePath = .Path }}
+        {{ end }}
+        {{ $seed := printf "%s|%s|%s|%s" $filePath $page.RelPermalink $page.Title $palette }}
+        {{ $hash := md5 $seed }}
+        {{ $digit := slicestr $hash 0 1 }}
+        {{ $resolvedTone := cond (in (slice "1" "3" "5" "7" "9" "b" "d" "f") $digit) "dark" "light" }}
+        {{ $result = dict "palette" $palette "tone" $resolvedTone }}
+    {{ end }}
+{{ else if and $tone (in $validTones $tone) }}
+    {{ $seed := printf "%s|%s|%s|%s" ($page.RelPermalink | default "") $page.Title $tone ($page.Type | default "") }}
+    {{ $hash := md5 $seed }}
+    {{ $digit := slicestr $hash 0 1 }}
+    {{ $variantsByTone := dict
+        "0" "golden-summer-fields"
+        "1" "soft-pastel-shades"
+        "2" "black-gold-elegance"
+        "3" "morandi-mist"
+        "4" "fresh-greens"
+        "5" "light-steel"
+        "6" "deep-sea-blue"
+        "7" "monochrome-core"
+        "8" "golden-summer-fields"
+        "9" "soft-pastel-shades"
+        "a" "black-gold-elegance"
+        "b" "morandi-mist"
+        "c" "fresh-greens"
+        "d" "light-steel"
+        "e" "deep-sea-blue"
+        "f" "monochrome-core"
+    }}
+    {{ $result = dict "palette" (index $variantsByTone $digit | default "golden-summer-fields") "tone" $tone }}
+{{ else }}
+    {{ $filePath := "" }}
+    {{ with $page.File }}
+        {{ $filePath = .Path }}
+    {{ end }}
+    {{ $seed := printf "%s|%s|%s" $filePath $page.RelPermalink $page.Title }}
+    {{ $hash := md5 $seed }}
+    {{ $digit := slicestr $hash 0 1 }}
+    {{ $variants := dict
+        "0" (dict "palette" "golden-summer-fields" "tone" "light")
+        "1" (dict "palette" "golden-summer-fields" "tone" "dark")
+        "2" (dict "palette" "soft-pastel-shades" "tone" "light")
+        "3" (dict "palette" "soft-pastel-shades" "tone" "dark")
+        "4" (dict "palette" "black-gold-elegance" "tone" "light")
+        "5" (dict "palette" "black-gold-elegance" "tone" "dark")
+        "6" (dict "palette" "morandi-mist" "tone" "light")
+        "7" (dict "palette" "morandi-mist" "tone" "dark")
+        "8" (dict "palette" "fresh-greens" "tone" "light")
+        "9" (dict "palette" "fresh-greens" "tone" "dark")
+        "a" (dict "palette" "light-steel" "tone" "light")
+        "b" (dict "palette" "light-steel" "tone" "dark")
+        "c" (dict "palette" "deep-sea-blue" "tone" "light")
+        "d" (dict "palette" "deep-sea-blue" "tone" "dark")
+        "e" (dict "palette" "monochrome-core" "tone" "light")
+        "f" (dict "palette" "monochrome-core" "tone" "dark")
+    }}
+    {{ $result = index $variants $digit | default $result }}
+{{ end }}
+{{ return $result }}

@@ -1,25 +1,61 @@
 {{ $page := . }}
 {{ $variant := "single" }}
+{{ $forceDefaultImage := false }}
 {{ if reflect.IsMap . }}
     {{ $page = .page }}
     {{ $variant = .variant | default "single" }}
+    {{ $forceDefaultImage = .forceDefaultImage | default false }}
 {{ end }}
 
-{{ $result := dict "exists" false "permalink" nil "srcset" "" "sizes" "" "width" 0 "height" 0 }}
+{{ $result := dict "exists" false "kind" "none" "permalink" nil "srcset" "" "sizes" "" "width" 0 "height" 0 "title" ($page.Title | default "") }}
 {{ $imageField := default "image" $page.Site.Params.featuredImageField }}
 {{ $imageValue := index $page.Params $imageField }}
+{{ $coverCard := $page.Params.coverCard | default dict }}
+{{ $coverCardEnabled := false }}
+{{ $coverCardCode := "" }}
+{{ if reflect.IsMap $coverCard }}
+    {{ $coverCardEnabled = $coverCard.enabled | default false }}
+{{ else if $coverCard }}
+    {{ $coverCardCode = printf "%v" $coverCard }}
+{{ end }}
+{{ $coverCardPalette := "" }}
+{{ with $page.Params.coverCardPalette }}
+    {{ $coverCardPalette = lower . }}
+{{ else }}
+    {{ if and (reflect.IsMap $coverCard) ($coverCard.palette) }}
+        {{ $coverCardPalette = lower $coverCard.palette }}
+    {{ end }}
+{{ end }}
+{{ $coverCardTone := "" }}
+{{ with $page.Params.coverCardTone }}
+    {{ $coverCardTone = lower . }}
+{{ else }}
+    {{ if and (reflect.IsMap $coverCard) ($coverCard.tone) }}
+        {{ $coverCardTone = lower $coverCard.tone }}
+    {{ end }}
+{{ end }}
+{{ $hasCoverCardOverride := or $coverCardEnabled $coverCardCode $coverCardPalette $coverCardTone }}
 {{ $useDefaultCover := $page.Site.Params.images.cover.useDefault | default false }}
 {{ $defaultCover := $page.Site.Params.images.cover.default | default "" }}
+{{ $defaultMode := lower ($page.Site.Params.images.cover.fallbackMode | default ($page.Site.Params.images.cover.defaultMode | default "gradient")) }}
 {{ $useFill := $page.Site.Params.images.cover.useFill | default true }}
 
-{{ if and (not $imageValue) $useDefaultCover $defaultCover }}
-    {{ $imageValue = $defaultCover }}
+{{ if $hasCoverCardOverride }}
+    {{ $result = dict "exists" true "kind" "gradient" "permalink" nil "srcset" "" "sizes" "" "width" 0 "height" 0 "title" ($page.Title | default "") }}
+{{ else if and (not $imageValue) $useDefaultCover }}
+    {{ if and $forceDefaultImage $defaultCover }}
+        {{ $imageValue = $defaultCover }}
+    {{ else if eq $defaultMode "gradient" }}
+        {{ $result = dict "exists" true "kind" "gradient" "permalink" nil "srcset" "" "sizes" "" "width" 0 "height" 0 "title" ($page.Title | default "") }}
+    {{ else if $defaultCover }}
+        {{ $imageValue = $defaultCover }}
+    {{ end }}
 {{ end }}
 
-{{ if $imageValue }}
+{{ if and (not $result.exists) $imageValue }}
     {{ $url := urls.Parse $imageValue }}
     {{ if or (eq $url.Scheme "http") (eq $url.Scheme "https") }}
-        {{ $result = dict "exists" true "permalink" $imageValue "srcset" "" "sizes" "" "width" 0 "height" 0 }}
+        {{ $result = dict "exists" true "kind" "image" "permalink" $imageValue "srcset" "" "sizes" "" "width" 0 "height" 0 "title" ($page.Title | default "") }}
     {{ else }}
         {{ $resource := $page.Resources.GetMatch (printf "%s" ($imageValue | safeURL)) }}
         {{ if $resource }}
@@ -29,13 +65,13 @@
                     {{ $fillSpec = $page.Site.Params.images.cover.taxonomyFill | default $fillSpec }}
                 {{ end }}
                 {{ with $resource.Fill $fillSpec }}
-                    {{ $result = dict "exists" true "permalink" .RelPermalink "srcset" "" "sizes" "" "width" 0 "height" 0 }}
+                    {{ $result = dict "exists" true "kind" "image" "permalink" .RelPermalink "srcset" "" "sizes" "" "width" 0 "height" 0 "title" ($page.Title | default "") }}
                 {{ end }}
             {{ else }}
-                {{ $result = dict "exists" true "permalink" $resource.RelPermalink "srcset" "" "sizes" "" "width" 0 "height" 0 }}
+                {{ $result = dict "exists" true "kind" "image" "permalink" $resource.RelPermalink "srcset" "" "sizes" "" "width" 0 "height" 0 "title" ($page.Title | default "") }}
             {{ end }}
         {{ else }}
-            {{ $result = dict "exists" true "permalink" (relURL $imageValue) "srcset" "" "sizes" "" "width" 0 "height" 0 }}
+            {{ $result = dict "exists" true "kind" "image" "permalink" (relURL $imageValue) "srcset" "" "sizes" "" "width" 0 "height" 0 "title" ($page.Title | default "") }}
         {{ end }}
     {{ end }}
 {{ end }}

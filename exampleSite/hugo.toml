@@ -241,6 +241,8 @@ copyright = "MIT licensed demo content"
     backlinksLimit = 5
     # Whether article lists render excerpts below titles.
     showListSummary = true
+    # Whether generated gradient cards on homepage, taxonomy, archive, and other lists show the outer title.
+    listTitle = true
     # Whether single article/page headers render .Description below the title.
     showPageDescription = true
     toc = true
@@ -256,9 +258,13 @@ copyright = "MIT licensed demo content"
       taxonomyFill = "640x300 Center q85"
       # Variant used for og:image and twitter:image. Usually "card" or "single".
       openGraphVariant = "card"
-      # Use a fallback cover image when a post does not define one.
+      # Use a fallback cover when a post does not define one.
       useDefault = true
-      # Local path or remote URL for the fallback cover image.
+      # "image" uses default-cover, "gradient" renders a generated title card.
+      fallbackMode = "gradient"
+      # Whether social sharing should still fall back to default-cover when the page has no image.
+      openGraphUseDefault = true
+      # Local path or remote URL for the fallback cover image when fallbackMode = "image".
       default = "/img/default-cover.webp"
 
   [params.images.content]
@@ -330,7 +336,7 @@ copyright = "MIT licensed demo content"
     # Available presets:
     # golden-summer-fields, soft-pastel-shades, black-gold-elegance,
     # fresh-greens, light-steel, deep-sea-blue, morandi-mist, monochrome-core
-    preset = "morandi-mist"
+    preset = "black-gold-elegance"
     # Show the palette preview picker in the header.
     showPicker = true
 
@@ -416,7 +422,3 @@ copyright = "MIT licensed demo content"
     lineNos = false
     lineNumbersInTable = false
     tabWidth = 4
-
-
-
-

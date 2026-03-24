@@ -28,6 +28,12 @@
 {{ $cover := partial "helpers/cover.html" (dict "page" $page "variant" "single") }}
 {{ $ogVariant := $page.Site.Params.images.cover.openGraphVariant | default "card" }}
 {{ $socialCover := partial "helpers/cover.html" (dict "page" $page "variant" $ogVariant) }}
+{{ $openGraphUseDefault := $page.Site.Params.images.cover.openGraphUseDefault | default false }}
+{{ $hasSocialImage := and $socialCover.exists (eq $socialCover.kind "image") }}
+{{ if and (not $hasSocialImage) $openGraphUseDefault }}
+    {{ $socialCover = partial "helpers/cover.html" (dict "page" $page "variant" $ogVariant "forceDefaultImage" true) }}
+    {{ $hasSocialImage = and $socialCover.exists (eq $socialCover.kind "image") }}
+{{ end }}
 {{ $canonicalURL := $page.Permalink }}
 {{ $sourceTranslation := false }}
 
@@ -48,10 +54,10 @@
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="{{ if $page.IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ $page.Permalink }}">
-<meta name="twitter:card" content="{{ if $socialCover.exists }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:card" content="{{ if $hasSocialImage }}summary_large_image{{ else }}summary{{ end }}">
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
-{{ if $socialCover.exists }}
+{{ if $hasSocialImage }}
     <meta property="og:image" content="{{ absURL $socialCover.permalink }}">
     <meta name="twitter:image" content="{{ absURL $socialCover.permalink }}">
 {{ end }}
@@ -87,7 +93,7 @@
   "publisher": {
     "@type": "Organization",
     "name": {{ $siteTitle | jsonify }}
-  }{{ if $socialCover.exists }},
+  }{{ if $hasSocialImage }},
   "image": {{ absURL $socialCover.permalink | jsonify }}{{ end }}
 }
 </script>

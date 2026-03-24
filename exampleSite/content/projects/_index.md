@@ -2,7 +2,6 @@
 title = "Projects"
 description = "A small example section generated at build time by Hugo content adapters."
 draft = false
-
 [menu.main]
 weight = -40
 +++

@@ -1,9 +1,30 @@
 {{ define "body-class" }}template-talk{{ end }}
 
 {{ define "main" }}
+    {{ $transitionBase := partial "helpers/view-transition-name.html" . }}
+    {{ $showPageTitle := true }}
+    {{ if isset .Params "listtitle" }}
+        {{ $showPageTitle = .Params.listtitle }}
+    {{ end }}
     <article class="list-page talk-page">
+        {{ with partial "helpers/cover.html" (dict "page" . "variant" "single") }}
+            {{ $showPageCover := true }}
+            {{ if and (not $showPageTitle) (eq .kind "gradient") }}
+                {{ $showPageCover = false }}
+            {{ end }}
+            {{ if and .exists $showPageCover }}
+                <div class="article-page__cover">
+                    {{ if eq .kind "gradient" }}
+                        {{ partial "helpers/cover-fallback-card.html" (dict "page" $ "variant" "single" "transitionBase" $transitionBase) }}
+                    {{ else }}
+                        <img src="{{ .permalink }}" alt="{{ $.Title }}"{{ if $.Site.Params.viewTransitions }} style="view-transition-name: cover-{{ $transitionBase }};"{{ end }}>
+                    {{ end }}
+                </div>
+            {{ end }}
+        {{ end }}
+
         <header class="section-head">
-            <h1>{{ .Title }}</h1>
+            {{ if $showPageTitle }}<h1>{{ .Title }}</h1>{{ end }}
             {{ with .Description }}<p>{{ . }}</p>{{ end }}
         </header>
 

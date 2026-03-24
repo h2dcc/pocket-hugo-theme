@@ -1,7 +1,7 @@
 +++
 image = "cover.webp"
 title = "Responsive Image Pipeline Demo"
-date = 2026-02-10T09:00:00+08:00
+date = 2026-03-21T09:00:00+08:00
 draft = false
 description = "A sample post for checking derived image sizes, inline rendering, and the built-in lightbox."
 slug = "responsive-image-pipeline"

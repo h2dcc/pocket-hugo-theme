@@ -1,0 +1,33 @@
+{{ $cards := slice
+    (dict "code" "a" "label" "Golden Summer Fields" "palette" "golden-summer-fields" "tone" "light")
+    (dict "code" "A" "label" "Golden Summer Fields Dark" "palette" "golden-summer-fields" "tone" "dark")
+    (dict "code" "b" "label" "Soft Pastel Shades" "palette" "soft-pastel-shades" "tone" "light")
+    (dict "code" "B" "label" "Soft Pastel Shades Dark" "palette" "soft-pastel-shades" "tone" "dark")
+    (dict "code" "c" "label" "Black Gold Elegance" "palette" "black-gold-elegance" "tone" "light")
+    (dict "code" "C" "label" "Black Gold Elegance Dark" "palette" "black-gold-elegance" "tone" "dark")
+    (dict "code" "d" "label" "Morandi Mist" "palette" "morandi-mist" "tone" "light")
+    (dict "code" "D" "label" "Morandi Mist Dark" "palette" "morandi-mist" "tone" "dark")
+    (dict "code" "e" "label" "Fresh Greens" "palette" "fresh-greens" "tone" "light")
+    (dict "code" "E" "label" "Fresh Greens Dark" "palette" "fresh-greens" "tone" "dark")
+    (dict "code" "f" "label" "Light Steel" "palette" "light-steel" "tone" "light")
+    (dict "code" "F" "label" "Light Steel Dark" "palette" "light-steel" "tone" "dark")
+    (dict "code" "g" "label" "Deep Sea Blue" "palette" "deep-sea-blue" "tone" "light")
+    (dict "code" "G" "label" "Deep Sea Blue Dark" "palette" "deep-sea-blue" "tone" "dark")
+    (dict "code" "h" "label" "Monochrome Core" "palette" "monochrome-core" "tone" "light")
+    (dict "code" "H" "label" "Monochrome Core Dark" "palette" "monochrome-core" "tone" "dark")
+}}
+
+<div class="title-card-showcase">
+    <div class="title-card-showcase__grid">
+        {{ range $cards }}
+            <figure class="title-card-showcase__item">
+                <div class="cover-fallback cover-fallback--card" data-cover-palette="{{ .palette }}" data-cover-tone="{{ .tone }}">
+                    <div class="cover-fallback__inner">
+                        <p class="cover-fallback__title">{{ .label }}</p>
+                    </div>
+                </div>
+                <figcaption class="title-card-showcase__caption"><code>{{ .code }}</code> {{ .label }}</figcaption>
+            </figure>
+        {{ end }}
+    </div>
+</div>

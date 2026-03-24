@@ -2,6 +2,7 @@
 title: "ガイド"
 description: "Pocket Hugo Theme の基本的な導入手順とローカル確認方法。"
 slug: "guide"
+listTitle: false
 ---
 
 ## インストール

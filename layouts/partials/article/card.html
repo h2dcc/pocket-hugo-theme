@@ -11,6 +11,13 @@
 {{ $cover := partial "helpers/cover.html" (dict "page" $page "variant" $coverVariant) }}
 {{ $transitionBase := partial "helpers/view-transition-name.html" $page }}
 {{ $showSummary := $page.Site.Params.article.showListSummary | default ($page.Site.Params.article.showSummary | default true) }}
+{{ $showListTitle := true }}
+{{ if and (eq $cover.kind "gradient") (isset $page.Site.Params.article "listtitle") }}
+    {{ $showListTitle = $page.Site.Params.article.listTitle }}
+{{ end }}
+{{ if isset $page.Params "listtitle" }}
+    {{ $showListTitle = $page.Params.listtitle }}
+{{ end }}
 {{ $summaryLength := int ($page.Site.Params.summaryLength | default 0) }}
 {{ $summary := "" }}
 {{ with $page.Params.description }}
@@ -24,12 +31,18 @@
 <article class="post-card{{ if $cover.exists }} post-card--with-cover{{ end }}{{ with $variant }} post-card--{{ . }}{{ end }}">
     {{ if $cover.exists }}
         <a class="post-card__cover" href="{{ $page.RelPermalink }}">
-            <img src="{{ $cover.permalink }}" alt="{{ $page.Title }}" loading="lazy"{{ if $page.Site.Params.viewTransitions }} style="view-transition-name: cover-{{ $transitionBase }};"{{ end }}>
+            {{ if eq $cover.kind "gradient" }}
+                {{ partial "helpers/cover-fallback-card.html" (dict "page" $page "variant" $coverVariant "transitionBase" $transitionBase) }}
+            {{ else }}
+                <img src="{{ $cover.permalink }}" alt="{{ $page.Title }}" loading="lazy"{{ if $page.Site.Params.viewTransitions }} style="view-transition-name: cover-{{ $transitionBase }};"{{ end }}>
+            {{ end }}
         </a>
     {{ end }}
 
     <div class="post-card__body">
-        <h2 class="post-card__title"{{ if $page.Site.Params.viewTransitions }} style="view-transition-name: title-{{ $transitionBase }};"{{ end }}><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
+        {{ if $showListTitle }}
+            <h2 class="post-card__title"{{ if $page.Site.Params.viewTransitions }} style="view-transition-name: title-{{ $transitionBase }};"{{ end }}><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
+        {{ end }}
         {{ if and $showSummary $summary }}
             <p class="post-card__excerpt">{{ $summary }}</p>
         {{ end }}

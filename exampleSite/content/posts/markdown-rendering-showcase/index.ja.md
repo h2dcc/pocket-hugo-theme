@@ -3,6 +3,7 @@ title: "Markdown 表示サンプル"
 description: "日本語記事でよく使う Markdown 要素の見え方を確認するための短いサンプルです。"
 date: 2026-03-19T09:15:00+08:00
 slug: "quick-note"
+coverCard: "E"
 categories:
   - Moments
 tags:

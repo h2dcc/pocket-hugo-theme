@@ -1,10 +1,9 @@
 +++
 title = "Pocket Hugo: Browser-First Publishing for Hugo"
-date = 2026-03-19T15:30:00+08:00
+date = 2026-03-23T15:30:00+08:00
 slug = "pocket-hugo-project"
 description = "Pocket Hugo is a browser-first publishing tool for Hugo, built for writing, image handling, and GitHub-based Markdown workflows across desktop, tablet, and phone."
 summary = "A closer look at Pocket Hugo as a browser-first Hugo workflow, including publishing, images, multilingual bundles, and why it pairs naturally with pocket-hugo-theme."
-image = "pockethugo.webp"
 categories = ["writing"]
 tags = ["pocket-hugo", "workflow", "multilingual", "mobile"]
 comments = true

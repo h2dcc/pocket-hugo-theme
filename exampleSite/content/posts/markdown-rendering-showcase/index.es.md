@@ -3,6 +3,7 @@ title: "Muestra de Markdown"
 description: "Una página breve para revisar cómo se renderizan los elementos Markdown en español."
 date: 2026-03-19T09:15:00+08:00
 slug: "quick-note"
+coverCard: "E"
 categories:
   - Moments
 tags:

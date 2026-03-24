@@ -228,9 +228,18 @@ hugo server --source exampleSite --themesDir ../..
   - `og:image` 和 `twitter:image` 使用的封面变体。
   - 一般填 `card` 作为裁切后的分享图，或填 `single` 使用文章页原始封面。
 - `useDefault`
-  - 当文章或页面没有设置封面图时，是否启用默认封面。
+- `listTitle`
+  - 首页、分类、标签、归档等列表页里，渐变卡片是否显示外部标题。
+  - 这个全站开关只影响自动生成的渐变卡片，不影响普通图片封面。
+- `fallbackMode`
+  - 当文章或页面没有设置封面图时，默认封面的展示方式。
+  - 可选 `image`（默认图片）或 `gradient`（自动生成渐变标题卡片）。
+- `openGraphUseDefault`
+  - 当页面本身没有封面图时，是否仍把 `default` 作为 `og:image` / `twitter:image` 输出。
+- `defaultMode`
+  - 为兼容旧配置保留的别名。
 - `default`
-  - 默认封面图地址，可写本地路径或远程链接。
+  - 当 `fallbackMode = "image"` 时使用的默认封面图地址，可写本地路径或远程链接。
 
 示例：
 
@@ -240,9 +249,41 @@ hugo server --source exampleSite --themesDir ../..
   cardFill = "640x300 Center q85"
   taxonomyFill = "640x300 Center q85"
   openGraphVariant = "card"
-  useDefault = false
+  useDefault = true
+  fallbackMode = "gradient"
+  openGraphUseDefault = true
   default = "/img/default-cover.webp"
 ```
+
+### 单页标题卡片
+
+即使页面已经设置了 `image`，你也可以在 front matter 里强制使用标题卡片。
+
+最简单的写法：
+
+```yaml
+coverCard: "a"
+```
+
+- `a` 到 `h`：8 套浅色预设
+- `A` 到 `H`：8 套深色预设
+- 其他任意值：自动随机一套
+
+只要设置了 `coverCard`，标题卡片就会优先于 `image`。
+
+如果你想让标题只显示在卡片内部，可以在当前页面里再加：
+
+```yaml
+listTitle: false
+```
+
+- 在列表页里，这会隐藏卡片外部标题。
+- 在文章内页里，如果当前页面使用的是标题卡片，也会隐藏单独的页面标题块。
+
+如果你什么都不做，只要站点配置里开启了下面两项，主题也会自动生成标题卡片：
+
+- `params.images.cover.useDefault = true`
+- `params.images.cover.fallbackMode = "gradient"`
 
 ### 正文图片显示策略
 
@@ -389,6 +430,7 @@ hugo server --source exampleSite --themesDir ../..
 
 - 多语言菜单与语言切换
 - 文章页、说说页、友链页、关于页
+- 标题卡片回退效果与 16 套标题卡片预设
 - 各类 shortcode
 - Content Adapter 示例
 - 图片配置说明页

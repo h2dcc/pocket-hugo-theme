@@ -2,7 +2,6 @@
 title = "项目"
 description = "一个通过 Hugo Content Adapter 在构建时自动生成的示例分区。"
 draft = false
-
 [menu.main]
 weight = -40
 +++

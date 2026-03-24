@@ -254,6 +254,8 @@ copyright = "MIT licensed demo content"
       # 列表页是否显示摘要。
       # 这里只影响首页、归档、分类、标签等文章卡片。
       showListSummary = true
+      # 首页、分类、标签、归档等列表页里，渐变卡片是否显示外部标题。
+      listTitle = true
       # 文章页标题下方是否显示 description。
       # 这里只影响文章内页本身，不影响首页和列表页摘要。
       showPageDescription = true
@@ -273,8 +275,12 @@ copyright = "MIT licensed demo content"
         # og:image 和 twitter:image 使用的封面变体，常用 card 或 single。
         openGraphVariant = "card"
         # 当文章没有设置封面图时，是否启用默认封面。
-        useDefault = false
-        # 默认封面图地址，可写本地路径或远程链接。
+        useDefault = true
+        # "image" 使用 default-cover，"gradient" 渲染自动生成的渐变标题卡片。
+        fallbackMode = "gradient"
+        # 当页面没有封面图时，社交分享图是否仍回退到 default-cover。
+        openGraphUseDefault = true
+        # 当 fallbackMode = "image" 时使用的默认封面图地址，可写本地路径或远程链接。
         default = "/img/default-cover.webp"
 
   [params.images.content]
@@ -413,6 +419,3 @@ icon = "rss"
   taxonomy = ["HTML", "RSS"]
   term = ["HTML", "RSS"]
   page = ["HTML"]
-
-
-

@@ -4,6 +4,10 @@
     {{ $sidebarScope := cond (eq .Type "page") "static" "page" }}
     {{ $transitionBase := partial "helpers/view-transition-name.html" . }}
     {{ $showPageDescription := .Site.Params.article.showPageDescription | default true }}
+    {{ $showPageTitle := true }}
+    {{ if isset .Params "listtitle" }}
+        {{ $showPageTitle = .Params.listtitle }}
+    {{ end }}
     {{ $contentImageConfig := .Site.Params.images.content | default dict }}
     {{ $enableImageMaxHeight := $contentImageConfig.enableMaxHeight | default true }}
     {{ $mobileImageMaxHeight := $contentImageConfig.mobileMaxHeight | default "160px" }}
@@ -26,15 +30,25 @@
     <article class="article-page">
         <header class="article-page__header">
             {{ with partial "helpers/cover.html" (dict "page" . "variant" "single") }}
-                {{ if .exists }}
+                {{ $showPageCover := true }}
+                {{ if and (not $showPageTitle) (eq .kind "gradient") }}
+                    {{ $showPageCover = false }}
+                {{ end }}
+                {{ if and .exists $showPageCover }}
                     <div class="article-page__cover">
-                        <img src="{{ .permalink }}" alt="{{ $.Title }}"{{ if $.Site.Params.viewTransitions }} style="view-transition-name: cover-{{ $transitionBase }};"{{ end }}>
+                        {{ if eq .kind "gradient" }}
+                            {{ partial "helpers/cover-fallback-card.html" (dict "page" $ "variant" "single" "transitionBase" $transitionBase) }}
+                        {{ else }}
+                            <img src="{{ .permalink }}" alt="{{ $.Title }}"{{ if $.Site.Params.viewTransitions }} style="view-transition-name: cover-{{ $transitionBase }};"{{ end }}>
+                        {{ end }}
                     </div>
                 {{ end }}
             {{ end }}
 
             <div class="article-page__meta">
-                <h1{{ if .Site.Params.viewTransitions }} style="view-transition-name: title-{{ $transitionBase }};"{{ end }}>{{ .Title }}</h1>
+                {{ if $showPageTitle }}
+                    <h1{{ if .Site.Params.viewTransitions }} style="view-transition-name: title-{{ $transitionBase }};"{{ end }}>{{ .Title }}</h1>
+                {{ end }}
                 <div class="meta-line">
                     {{ if not .Date.IsZero }}<span>{{ .Date | time.Format (or .Site.Params.dateFormat.published "2006-01-02") }}</span>{{ end }}
                     {{ with .Params.categories }}

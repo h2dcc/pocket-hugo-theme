@@ -1,10 +1,9 @@
 +++
 title = "Pocket Hugo：面向 Hugo 的浏览器优先发布工具"
-date = 2026-03-19T15:30:00+08:00
+date = 2026-03-23T15:30:00+08:00
 slug = "pocket-hugo-project"
 description = "Pocket Hugo 是一款围绕 Hugo 项目设计的浏览器优先发布工具，适合电脑、平板和手机上的 Markdown 写作与发布。"
 summary = "介绍 Pocket Hugo 的核心卖点，包括 GitHub 发布、图片流程、多语言 bundle，以及它为什么适合和 pocket-hugo-theme 搭配使用。"
-image = "pockethugo.webp"
 categories = ["写作"]
 tags = ["pocket-hugo", "工作流", "多语言", "移动端"]
 comments = true

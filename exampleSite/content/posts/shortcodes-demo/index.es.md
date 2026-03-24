@@ -1,5 +1,4 @@
 ---
-image: cover.webp
 title: "Demostracion de shortcodes"
 description: "Una pagina de ejemplo que reúne varios shortcodes prácticos para sitios Hugo centrados en el contenido."
 date: 2026-03-06T10:00:00+08:00

@@ -1,0 +1,10 @@
+{{ $page := .page }}
+{{ $variant := .variant | default "card" }}
+{{ $transitionBase := .transitionBase | default "" }}
+{{ $palette := partial "helpers/cover-fallback-palette.html" $page }}
+
+<div class="cover-fallback cover-fallback--{{ $variant }}" data-cover-palette="{{ $palette.palette }}" data-cover-tone="{{ $palette.tone }}"{{ if and $page.Site.Params.viewTransitions $transitionBase }} style="view-transition-name: cover-{{ $transitionBase }};"{{ end }}>
+    <div class="cover-fallback__inner">
+        <p class="cover-fallback__title">{{ $page.Title }}</p>
+    </div>
+</div>

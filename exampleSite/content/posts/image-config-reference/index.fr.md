@@ -2,7 +2,7 @@
 image: cover.webp
 title: "Reference de configuration des images"
 description: "Une page qui explique chaque option de configuration d image utilisee par le theme pour les couvertures et les images dans le contenu."
-date: 2026-03-19T09:55:00+08:00
+date: 2026-03-20T09:55:00+08:00
 slug: "image-config-reference"
 categories:
   - Images
