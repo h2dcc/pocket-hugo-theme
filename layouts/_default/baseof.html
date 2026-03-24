@@ -63,7 +63,13 @@
     <meta name="theme-color" content="#0f1623" media="(prefers-color-scheme: dark)">
     {{ partial "helpers/seo.html" . }}
     {{ partial "custom/fonts.html" . }}
-    {{ with resources.Get "css/main.css" }}
+    {{ $styles := slice
+        (resources.Get "css/main/01-root.css")
+        (resources.Get "css/main/02-title-cards.css")
+        (resources.Get "css/main/03-framework.css")
+        (resources.Get "css/main/04-responsive.css")
+    }}
+    {{ with $styles | resources.Concat "css/main.css" }}
         {{ if $.Site.Params.viewTransitions }}
             <link rel="preload" href="{{ .RelPermalink }}" as="style">
         {{ end }}
