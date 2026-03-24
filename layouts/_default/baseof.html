@@ -6,8 +6,10 @@
 {{- end -}}
 {{- $contentWidth := cond (eq $layoutMode "single") "1080px" "1320px" -}}
 {{- $defaultPalette := .Site.Params.colorScheme.preset | default "golden-summer-fields" -}}
+{{- $imageBrightnessLight := .Site.Params.images.brightness.light | default "1" -}}
+{{- $imageBrightnessDark := .Site.Params.images.brightness.dark | default "0.92" -}}
 <!DOCTYPE html>
-<html lang="{{ .Language.Lang | default .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}" data-layout-mode="{{ $layoutMode }}" data-palette="{{ $defaultPalette }}" {{ printf "style=%q" (printf "--content-width:%s;" $contentWidth) | safeHTMLAttr }}>
+<html lang="{{ .Language.Lang | default .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}" data-layout-mode="{{ $layoutMode }}" data-palette="{{ $defaultPalette }}" {{ printf "style=%q" (printf "--content-width:%s;--image-brightness-light:%s;--image-brightness-dark:%s;" $contentWidth $imageBrightnessLight $imageBrightnessDark) | safeHTMLAttr }}>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

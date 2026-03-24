@@ -257,6 +257,12 @@ copyright = "MIT licensed demo content"
     # 当正文图片被判定为 full-width 时使用的 object-fit 策略。
     fullWidthFit = "cover"
 
+  [params.images.brightness]
+    # 浅色模式下图片的 CSS brightness() 值。
+    light = "1"
+    # 深色模式下图片的 CSS brightness() 值。
+    dark = "0.85"
+
   [params.images.pipeline]
     # 是否启用 Hugo 原生响应式图像派生。
     responsive = true

@@ -241,6 +241,12 @@ copyright = "MIT licensed demo content"
     # Object-fit used for full-width inline images.
     fullWidthFit = "cover"
 
+  [params.images.brightness]
+    # CSS brightness() value applied to images in light mode.
+    light = "1"
+    # CSS brightness() value applied to images in dark mode.
+    dark = "0.85"
+
   [params.images.pipeline]
     responsive = true
     format = "webp"
