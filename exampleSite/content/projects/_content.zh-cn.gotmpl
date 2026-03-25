@@ -1,0 +1,67 @@
+{{- $lang := .Site.Language.Lang | default "en" -}}
+{{- $items := slice -}}
+{{- $remoteEnabled := site.Params.projects.remoteDemo.enabled | default false -}}
+{{- $remoteURL := site.Params.projects.remoteDemo.url | default "" -}}
+{{- $remoteSource := site.Params.projects.remoteDemo.source | default "github-issues" -}}
+
+{{- if and $remoteEnabled $remoteURL (eq $lang "en") -}}
+  {{- with try (resources.GetRemote $remoteURL) -}}
+    {{- with .Value -}}
+      {{- $payload := . | transform.Unmarshal -}}
+      {{- if eq $remoteSource "github-issues" -}}
+        {{- range first 6 $payload -}}
+          {{- $items = $items | append (dict
+            "slug" (printf "issue-%v" .number)
+            "title" .title
+            "description" (printf "Imported from GitHub issue #%v." .number)
+            "date" .created_at
+            "tags" (slice "Remote" "GitHub" "Issue")
+            "links" (slice (dict "title" "Issue" "url" .html_url))
+            "content" (printf "This page was generated from a remote JSON response at build time.\n\n## Source\n\n- GitHub issue #%v\n- URL: %s\n\n## Body preview\n\n%s" .number .html_url (.body | default "No body content in the remote response."))
+          ) -}}
+        {{- end -}}
+      {{- else -}}
+        {{- $items = $payload -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if not $items -}}
+  {{- if eq $lang "zh-cn" -}}
+    {{- $items = site.Data.projects.zh_cn -}}
+  {{- else -}}
+    {{- $items = site.Data.projects.en -}}
+  {{- end -}}
+{{- end -}}
+
+{{- range $item := $items -}}
+  {{- $params := dict
+    "description" $item.description
+    "links" $item.links
+    "layout" "single"
+    "comments" false
+  -}}
+  {{- if eq $lang "zh-cn" -}}
+    {{- $params = merge $params (dict
+      "categories" (slice "项目")
+      "tags" (default (slice "示例" "Hugo") $item.tags)
+    ) -}}
+  {{- else -}}
+    {{- $params = merge $params (dict
+      "categories" (slice "Projects")
+      "tags" (default (slice "Demo" "Hugo") $item.tags)
+    ) -}}
+  {{- end -}}
+  {{- $.AddPage (dict
+    "path" $item.slug
+    "title" $item.title
+    "slug" $item.slug
+    "date" $item.date
+    "content" (dict
+      "mediaType" "text/markdown"
+      "value" $item.content
+    )
+    "params" $params
+  ) -}}
+{{- end -}}

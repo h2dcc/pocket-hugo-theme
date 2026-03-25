@@ -5,7 +5,7 @@ description = "A calm, content-first Hugo theme for Pocket Hugo and multilingual
 homepage = "https://github.com/h2dcc/pocket-hugo-theme"
 demosite = "https://theme.leftn.com"
 tags = ["blog", "personal", "minimal", "multilingual", "light", "dark mode"]
-features = ["blog", "search", "taxonomy", "friend-links", "talk-page", "multilingual", "cover-image", "mobile-friendly", "backlinks", "view-transitions", "content-adapters", "alpinejs", "responsive-images"]
+features = ["blog", "search", "taxonomy", "friend-links", "talk-page", "multilingual", "cover-image", "mobile-friendly", "backlinks", "view-transitions", "content-adapters", "responsive-images"]
 min_version = "0.149.0"
 
 [author]

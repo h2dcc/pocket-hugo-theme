@@ -144,9 +144,6 @@ copyright = "MIT licensed demo content"
       group = "[group_title][separator][site_name]"
       archive = "[archive_title][separator][site_name]"
 
-  [params.alpine]
-    enabled = true
-
   [params.projects.remoteDemo]
     # Experimental example for Content Adapters.
     # Disabled by default so the demo remains stable offline.

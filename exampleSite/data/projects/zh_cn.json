@@ -9,9 +9,13 @@
       {
         "title": "GitHub",
         "url": "https://github.com/h2dcc/pocket-hugo"
+      },
+      {
+        "title": "首页",
+        "url": "https://pockethugo.cc/"
       }
     ],
-    "content": "Pocket Hugo 是这个主题的配套写作端项目，重点是 Hugo 内容的编辑、整理与浏览器优先发布流程。\n\n## 它主要想解决什么\n\nPocket Hugo 的核心思路是：写作、预览和发布都应该尽量轻量，而且更偏向浏览器原生体验，而不是完全依赖桌面端本地编辑器。它更像是在探索 Hugo 工作流能否变得更即时、更靠近真正的在线写作体验。\n\n## 为什么放进这个示例里\n\n这个页面来自 `data/projects/zh_cn.json`，再由 content adapter 在构建时自动生成，所以它可以很直观地展示 Hugo 如何把结构化数据变成普通页面。重点不只是列一个仓库，而是说明：结构化项目数据也能变成像文章一样可读的页面。\n\n## 和主题怎么配合\n\nPocket Hugo 和 Pocket Hugo Theme 可以看成一组：\n\n- Pocket Hugo 偏写作与发布\n- Pocket Hugo Theme 偏展示与阅读\n- 两者都依赖多语言内容、稳定布局和长期维护\n\n## 适合怎么对照看\n\n看完这个页面后，再打开一篇普通文章比较一下。理想状态下，这种自动生成的项目页不应该显得像站外贴进来的卡片。"
+    "content": "{{< note type=\"info\" title=\"项目定位\" >}}\nPocket Hugo 是一个面向 Hugo 的浏览器优先写作与发布工具。它把起草、整理、图片处理和发布这些原本分散的动作，尽量收束到更轻量、更直接的流程里。\n{{< /note >}}\n\n{{< badge \"浏览器优先\" >}} {{< badge text=\"写作工作流\" type=\"info\" >}} {{< badge text=\"Hugo\" type=\"info\" >}}\n\n{{< button href=\"https://github.com/h2dcc/pocket-hugo\" label=\"查看 GitHub\" >}}\n{{< button href=\"https://pockethugo.cc/\" label=\"打开首页\" style=\"ghost\" >}}\n\n## 这个项目想解决什么\n\nPocket Hugo 更关心的是写作过程本身，而不是单纯再做一个编辑器。它希望让 Hugo 的内容生产更接近“打开浏览器就能开始写”的状态，减少对本地环境、插件堆叠和繁琐发布步骤的依赖。\n\n## 适合谁\n\n{{< columns >}}\n{{< column >}}\n### 更适合\n\n- 想继续用 Hugo，但不想把写作完全绑在桌面端\n- 需要随时整理草稿、封面图和正文资源\n- 希望把发布流程尽量做轻\n{{< /column >}}\n{{< column >}}\n### 它强调的不是\n\n- 大而全的 CMS 后台\n- 复杂团队协作系统\n- 高耦合的在线编辑平台\n{{< /column >}}\n{{< /columns >}}\n\n## 项目节奏\n\n{{< timeline >}}\n{{< timeline-item date=\"Step 1\" title=\"写作与整理\" >}}围绕 Hugo 内容结构处理文章、草稿和资源文件。{{< /timeline-item >}}\n{{< timeline-item date=\"Step 2\" title=\"图片与发布\" >}}把图片处理、提交和发布动作尽量压缩到更顺手的浏览器流程。{{< /timeline-item >}}\n{{< timeline-item date=\"Step 3\" title=\"长期维护\" >}}继续让个人写作站点在轻量前提下保持可持续。{{< /timeline-item >}}\n{{< /timeline >}}\n\n## 为什么适合放在这个示例里\n\nPocket Hugo 很适合作为这个主题示例站里的项目页，因为它代表的是同一套发布链路里的“写作端”。一个负责内容生产与发布，一个负责呈现与阅读，两者放在一起会更容易让人理解这套组合的完整性。"
   },
   {
     "slug": "pocket-hugo-theme",
@@ -25,78 +29,6 @@
         "url": "https://github.com/h2dcc/pocket-hugo-theme"
       }
     ],
-    "content": "Pocket Hugo Theme 是这套组合里的展示层，主要关注阅读节奏、封面图、双语发布和较长文章的呈现方式。\n\n## 它想解决什么问题\n\n很多 Hugo 主题在页面少的时候看起来还不错，但内容一多就容易散：多语言页面不统一，长文节奏不稳，固定页和文章页像两套东西，手机端又容易显得拥挤。Pocket Hugo Theme 更关注这些长期写作里的细节一致性。\n\n## 为什么放进这个示例里\n\n这个页面同样是从 JSON 在构建时生成的，不依赖远程 API，却足够说明 content adapter 的基本能力。它也顺便展示了一点：自动生成的页面完全可以复用主题原本的阅读体验，而不是变成一层特殊页面。\n\n## 适合怎么测试\n\n你可以把这个页面和普通文章页、links 页、talks 页放在一起对照看。一个好的 content adapter 示例，不应该让生成内容看起来像站点里的异类。"
-  },
-  {
-    "slug": "hugo",
-    "title": "Hugo",
-    "description": "一个以速度著称的静态网站生成器，擅长多语言、模板系统与图像处理。",
-    "date": "2026-03-03T10:00:00+08:00",
-    "tags": ["静态站", "生成器", "Go"],
-    "links": [
-      {
-        "title": "GitHub",
-        "url": "https://github.com/gohugoio/hugo"
-      },
-      {
-        "title": "Website",
-        "url": "https://gohugo.io/"
-      }
-    ],
-    "content": "Hugo 就是这个主题示例背后的引擎。它在多语言内容、构建期模板、bundle、taxonomy 和图像处理这些方面都很强。\n\n## 为什么放在这里很合适\n\nContent Adapter 本身就很有 Hugo 风格：一条结构化记录在构建时直接变成站点页面，而不是一直停留在内容系统之外。对 Hugo 来说，这是一种很自然的扩展，而不是勉强拼上去的外部能力。\n\n## 这个例子真正想说明什么\n\n在这个示例里，Hugo 不只是把 Markdown 渲染成 HTML，它还同时做了这些事：\n\n- 在构建时把数据生成页面\n- 让这些页面进入列表和导航\n- 让多语言结构保持清楚\n- 让生成页复用同一套主题组件\n\n## 适合怎么对照看\n\n你可以把这个自动生成的项目页和普通文章页放在一起比较，看看两者是否都像站点原生内容。"
-  },
-  {
-    "slug": "pagefind",
-    "title": "Pagefind",
-    "description": "一个面向 Jamstack 和内容型站点的全静态搜索方案。",
-    "date": "2026-03-04T10:00:00+08:00",
-    "tags": ["搜索", "静态", "索引"],
-    "links": [
-      {
-        "title": "GitHub",
-        "url": "https://github.com/CloudCannon/pagefind"
-      },
-      {
-        "title": "Website",
-        "url": "https://pagefind.app/"
-      }
-    ],
-    "content": "Pagefind 是一个很适合和生成式内容一起理解的例子。只要页面最终进入构建产物，静态搜索索引通常就能像对待手写页面一样对待这些自动生成内容。\n\n## 为什么这个例子有意思\n\n它能说明 Content Adapter 不只是适合项目页，也适合后续要进入搜索、归档、索引等构建环节的内容。也就是说，自动生成页面不应该只是“能打开”，而应该真正进入站点整体结构里。\n\n## 为什么放进这组数据里\n\n除了自家项目之外，示例站也需要一些更广义的生态项目。这样 `/projects/` 看起来才更像真实站点里的内容分区，而不是只放一排内部仓库。"
-  },
-  {
-    "slug": "excalidraw",
-    "title": "Excalidraw",
-    "description": "一个手绘风格的白板工具，适合做图解、笔记和可视化思考。",
-    "date": "2026-03-05T10:00:00+08:00",
-    "tags": ["绘图", "可视化", "笔记"],
-    "links": [
-      {
-        "title": "GitHub",
-        "url": "https://github.com/excalidraw/excalidraw"
-      },
-      {
-        "title": "Website",
-        "url": "https://excalidraw.com/"
-      }
-    ],
-    "content": "Excalidraw 能给这组示例数据带来一点不同味道。自动生成页面不一定都要是软件发布说明或项目列表，它也可以用来整理写作者会长期使用的工具、参考资源或收藏对象。\n\n## 为什么这个例子更好玩\n\n如果 adapter 数据里全都是非常相似的 GitHub 仓库卡片，这个功能看起来就会比较单薄。Excalidraw 这种工具型项目能提醒人：生成页也可以用来整理你的工作流、工具箱和长期参考资源。\n\n## 它展示了什么\n\n这个页面想说明两件事：\n\n- 结构化数据不一定只能生成“项目发布页”\n- 自动生成的页面也仍然可以有一点说明性正文，而不只是元数据\n\n## 更接近真实站点的用法\n\n如果你维护一个设计工具清单、研究资料库或者写作工作流页面，这种 mixed dataset 往往比纯仓库列表更接近真实需求。"
-  },
-  {
-    "slug": "giscus",
-    "title": "Giscus",
-    "description": "一个基于 GitHub Discussions 的轻量评论系统。",
-    "date": "2026-03-06T10:00:00+08:00",
-    "tags": ["评论", "GitHub", "Discussions"],
-    "links": [
-      {
-        "title": "GitHub",
-        "url": "https://github.com/giscus/giscus"
-      },
-      {
-        "title": "Website",
-        "url": "https://giscus.app/"
-      }
-    ],
-    "content": "Giscus 也是一个很好的例子，因为它属于静态站点生态里另一块很常见的拼图：内容、导航、评论和长期维护。\n\n## 为什么这个例子合适\n\nContent Adapter 生成的页面不只可以用来放“项目”，也可以用来整理站点所依赖的服务、工具和周边组件。对很多个人博客来说，评论、搜索、订阅、部署和写作工具本来就是同一个生态的一部分。\n\n## 它展示了什么\n\n这个页面想说明：自动生成内容也可以用来记录你站点周边的关键组件。这样 `/projects/` 就不只是作品墙，而会更像一个真正的“项目与工具分区”。"
+    "content": "{{< note type=\"tip\" title=\"主题方向\" >}}\nPocket Hugo Theme 是一个适合多语言写作、长文阅读和封面卡片展示的 Hugo 主题。它关注的不是“功能堆叠”，而是长期写作里最容易被忽略的节奏、统一性和可维护性。\n{{< /note >}}\n\n{{< badge \"多语言\" >}} {{< badge text=\"长文阅读\" type=\"info\" >}} {{< badge text=\"封面驱动\" type=\"info\" >}}\n\n{{< button href=\"https://github.com/h2dcc/pocket-hugo-theme\" label=\"查看 GitHub\" >}}\n\n## 这个主题在意什么\n\n很多主题在内容少的时候看起来都不错，但站点一旦写久了，问题就会开始出现：文章页和固定页像两套东西，多语言切换不自然，封面卡片节奏混乱，手机端阅读也容易显得拥挤。Pocket Hugo Theme 想做的是把这些细节尽量收拢成一套稳定体验。\n\n## 适合的站点气质\n\n{{< columns >}}\n{{< column >}}\n### 更适合\n\n- 个人博客或长期写作网站\n- 有中英双语或多语言内容需求\n- 在意列表页、封面图和阅读秩序\n{{< /column >}}\n{{< column >}}\n### 它不追求\n\n- 组件库式的后台感\n- 过度花哨的交互炫技\n- 为了视觉效果牺牲正文阅读\n{{< /column >}}\n{{< /columns >}}\n\n## 主题节奏\n\n{{< timeline >}}\n{{< timeline-item date=\"Layer 1\" title=\"内容结构\" >}}统一首页、文章、归档、分类和固定页的整体表达。{{< /timeline-item >}}\n{{< timeline-item date=\"Layer 2\" title=\"阅读体验\" >}}强调封面、排版、语言切换与长文节奏。{{< /timeline-item >}}\n{{< timeline-item date=\"Layer 3\" title=\"长期维护\" >}}保持配置清晰，让站点写久了也不容易散。{{< /timeline-item >}}\n{{< /timeline >}}\n\n## 为什么适合放在这个示例里\n\n这个页面不是把主题写成一份参数文档，而是直接把它当成一个项目来展示。这样观众在看示例站时，更容易把它理解成真实可用的写作主题，而不是只会演示配置项的模板仓库。"
   }
 ]
