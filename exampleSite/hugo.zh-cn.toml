@@ -83,105 +83,6 @@ copyright = "MIT licensed demo content"
       keywords = ["Hugo", "theme", "writing", "multilingual"]
       author = "Pocket Hugo"
 
-  [languages.ja]
-    languageName = "Japanese"
-    languageCode = "ja-JP"
-    weight = 3
-    title = "Pocket Hugo 日本語"
-    contentDir = "content"
-
-    [languages.ja.params]
-      description = "長く書き続けるための、図文中心の個人向けテーマ"
-      subtitle = "适合长期个人写作的图文式主题"
-      keywords = ["Hugo", "theme", "writing", "multilingual"]
-      author = "Pocket Hugo"
-  [languages.es]
-    languageName = "Spanish"
-    languageCode = "es-ES"
-    weight = 4
-    title = "Pocket Hugo Español"
-    contentDir = "content"
-
-    [languages.es.params]
-      description = "Un tema visual para la escritura personal a largo plazo"
-      subtitle = "Un tema visual para la escritura personal a largo plazo"
-      keywords = ["Hugo", "theme", "writing", "multilingual"]
-      author = "Pocket Hugo"
-
-  [languages.fr]
-    languageName = "French"
-    languageCode = "fr-FR"
-    weight = 5
-    title = "Pocket Hugo Français"
-    contentDir = "content"
-
-    [languages.fr.params]
-      description = "Un thème visuel pour une écriture personnelle au long cours"
-      subtitle = "Un thème visuel pour une écriture personnelle au long cours"
-      keywords = ["Hugo", "theme", "writing", "multilingual"]
-      author = "Pocket Hugo"
-[languages.ja.menu]
-  [[languages.ja.menu.main]]
-    name = "ガイド"
-    url = "/ja/guide/"
-    weight = 10
-
-  [[languages.ja.menu.main]]
-    name = "リンク"
-    url = "/ja/links/"
-    weight = 20
-
-  [[languages.ja.menu.main]]
-    name = "トーク"
-    url = "/ja/talks/"
-    weight = 30
-
-  [[languages.ja.menu.main]]
-    name = "概要"
-    url = "/ja/about/"
-    weight = 40
-
-[languages.es.menu]
-  [[languages.es.menu.main]]
-    name = "Guía"
-    url = "/es/guide/"
-    weight = 10
-
-  [[languages.es.menu.main]]
-    name = "Enlaces"
-    url = "/es/links/"
-    weight = 20
-
-  [[languages.es.menu.main]]
-    name = "Notas"
-    url = "/es/talks/"
-    weight = 30
-
-  [[languages.es.menu.main]]
-    name = "Acerca de"
-    url = "/es/about/"
-    weight = 40
-
-[languages.fr.menu]
-  [[languages.fr.menu.main]]
-    name = "Guide"
-    url = "/fr/guide/"
-    weight = 10
-
-  [[languages.fr.menu.main]]
-    name = "Liens"
-    url = "/fr/links/"
-    weight = 20
-
-  [[languages.fr.menu.main]]
-    name = "Notes"
-    url = "/fr/talks/"
-    weight = 30
-
-  [[languages.fr.menu.main]]
-    name = "À propos"
-    url = "/fr/about/"
-    weight = 40
 
 # 站点级参数。
 [params]
@@ -209,6 +110,16 @@ copyright = "MIT licensed demo content"
   # 首页卡片默认摘要长度。
   # 设为 0 表示不截断，摘要会完整显示，不是“长度为 0”。
   summaryLength = 0
+
+  [params.extensions]
+      # Mermaid 默认不建议全站启用，因为它还会额外加载 JavaScript。
+      # 如果要在某一篇文章中使用，先在这里开启，再在该文章 front matter
+      # 中添加 `extensions = ["mermaid"]`。
+      mermaid = false
+      # KaTeX 默认不建议全站启用，因为它也会额外加载 JavaScript。
+      # 如果要在某一篇文章中使用，先在这里开启，再在该文章 front matter
+      # 中添加 `extensions = ["katex"]`。
+      katex = false
 
   [params.search]
       # 搜索提供方，当前使用内置 JSON 搜索。
@@ -330,7 +241,7 @@ copyright = "MIT licensed demo content"
   # 语言切换选项。
   [params.languageSwitcher]
     # 站点只设置两种语言时，显示直接切换图标；多于两种时，显示下拉列表。
-    headerSelectThreshold = 3
+    headerSelectThreshold = 2
 
   # 评论系统选项。
   [params.comments]

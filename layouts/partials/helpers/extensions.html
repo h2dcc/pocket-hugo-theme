@@ -1,0 +1,73 @@
+{{- $page := .Page | default . -}}
+{{- $extensions := $page.Site.Params.extensions | default dict -}}
+{{- $pageExtensions := slice -}}
+{{- if and $page.IsPage $page.Params.extensions -}}
+    {{- $pageExtensions = $page.Params.extensions -}}
+{{- end -}}
+{{- $enableMermaid := and ($extensions.mermaid | default false) (in $pageExtensions "mermaid") -}}
+{{- $enableKatex := and ($extensions.katex | default false) (in $pageExtensions "katex") -}}
+{{- $stylesOnly := .StylesOnly | default false -}}
+{{- $scriptsOnly := .ScriptsOnly | default false -}}
+
+{{- if not $scriptsOnly -}}
+    {{- if $enableMermaid -}}
+        {{- with resources.Get "css/extensions/mermaid.css" -}}
+            <link rel="stylesheet" href="{{ .RelPermalink }}">
+        {{- end -}}
+    {{- end -}}
+    {{- if $enableKatex -}}
+        {{- with resources.Get "css/extensions/katex.css" -}}
+            <link rel="stylesheet" href="{{ .RelPermalink }}">
+        {{- end -}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    {{- end -}}
+{{- end -}}
+
+{{- if and (not $stylesOnly) $enableKatex -}}
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!window.renderMathInElement) return;
+            document.querySelectorAll('.article-content, .article-page__description').forEach(function (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '\\[', right: '\\]', display: true },
+                        { left: '$', right: '$', display: false },
+                        { left: '\\(', right: '\\)', display: false }
+                    ],
+                    throwOnError: false
+                });
+            });
+        });
+    </script>
+{{- end -}}
+
+{{- if and (not $stylesOnly) $enableMermaid -}}
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!window.mermaid) return;
+            var nodes = [];
+            document.querySelectorAll('code.language-mermaid, code[data-lang="mermaid"]').forEach(function (code) {
+                var pre = code.closest('pre');
+                var wrapper = code.closest('.highlight') || pre;
+                if (!wrapper || !wrapper.parentNode) return;
+
+                var container = document.createElement('div');
+                container.className = 'mermaid';
+                container.textContent = (code.textContent || '').trim();
+                wrapper.parentNode.replaceChild(container, wrapper);
+                nodes.push(container);
+            });
+
+            if (!nodes.length) return;
+            mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose'
+            });
+            mermaid.run({ nodes: nodes });
+        });
+    </script>
+{{- end -}}

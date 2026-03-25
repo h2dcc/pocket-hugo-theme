@@ -78,7 +78,12 @@
                     {{ partial "helpers/translation-toggle.html" . }}
                 </div>
                 {{ if $showPageDescription }}
-                    {{ with .Description }}<blockquote class="article-page__description">{{ . }}</blockquote>{{ end }}
+                    {{ with .Description }}
+                        <blockquote class="article-page__description">
+                            <span class="article-page__description-label">{{ T "article.descriptionLabel" | default "Description" }}</span>
+                            {{ . }}
+                        </blockquote>
+                    {{ end }}
                 {{ end }}
             </div>
         </header>

@@ -88,6 +88,9 @@ other = "Deep Sea Blue"
 [article.tableOfContents]
 other = "Contents"
 
+[article.descriptionLabel]
+other = "Description"
+
 [error.404.title]
 other = "Page not found"
 

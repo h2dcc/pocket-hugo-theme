@@ -58,6 +58,9 @@ other = "Buscar"
 [article.tableOfContents]
 other = "Contenido"
 
+[article.descriptionLabel]
+other = "Descripción"
+
 [error.404.title]
 other = "Página no encontrada"
 

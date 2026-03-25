@@ -1,0 +1,98 @@
+[nav.home]
+other = "Startseite"
+
+[nav.talks]
+other = "Notizen"
+
+[nav.archives]
+other = "Archiv"
+
+[nav.search]
+other = "Suche"
+
+[page.about]
+other = "Über"
+
+[page.guide]
+other = "Leitfaden"
+
+[page.links]
+other = "Links"
+
+[language.switch]
+other = "Sprache wechseln"
+
+[language.select]
+other = "Sprache auswählen"
+
+[language.current]
+other = "Aktuelle Sprache"
+
+[language.available]
+other = "Verfügbare Sprachen"
+
+[language.more]
+other = "Weitere Sprachen"
+
+[widget.archives.title]
+other = "Archiv"
+
+[widget.archives.more]
+other = "Mehr"
+
+[widget.categoriesCloud.title]
+other = "Kategorien"
+
+[widget.tagCloud.title]
+other = "Tags"
+
+[widget.related.title]
+other = "Ähnliche Beiträge"
+
+[widget.backlinks.title]
+other = "Verweist auf diesen Beitrag"
+
+[search.title]
+other = "Suche"
+
+[search.placeholder]
+other = "Beiträge durchsuchen"
+
+[palette.title]
+other = "Farbpalette"
+
+[palette.goldenSummerFields]
+other = "Goldene Sommerfelder"
+
+[palette.softPastelShades]
+other = "Sanfte Pastelltöne"
+
+[palette.blackGoldElegance]
+other = "Schwarz-goldene Eleganz"
+
+[palette.freshGreens]
+other = "Frisches Grün"
+
+[palette.lightSteel]
+other = "Heller Stahl"
+
+[palette.deepSeaBlue]
+other = "Tiefseeblau"
+
+[palette.morandiMist]
+other = "Morandi-Nebel"
+
+[palette.monochromeCore]
+other = "Monochromer Kern"
+
+[article.tableOfContents]
+other = "Inhalt"
+
+[article.descriptionLabel]
+other = "Beschreibung"
+
+[error.404.title]
+other = "Seite nicht gefunden"
+
+[error.404.message]
+other = "Die angeforderte Seite existiert nicht oder wurde verschoben."

@@ -30,6 +30,10 @@
 }
 
 @media (max-width: 767px) {
+  .shortcode-gallery {
+    column-count: 2;
+    column-gap: 0.75rem;
+  }
   .site-header,
   .site-shell,
   .site-footer {
@@ -67,6 +71,7 @@
 
   .site-brand__text {
     text-align: left;
+    max-width: calc(100% - 132px);
   }
 
   .main-nav,
@@ -278,6 +283,20 @@
     max-height: 100%;
   }
 
+  .image-lightbox__nav {
+    width: 3.4rem;
+    height: 3.4rem;
+    font-size: 2rem;
+  }
+
+  .image-lightbox__nav--prev {
+    left: 0.2rem;
+  }
+
+  .image-lightbox__nav--next {
+    right: 0.2rem;
+  }
+
   .image-lightbox__image {
     max-height: calc(100vh - 6rem);
     border-radius: 1.2rem;
@@ -309,6 +328,12 @@
 
   .article-page__toc-mobile .toc-widget ol li::marker {
     font-size: 0.82em;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .shortcode-gallery {
+    column-count: 1;
   }
 }
 

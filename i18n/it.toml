@@ -1,0 +1,98 @@
+[nav.home]
+other = "Home"
+
+[nav.talks]
+other = "Note"
+
+[nav.archives]
+other = "Archivio"
+
+[nav.search]
+other = "Cerca"
+
+[page.about]
+other = "Informazioni"
+
+[page.guide]
+other = "Guida"
+
+[page.links]
+other = "Link"
+
+[language.switch]
+other = "Cambia lingua"
+
+[language.select]
+other = "Scegli lingua"
+
+[language.current]
+other = "Lingua corrente"
+
+[language.available]
+other = "Lingue disponibili"
+
+[language.more]
+other = "Altre lingue"
+
+[widget.archives.title]
+other = "Archivio"
+
+[widget.archives.more]
+other = "Altro"
+
+[widget.categoriesCloud.title]
+other = "Categorie"
+
+[widget.tagCloud.title]
+other = "Tag"
+
+[widget.related.title]
+other = "Articoli correlati"
+
+[widget.backlinks.title]
+other = "Citato da"
+
+[search.title]
+other = "Cerca"
+
+[search.placeholder]
+other = "Cerca articoli"
+
+[palette.title]
+other = "Palette colori"
+
+[palette.goldenSummerFields]
+other = "Campi estivi dorati"
+
+[palette.softPastelShades]
+other = "Toni pastello delicati"
+
+[palette.blackGoldElegance]
+other = "Eleganza nero e oro"
+
+[palette.freshGreens]
+other = "Verdi freschi"
+
+[palette.lightSteel]
+other = "Acciaio chiaro"
+
+[palette.deepSeaBlue]
+other = "Blu mare profondo"
+
+[palette.morandiMist]
+other = "Nebbia Morandi"
+
+[palette.monochromeCore]
+other = "Nucleo monocromatico"
+
+[article.tableOfContents]
+other = "Indice"
+
+[article.descriptionLabel]
+other = "Descrizione"
+
+[error.404.title]
+other = "Pagina non trovata"
+
+[error.404.message]
+other = "La pagina richiesta non esiste o potrebbe essere stata spostata."

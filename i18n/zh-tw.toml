@@ -1,62 +1,62 @@
 [nav.home]
-other = "主页"
+other = "主頁"
 
 [nav.talks]
-other = "说说"
+other = "說說"
 
 [nav.archives]
-other = "归档"
+other = "歸檔"
 
 [nav.search]
-other = "搜索"
+other = "搜尋"
 
 [page.about]
-other = "关于"
+other = "關於"
 
 [page.guide]
 other = "指南"
 
 [page.links]
-other = "链接"
+other = "連結"
 
 [language.switch]
-other = "切换语言"
+other = "切換語言"
 
 [language.select]
-other = "选择语言"
+other = "選擇語言"
 
 [language.current]
-other = "当前语言"
+other = "目前語言"
 
 [language.available]
-other = "可用语言"
+other = "可用語言"
 
 [language.more]
-other = "更多语言"
+other = "更多語言"
 
 [widget.archives.title]
-other = "归档"
+other = "歸檔"
 
 [widget.archives.more]
 other = "查看更多"
 
 [widget.categoriesCloud.title]
-other = "分类"
+other = "分類"
 
 [widget.tagCloud.title]
-other = "标签"
+other = "標籤"
 
 [widget.related.title]
-other = "相关文章"
+other = "相關文章"
 
 [widget.backlinks.title]
 other = "引用本文"
 
 [search.title]
-other = "搜索"
+other = "搜尋"
 
 [search.placeholder]
-other = "搜索文章"
+other = "搜尋文章"
 
 [palette.title]
 other = "配色"
@@ -65,34 +65,34 @@ other = "配色"
 other = "金色夏野"
 
 [palette.softPastelShades]
-other = "柔雾粉彩"
+other = "柔霧粉彩"
 
 [palette.blackGoldElegance]
-other = "黑金雅韵"
+other = "黑金雅韻"
 
 [palette.freshGreens]
-other = "新鲜绿意"
+other = "新鮮綠意"
 
 [palette.lightSteel]
-other = "浅钢银"
+other = "淺鋼銀"
 
 [palette.deepSeaBlue]
-other = "深海蓝"
+other = "深海藍"
 
 [palette.morandiMist]
-  other = "莫兰迪雾"
+other = "莫蘭迪霧"
 
 [palette.monochromeCore]
-  other = "纯黑白灰"
+other = "純黑白灰"
 
 [article.tableOfContents]
-other = "目录"
+other = "目錄"
 
 [article.descriptionLabel]
-other = "简介"
+other = "簡介"
 
 [error.404.title]
-other = "页面未找到"
+other = "找不到頁面"
 
 [error.404.message]
-other = "你访问的页面不存在，或者已经移动到别处。"
+other = "你要訪問的頁面不存在，或可能已被移動。"

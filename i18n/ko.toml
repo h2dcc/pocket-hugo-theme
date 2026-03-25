@@ -1,0 +1,98 @@
+[nav.home]
+other = "홈"
+
+[nav.talks]
+other = "노트"
+
+[nav.archives]
+other = "아카이브"
+
+[nav.search]
+other = "검색"
+
+[page.about]
+other = "소개"
+
+[page.guide]
+other = "가이드"
+
+[page.links]
+other = "링크"
+
+[language.switch]
+other = "언어 전환"
+
+[language.select]
+other = "언어 선택"
+
+[language.current]
+other = "현재 언어"
+
+[language.available]
+other = "사용 가능한 언어"
+
+[language.more]
+other = "더 많은 언어"
+
+[widget.archives.title]
+other = "아카이브"
+
+[widget.archives.more]
+other = "더보기"
+
+[widget.categoriesCloud.title]
+other = "카테고리"
+
+[widget.tagCloud.title]
+other = "태그"
+
+[widget.related.title]
+other = "관련 글"
+
+[widget.backlinks.title]
+other = "이 글을 언급한 문서"
+
+[search.title]
+other = "검색"
+
+[search.placeholder]
+other = "글 검색"
+
+[palette.title]
+other = "색상 팔레트"
+
+[palette.goldenSummerFields]
+other = "황금빛 여름 들판"
+
+[palette.softPastelShades]
+other = "부드러운 파스텔 톤"
+
+[palette.blackGoldElegance]
+other = "블랙 앤 골드 엘레강스"
+
+[palette.freshGreens]
+other = "싱그러운 그린"
+
+[palette.lightSteel]
+other = "라이트 스틸"
+
+[palette.deepSeaBlue]
+other = "딥 씨 블루"
+
+[palette.morandiMist]
+other = "모란디 미스트"
+
+[palette.monochromeCore]
+other = "모노크롬 코어"
+
+[article.tableOfContents]
+other = "목차"
+
+[article.descriptionLabel]
+other = "설명"
+
+[error.404.title]
+other = "페이지를 찾을 수 없습니다"
+
+[error.404.message]
+other = "요청한 페이지가 없거나 이동되었을 수 있습니다."

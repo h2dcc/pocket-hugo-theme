@@ -6,6 +6,8 @@ description = "A sample page that groups together several practical shortcodes f
 slug = "shortcodes-demo"
 tags = ["shortcodes", "content", "markdown"]
 categories = ["Writing"]
+comments = false
+covercard = "H"
 +++
 
 This page groups together several practical shortcodes that work well in a content-first Hugo theme. They are intentionally simple, easy to copy, and suitable for essays, notes, and documentation pages.
@@ -137,6 +139,18 @@ Use `columns` when two ideas need to be compared side by side.
 - content that must stay linear
 {{< /column >}}
 {{< /columns >}}
+
+## Gallery
+
+Use `gallery` when one article needs a compact image grid without writing a separate Markdown image block for every file.
+
+```text
+{{</* gallery pattern="sample*.webp" columns="3" */>}}
+```
+
+The shortcode reads matching image files from the current page bundle, renders them as a responsive grid, and reuses the built-in lightbox when you click a photo.
+
+{{< gallery pattern="sample*.webp" columns="3" >}}
 
 ## Why this matters
 

@@ -8,7 +8,25 @@ title = "Pocket Hugo"
 theme = "pocket-hugo-theme"
 
 # Default language for the site.
+# `languageCode` is the site language tag used in metadata and HTML, so prefer a
+# standard BCP 47 value such as `en`, `en-US`, `zh-CN`, `zh-Hans`, `zh-TW`,
+# `fr`, `es`, `ja`, `de`, `pt`, `ko`, `ru`, or `it`. Avoid non-standard values
+# like `cn`.
+
 languageCode = "en"
+
+# `defaultContentLanguage` is the Hugo language key that chooses which
+# `[languages.xx]` block and which `index.xx.md` files are treated as the default.
+# This value should match the language key you define below, such as `en`,
+# `zh-cn`, `zh-tw`, `fr`, `es`, `ja`, `de`, `pt`, `ko`, `ru`, or `it`.
+# A common Chinese setup is:
+# `languageCode = "zh-CN"` + `defaultContentLanguage = "zh-cn"`
+# or
+# `languageCode = "zh-Hans"` + `defaultContentLanguage = "zh-cn"`
+# The example site keeps only `en` and `zh-cn` enabled by default to stay small,
+# but the theme also ships UI i18n files for `fr`, `es`, `ja`, `de`, `pt`,
+# `ko`, `ru`, `zh-tw`, and `it`. 
+
 defaultContentLanguage = "en"
 
 # Enable CJK-aware word counting for Chinese, Japanese, and Korean text.
@@ -77,94 +95,6 @@ copyright = "MIT licensed demo content"
 [languages.zh-cn.params.sidebar]
   subtitle = "一款适合个人长期写作的图文式主题"
 
-# Japanese language settings.
-[languages.ja]
-  languageName = "Japanese"
-  title = "Pocket Hugo"
-  weight = 3
-
-[languages.ja.params.sidebar]
-  subtitle = "長く書き続けるための、図文中心の個人向けテーマ"
-# Spanish language settings.
-[languages.es]
-  languageName = "Spanish"
-  title = "Pocket Hugo"
-  weight = 4
-
-[languages.es.params.sidebar]
-  subtitle = "Un tema visual para la escritura personal a largo plazo"
-
-# French language settings.
-[languages.fr]
-  languageName = "French"
-  title = "Pocket Hugo"
-  weight = 5
-
-[languages.fr.params.sidebar]
-  subtitle = "Un thème visuel pour une écriture personnelle au long cours"
-  
-[languages.ja.menu]
-  [[languages.ja.menu.main]]
-    name = "ガイド"
-    url = "/ja/guide/"
-    weight = 10
-
-  [[languages.ja.menu.main]]
-    name = "リンク"
-    url = "/ja/links/"
-    weight = 20
-
-  [[languages.ja.menu.main]]
-    name = "トーク"
-    url = "/ja/talks/"
-    weight = 30
-
-  [[languages.ja.menu.main]]
-    name = "概要"
-    url = "/ja/about/"
-    weight = 40
-
-[languages.es.menu]
-  [[languages.es.menu.main]]
-    name = "Guía"
-    url = "/es/guide/"
-    weight = 10
-
-  [[languages.es.menu.main]]
-    name = "Enlaces"
-    url = "/es/links/"
-    weight = 20
-
-  [[languages.es.menu.main]]
-    name = "Notas"
-    url = "/es/talks/"
-    weight = 30
-
-  [[languages.es.menu.main]]
-    name = "Acerca de"
-    url = "/es/about/"
-    weight = 40
-
-[languages.fr.menu]
-  [[languages.fr.menu.main]]
-    name = "Guide"
-    url = "/fr/guide/"
-    weight = 10
-
-  [[languages.fr.menu.main]]
-    name = "Liens"
-    url = "/fr/links/"
-    weight = 20
-
-  [[languages.fr.menu.main]]
-    name = "Notes"
-    url = "/fr/talks/"
-    weight = 30
-
-  [[languages.fr.menu.main]]
-    name = "À propos"
-    url = "/fr/about/"
-    weight = 40
 
 # Theme options.
 [params]
@@ -179,6 +109,16 @@ copyright = "MIT licensed demo content"
   # Experimental: browser View Transitions API. Disabled by default because
   # some browsers may still flash briefly during navigation.
   viewTransitions = false
+
+  [params.extensions]
+    # Mermaid is disabled by default because it also loads extra JavaScript.
+    # To use it on one page, first turn it on here, then add `extensions = ["mermaid"]`
+    # to that page's front matter.
+    mermaid = true
+    # KaTeX is disabled by default because it also loads extra JavaScript.
+    # To use it on one page, first turn it on here, then add `extensions = ["katex"]`
+    # to that page's front matter.
+    katex = true
 
   [params.search]
     provider = "local"
@@ -287,6 +227,14 @@ copyright = "MIT licensed demo content"
     # CSS brightness() value applied to images in dark mode.
     dark = "0.85"
 
+  [params.images.borders]
+    # Whether homepage/list and single-page cover images render with a light border.
+    cover = true
+    # Whether inline article images render with a light border.
+    content = true
+    # Whether generated gradient title cards render with a light border.
+    titleCards = true
+
   [params.images.pipeline]
     responsive = true
     format = "webp"
@@ -296,7 +244,7 @@ copyright = "MIT licensed demo content"
 
   [params.languageSwitcher]
     #  With two site languages, use a direct switch icon; with more than two, use a dropdown list.
-    headerSelectThreshold = 3
+    headerSelectThreshold = 2
 
   [params.comments]
       # Enable comments globally. The example site keeps Twikoo on so the demo can show a real comment area.

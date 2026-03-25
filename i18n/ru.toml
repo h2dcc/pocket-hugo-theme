@@ -1,0 +1,98 @@
+[nav.home]
+other = "Главная"
+
+[nav.talks]
+other = "Заметки"
+
+[nav.archives]
+other = "Архив"
+
+[nav.search]
+other = "Поиск"
+
+[page.about]
+other = "О сайте"
+
+[page.guide]
+other = "Руководство"
+
+[page.links]
+other = "Ссылки"
+
+[language.switch]
+other = "Сменить язык"
+
+[language.select]
+other = "Выбрать язык"
+
+[language.current]
+other = "Текущий язык"
+
+[language.available]
+other = "Доступные языки"
+
+[language.more]
+other = "Другие языки"
+
+[widget.archives.title]
+other = "Архив"
+
+[widget.archives.more]
+other = "Ещё"
+
+[widget.categoriesCloud.title]
+other = "Категории"
+
+[widget.tagCloud.title]
+other = "Теги"
+
+[widget.related.title]
+other = "Похожие записи"
+
+[widget.backlinks.title]
+other = "Ссылаются на эту запись"
+
+[search.title]
+other = "Поиск"
+
+[search.placeholder]
+other = "Искать записи"
+
+[palette.title]
+other = "Цветовая палитра"
+
+[palette.goldenSummerFields]
+other = "Золотые летние поля"
+
+[palette.softPastelShades]
+other = "Мягкие пастельные оттенки"
+
+[palette.blackGoldElegance]
+other = "Чёрно-золотая элегантность"
+
+[palette.freshGreens]
+other = "Свежая зелень"
+
+[palette.lightSteel]
+other = "Светлая сталь"
+
+[palette.deepSeaBlue]
+other = "Глубокий морской синий"
+
+[palette.morandiMist]
+other = "Туман Моранди"
+
+[palette.monochromeCore]
+other = "Монохромная основа"
+
+[article.tableOfContents]
+other = "Содержание"
+
+[article.descriptionLabel]
+other = "Описание"
+
+[error.404.title]
+other = "Страница не найдена"
+
+[error.404.message]
+other = "Запрошенная страница не существует или была перемещена."

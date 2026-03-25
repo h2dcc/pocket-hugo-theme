@@ -6,7 +6,8 @@ description = "Pocket Hugo is a browser-first publishing tool for Hugo, built fo
 summary = "A closer look at Pocket Hugo as a browser-first Hugo workflow, including publishing, images, multilingual bundles, and why it pairs naturally with pocket-hugo-theme."
 categories = ["writing"]
 tags = ["pocket-hugo", "workflow", "multilingual", "mobile"]
-comments = true
+comments = false
+covercard = "D"
 +++
 
 Pocket Hugo is a browser-first publishing tool for Hugo across desktop, tablet, and phone. It is designed for people who keep their content in GitHub repositories and want to write, manage, and publish Markdown in the browser without being tied to one main computer.

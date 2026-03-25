@@ -7,6 +7,7 @@ description = "A sample post for checking derived image sizes, inline rendering,
 slug = "responsive-image-pipeline"
 tags = ["images", "pipeline", "lightbox"]
 categories = ["Images"]
+comments = false
 +++
 
 This article demonstrates the theme's **responsive image pipeline** for inline Markdown images. The same source file is rendered inside the article, constrained by layout rules, and still available in a larger lightbox view.
@@ -15,13 +16,21 @@ This article demonstrates the theme's **responsive image pipeline** for inline M
 
 ## Inline image test
 
-![Pipeline demo image](cover.webp)
+![Yue Lu School](cover.webp)
 
-## Try it yourself
+![Guang Zhou](guangzhou.webp)
 
-- width and height attributes in rendered HTML
-- consistent image rhythm in article content
-- lightbox behavior when you click the image
+![Writing](writing.webp)
+
+This represents the default display behavior for images on the webpage. If you wish to adjust the image display height, you can configure this in `hugo.toml`. If you do not require this feature, you can disable it directly by setting: `limitHeight = false`.
+
+```toml
+  [params.images.content]
+    mobileMaxHeight = "160px"
+    tabletMaxHeight = "250px"
+    desktopMaxHeight = "350px"
+```
+
 
 This page complements the [Image Configuration Reference](/article/image-config-reference/), which focuses on article headers and card covers instead.
 

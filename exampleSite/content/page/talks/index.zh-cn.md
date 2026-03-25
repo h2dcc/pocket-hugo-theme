@@ -2,6 +2,7 @@
 layout: "talk"
 title: "说说"
 slug: "talks"
+comments: false
 menu:
   main:
     weight: -90

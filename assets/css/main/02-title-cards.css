@@ -12,7 +12,7 @@
   place-items: center;
   width: 100%;
   border-radius: 20px;
-  border: 1px solid color-mix(in srgb, var(--cover-hero-border) 88%, white 12%);
+  border: var(--title-card-border-width, 1px) solid color-mix(in srgb, var(--cover-hero-border) 88%, white 12%);
   background:
     radial-gradient(circle at top right, var(--cover-hero-orb), transparent 34%),
     linear-gradient(135deg, var(--cover-hero-start), var(--cover-hero-end));

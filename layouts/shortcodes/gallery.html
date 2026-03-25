@@ -1,0 +1,25 @@
+{{- $pattern := .Get "pattern" | default "*.webp" -}}
+{{- $columns := .Get "columns" | default "3" -}}
+{{- $resources := .Page.Resources.Match $pattern -}}
+{{- if $resources -}}
+<section class="shortcode-gallery" style="--gallery-columns: {{ $columns }}; --article-content-image-desktop-max-height: none; --article-content-image-tablet-max-height: none; --article-content-image-mobile-max-height: none;">
+  {{- range sort $resources "Name" -}}
+    {{- $thumb := . -}}
+    {{- if eq .MediaType.MainType "image" -}}
+      {{- $thumb = .Resize "1200x webp q85" -}}
+    {{- end -}}
+    <figure class="shortcode-gallery__item">
+      <a class="shortcode-gallery__link" href="{{ .RelPermalink }}" data-lightbox-image>
+        <img
+          src="{{ $thumb.RelPermalink }}"
+          alt="{{ .Title | default .Name }}"
+          loading="lazy"
+          decoding="async"
+          width="{{ $thumb.Width }}"
+          height="{{ $thumb.Height }}"
+        >
+      </a>
+    </figure>
+  {{- end -}}
+</section>
+{{- end -}}

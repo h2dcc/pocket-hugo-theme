@@ -1,0 +1,17 @@
+/* Optional Mermaid diagram styling. */
+.article-content .mermaid {
+  margin: 1.8em 0;
+  padding: 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--card) 88%, var(--card-muted) 12%);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.article-content .mermaid svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}

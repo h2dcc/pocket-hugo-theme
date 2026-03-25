@@ -58,6 +58,9 @@ other = "検索"
 [article.tableOfContents]
 other = "目次"
 
+[article.descriptionLabel]
+other = "説明"
+
 [error.404.title]
 other = "ページが見つかりません"
 

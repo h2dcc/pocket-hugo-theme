@@ -6,6 +6,7 @@ The actual stylesheet source now lives in:
 - assets/css/main/02-title-cards.css
 - assets/css/main/03-framework.css
 - assets/css/main/04-responsive.css
+- assets/css/extensions/katex.css
 
 These files are regenerated from the original theme stylesheet structure
 and concatenated in layouts/_default/baseof.html with Hugo Pipes, while

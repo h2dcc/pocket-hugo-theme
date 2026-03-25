@@ -58,6 +58,9 @@ other = "Recherche"
 [article.tableOfContents]
 other = "Sommaire"
 
+[article.descriptionLabel]
+other = "Description"
+
 [error.404.title]
 other = "Page introuvable"
 

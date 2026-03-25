@@ -1,0 +1,9 @@
+{{- if eq .Type "mermaid" -}}
+<div class="highlight">
+    <pre tabindex="0" class="chroma"><code class="language-mermaid" data-lang="mermaid">{{ .Inner | safeHTML }}</code></pre>
+</div>
+{{- else -}}
+    {{- with transform.HighlightCodeBlock . -}}
+        {{- .Wrapped -}}
+    {{- end -}}
+{{- end -}}

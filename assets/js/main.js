@@ -179,6 +179,8 @@
     lightbox.innerHTML = [
         '<div class="image-lightbox__backdrop" data-lightbox-close></div>',
         '<div class="image-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Image preview">',
+        '  <button class="image-lightbox__nav image-lightbox__nav--prev" type="button" aria-label="Previous image" data-lightbox-prev>&lsaquo;</button>',
+        '  <button class="image-lightbox__nav image-lightbox__nav--next" type="button" aria-label="Next image" data-lightbox-next>&rsaquo;</button>',
         '  <button class="image-lightbox__close" type="button" aria-label="Close" data-lightbox-close>&times;</button>',
         '  <img class="image-lightbox__image" alt="">',
         '  <div class="image-lightbox__caption"></div>',
@@ -188,12 +190,43 @@
 
     var lightboxImage = lightbox.querySelector('.image-lightbox__image');
     var lightboxCaption = lightbox.querySelector('.image-lightbox__caption');
+    var lightboxPrev = lightbox.querySelector('[data-lightbox-prev]');
+    var lightboxNext = lightbox.querySelector('[data-lightbox-next]');
+    var currentGallery = [];
+    var currentIndex = -1;
+
+    function galleryFor(trigger) {
+        var scope = trigger.closest('.article-content');
+        var items = scope ? scope.querySelectorAll('[data-lightbox-image]') : document.querySelectorAll('[data-lightbox-image]');
+        return Array.prototype.slice.call(items);
+    }
+
+    function updateLightboxNav() {
+        var hasGallery = currentGallery.length > 1;
+        lightbox.classList.toggle('has-gallery', hasGallery);
+        lightboxPrev.hidden = !hasGallery;
+        lightboxNext.hidden = !hasGallery;
+    }
+
+    function showLightboxItem(index) {
+        if (!currentGallery.length) return;
+        currentIndex = (index + currentGallery.length) % currentGallery.length;
+        var trigger = currentGallery[currentIndex];
+        var image = trigger.querySelector('img');
+        lightboxImage.src = trigger.getAttribute('href');
+        lightboxImage.alt = image ? (image.getAttribute('alt') || '') : '';
+        lightboxCaption.textContent = image ? (image.getAttribute('title') || image.getAttribute('alt') || '') : '';
+        updateLightboxNav();
+    }
 
     function closeLightbox() {
         lightbox.classList.remove('is-open');
         lightboxImage.removeAttribute('src');
         lightboxImage.alt = '';
         lightboxCaption.textContent = '';
+        currentGallery = [];
+        currentIndex = -1;
+        updateLightboxNav();
         document.body.style.overflow = '';
     }
 
@@ -201,12 +234,21 @@
         var trigger = event.target.closest('[data-lightbox-image]');
         if (trigger) {
             event.preventDefault();
-            var image = trigger.querySelector('img');
-            lightboxImage.src = trigger.getAttribute('href');
-            lightboxImage.alt = image ? (image.getAttribute('alt') || '') : '';
-            lightboxCaption.textContent = image ? (image.getAttribute('title') || image.getAttribute('alt') || '') : '';
+            currentGallery = galleryFor(trigger);
+            currentIndex = currentGallery.indexOf(trigger);
+            showLightboxItem(currentIndex);
             lightbox.classList.add('is-open');
             document.body.style.overflow = 'hidden';
+            return;
+        }
+
+        if (event.target.closest('[data-lightbox-prev]')) {
+            showLightboxItem(currentIndex - 1);
+            return;
+        }
+
+        if (event.target.closest('[data-lightbox-next]')) {
+            showLightboxItem(currentIndex + 1);
             return;
         }
 
@@ -216,8 +258,22 @@
     });
 
     document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        if (!lightbox.classList.contains('is-open')) return;
+
+        if (event.key === 'Escape') {
             closeLightbox();
+            return;
+        }
+
+        if (event.key === 'ArrowLeft' && currentGallery.length > 1) {
+            event.preventDefault();
+            showLightboxItem(currentIndex - 1);
+            return;
+        }
+
+        if (event.key === 'ArrowRight' && currentGallery.length > 1) {
+            event.preventDefault();
+            showLightboxItem(currentIndex + 1);
         }
     });
 })();

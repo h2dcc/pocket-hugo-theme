@@ -2,9 +2,9 @@
 title: "Markdown Rendering Showcase"
 description: "A compact post for testing common Markdown elements in the English article layout."
 date: 2026-03-19T09:15:00+08:00
-slug: "quick-note"
+slug: "markdown-demo"
 coverCard: "E"
-comments: false
+comments: "false"
 categories:
   - Demo
 tags:
@@ -75,7 +75,7 @@ const article = {
 
 The local bundle image should appear both as the cover and as an inline asset:
 
-![Sample cover reused inline](cover.webp)
+![Sample photo](cover.webp)
 
 ## Horizontal Rule
 

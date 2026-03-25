@@ -8,8 +8,12 @@
 {{- $defaultPalette := .Site.Params.colorScheme.preset | default "golden-summer-fields" -}}
 {{- $imageBrightnessLight := .Site.Params.images.brightness.light | default "1" -}}
 {{- $imageBrightnessDark := .Site.Params.images.brightness.dark | default "0.92" -}}
+{{- $imageBorders := .Site.Params.images.borders | default dict -}}
+{{- $coverBorderWidth := cond ($imageBorders.cover | default true) "1px" "0px" -}}
+{{- $contentBorderWidth := cond ($imageBorders.content | default true) "1px" "0px" -}}
+{{- $titleCardBorderWidth := cond ($imageBorders.titleCards | default true) "1px" "0px" -}}
 <!DOCTYPE html>
-<html lang="{{ .Language.Lang | default .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}" data-layout-mode="{{ $layoutMode }}" data-palette="{{ $defaultPalette }}" {{ printf "style=%q" (printf "--content-width:%s;--image-brightness-light:%s;--image-brightness-dark:%s;" $contentWidth $imageBrightnessLight $imageBrightnessDark) | safeHTMLAttr }}>
+<html lang="{{ .Language.Lang | default .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}" data-layout-mode="{{ $layoutMode }}" data-palette="{{ $defaultPalette }}" {{ printf "style=%q" (printf "--content-width:%s;--image-brightness-light:%s;--image-brightness-dark:%s;--cover-image-border-width:%s;--content-image-border-width:%s;--title-card-border-width:%s;" $contentWidth $imageBrightnessLight $imageBrightnessDark $coverBorderWidth $contentBorderWidth $titleCardBorderWidth) | safeHTMLAttr }}>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,6 +72,7 @@
         (resources.Get "css/main/02-title-cards.css")
         (resources.Get "css/main/03-framework.css")
         (resources.Get "css/main/04-responsive.css")
+        (resources.Get "css/extensions/syntax.css")
     }}
     {{ with $styles | resources.Concat "css/main.css" }}
         {{ if $.Site.Params.viewTransitions }}
@@ -75,6 +80,7 @@
         {{ end }}
         <link rel="stylesheet" href="{{ .RelPermalink }}">
     {{ end }}
+    {{ partial "helpers/extensions.html" (dict "Page" . "StylesOnly" true) }}
     {{ partial "custom/css.html" . }}
     {{ range .AlternativeOutputFormats }}
         <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
@@ -100,6 +106,7 @@
     {{ with resources.Get "js/main.js" }}
         <script src="{{ .RelPermalink }}" defer></script>
     {{ end }}
+    {{ partial "helpers/extensions.html" (dict "Page" . "ScriptsOnly" true) }}
     {{ block "scripts" . }}{{ end }}
 </body>
 </html>

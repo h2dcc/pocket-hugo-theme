@@ -1,0 +1,74 @@
+/* Optional syntax highlighting colors for Hugo/Chroma code blocks. */
+.article-content .chroma .k,
+.article-content .chroma .kc,
+.article-content .chroma .kd,
+.article-content .chroma .kn,
+.article-content .chroma .kp,
+.article-content .chroma .kr,
+.article-content .chroma .kt {
+  color: #c792ea;
+}
+
+.article-content .chroma .s,
+.article-content .chroma .sa,
+.article-content .chroma .sb,
+.article-content .chroma .sc,
+.article-content .chroma .dl,
+.article-content .chroma .sd,
+.article-content .chroma .s1,
+.article-content .chroma .s2,
+.article-content .chroma .se,
+.article-content .chroma .sh,
+.article-content .chroma .si,
+.article-content .chroma .sr,
+.article-content .chroma .ss,
+.article-content .chroma .sx {
+  color: #ecc48d;
+}
+
+.article-content .chroma .m,
+.article-content .chroma .mb,
+.article-content .chroma .mf,
+.article-content .chroma .mh,
+.article-content .chroma .mi,
+.article-content .chroma .mo {
+  color: #f78c6c;
+}
+
+.article-content .chroma .c,
+.article-content .chroma .c1,
+.article-content .chroma .cm,
+.article-content .chroma .ch,
+.article-content .chroma .cs,
+.article-content .chroma .cpf {
+  color: #7f8c98;
+  font-style: italic;
+}
+
+.article-content .chroma .na,
+.article-content .chroma .nb,
+.article-content .chroma .nc,
+.article-content .chroma .nd,
+.article-content .chroma .ne,
+.article-content .chroma .nf,
+.article-content .chroma .nl,
+.article-content .chroma .nn,
+.article-content .chroma .nt,
+.article-content .chroma .nv,
+.article-content .chroma .vc,
+.article-content .chroma .vg,
+.article-content .chroma .vi,
+.article-content .chroma .vm {
+  color: #82aaff;
+}
+
+.article-content .chroma .o,
+.article-content .chroma .ow,
+.article-content .chroma .p {
+  color: color-mix(in srgb, var(--text) 78%, white 22%);
+}
+
+.article-content .chroma .err {
+  color: #ff5370;
+  background: transparent;
+}

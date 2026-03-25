@@ -2,6 +2,7 @@
 layout: "talk"
 title: "Talks"
 slug: "talks"
+comments: false
 menu:
   main:
     weight: -90

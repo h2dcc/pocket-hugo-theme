@@ -3,7 +3,7 @@ title: "Title Card Guide"
 description: "A practical guide for using fallback title cards in Pocket Hugo Theme, including front matter setup and all 16 presets."
 date: 2026-02-09T08:30:00+08:00
 slug: "title-card-guide"
-comments: true
+comments: false
 coverCard: "G"
 categories:
   - Demo
@@ -13,7 +13,7 @@ tags:
   - Theme
 ---
 
-Pocket Hugo Theme can turn a missing cover image into a generated **title card**. This page shows how to use it from an author's point of view.
+Pocket Hugo Theme can turn a missing cover image into a generated **title card**. 
 
 <!--more-->
 

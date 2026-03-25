@@ -2,7 +2,7 @@
 title: "Guide"
 slug: "guide"
 listTitle: false
-comments: true
+comments: false
 menu:
   main:
     weight: -45

@@ -1,0 +1,98 @@
+[nav.home]
+other = "Início"
+
+[nav.talks]
+other = "Notas"
+
+[nav.archives]
+other = "Arquivo"
+
+[nav.search]
+other = "Pesquisa"
+
+[page.about]
+other = "Sobre"
+
+[page.guide]
+other = "Guia"
+
+[page.links]
+other = "Links"
+
+[language.switch]
+other = "Mudar idioma"
+
+[language.select]
+other = "Escolher idioma"
+
+[language.current]
+other = "Idioma atual"
+
+[language.available]
+other = "Idiomas disponíveis"
+
+[language.more]
+other = "Mais idiomas"
+
+[widget.archives.title]
+other = "Arquivo"
+
+[widget.archives.more]
+other = "Mais"
+
+[widget.categoriesCloud.title]
+other = "Categorias"
+
+[widget.tagCloud.title]
+other = "Tags"
+
+[widget.related.title]
+other = "Posts relacionados"
+
+[widget.backlinks.title]
+other = "Referenciado por"
+
+[search.title]
+other = "Pesquisa"
+
+[search.placeholder]
+other = "Pesquisar posts"
+
+[palette.title]
+other = "Paleta de cores"
+
+[palette.goldenSummerFields]
+other = "Campos dourados de verão"
+
+[palette.softPastelShades]
+other = "Tons pastel suaves"
+
+[palette.blackGoldElegance]
+other = "Elegância preta e dourada"
+
+[palette.freshGreens]
+other = "Verdes frescos"
+
+[palette.lightSteel]
+other = "Aço claro"
+
+[palette.deepSeaBlue]
+other = "Azul oceânico"
+
+[palette.morandiMist]
+other = "Névoa Morandi"
+
+[palette.monochromeCore]
+other = "Núcleo monocromático"
+
+[article.tableOfContents]
+other = "Conteúdo"
+
+[article.descriptionLabel]
+other = "Descrição"
+
+[error.404.title]
+other = "Página não encontrada"
+
+[error.404.message]
+other = "A página solicitada não existe ou pode ter sido movida."

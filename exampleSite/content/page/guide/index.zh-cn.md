@@ -1,6 +1,7 @@
 ---
 title: "指南"
 listTitle: false
+comments: false
 slug: "guide"
 menu:
   main:
