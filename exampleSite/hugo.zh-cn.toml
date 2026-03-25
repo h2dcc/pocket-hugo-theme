@@ -1,23 +1,37 @@
-# 站点部署地址。正式上线前请替换成你自己的域名。
+# 生产环境部署地址。正式上线前请替换成你自己的域名。
 baseURL = "https://example.org/"
 
-# 网站标题，会显示在页头、浏览器标题和订阅信息里。
+# 站点标题，会显示在页头、浏览器标题和订阅信息里。
 title = "Pocket Hugo"
 
 # 主题目录名称。
 theme = "pocket-hugo-theme"
 
 # 站点默认语言。
-languageCode = "zh-cn"
+# `languageCode` 用于元数据和 HTML 的语言标记，建议优先使用标准 BCP 47
+# 语言标签，例如 `en`、`en-US`、`zh-CN`、`zh-Hans`、`zh-TW`、`fr`、
+# `es`、`ja`、`de`、`pt`、`ko`、`ru`、`it`。不要使用 `cn` 这类非标准值。
+languageCode = "zh-CN"
+
+# `defaultContentLanguage` 是 Hugo 的语言键，用来决定默认启用哪一个
+# `[languages.xx]` 配置块，以及哪一组 `index.xx.md` 会被视为默认内容。
+# 这里应与下面定义的语言键一致，例如 `en`、`zh-cn`、`zh-tw`、`fr`、
+# `es`、`ja`、`de`、`pt`、`ko`、`ru`、`it`。
+# 中文常见写法例如：
+# `languageCode = "zh-CN"` + `defaultContentLanguage = "zh-cn"`
+# 或
+# `languageCode = "zh-Hans"` + `defaultContentLanguage = "zh-cn"`
+# 示例站默认仍只启用 `en` 和 `zh-cn`，以保持体积精简，但主题还附带
+# `fr`、`es`、`ja`、`de`、`pt`、`ko`、`ru`、`zh-tw`、`it` 的 UI 文案文件。
 defaultContentLanguage = "zh-cn"
 
-# 启用中日韩文字计数优化。
+# 启用中日韩文本的字数统计优化。
 hasCJKLanguage = true
 
 # 自动生成 robots.txt。
 enableRobotsTXT = true
 
-# 首页和归档页默认读取的主要内容分区。
+# 首页和归档等页面默认读取的主要内容分区。
 mainSections = ["posts"]
 
 # 页脚版权文字，会显示在当前年份之后。
@@ -27,21 +41,21 @@ copyright = "MIT licensed demo content"
 [mediaTypes."application/feed+json"]
   suffixes = ["json"]
 
-# 说说页面的 RSS 输出。
+# 说说页面的 RSS 输出格式。
 [outputFormats.TalksRSS]
   mediaType = "application/rss+xml"
   baseName = "talks"
   isPlainText = false
   notAlternative = true
 
-# 说说页面的 JSON 输出。
+# 说说页面的 JSON 输出格式。
 [outputFormats.TalksJSON]
   mediaType = "application/feed+json"
   baseName = "talks"
   isPlainText = true
   notAlternative = true
 
-# 分页大小。
+# 每页文章数量。
 [pagination]
   pagerSize = 8
 
@@ -53,155 +67,150 @@ copyright = "MIT licensed demo content"
 [permalinks]
   posts = "/article/:slug/"
   page = "/:slug/"
-  talks = "/talks/:slug/"
 
-# 多语言配置。
-[languages]
-  [languages.zh-cn]
-    languageName = "简体中文"
-    languageCode = "zh-CN"
-    weight = 1
-    title = "Pocket Hugo"
-    contentDir = "content"
+# 分类法配置。
+[taxonomies]
+  tag = "tags"
+  category = "categories"
 
-    [languages.zh-cn.params]
-      description = "一款适合个人长期写作的图文式主题"
-      subtitle = "一款适合个人长期写作的图文式主题"
-      keywords = ["Hugo", "theme", "writing", "multilingual"]
-      author = "Pocket Hugo"
+# 英文语言设置。
+[languages.en]
+  languageName = "English"
+  title = "Pocket Hugo"
+  weight = 1
 
-  [languages.en]
-    languageName = "English"
-    languageCode = "en-US"
-    weight = 2
-    title = "Pocket Hugo"
-    contentDir = "content"
+[languages.en.params.sidebar]
+  subtitle = "A cover-driven theme for long-term personal writing"
 
-    [languages.en.params]
-      description = "A cover-driven theme for long-term personal writing"
-      subtitle = "A cover-driven theme for long-term personal writing"
-      keywords = ["Hugo", "theme", "writing", "multilingual"]
-      author = "Pocket Hugo"
+# 简体中文语言设置。
+[languages.zh-cn]
+  languageName = "Chinese"
+  title = "Pocket Hugo"
+  weight = 2
+
+[languages.zh-cn.params.sidebar]
+  subtitle = "一款适合个人长期写作的图文式主题"
 
 
-# 站点级参数。
+# 主题配置。
 [params]
-  # 默认头像，建议放在 static/img/ 目录下。
-  avatar = "img/avatar.webp"
-
-  # 默认 logo，可用于站点角标或浏览器图标。
-  logo = "img/logo-default.svg"
-
-  # 作者名称。
-  author = "Pocket Hugo"
-
-  # 页脚年份，可用于手动指定开始年份。
-  since = 2026
-
-  # 是否启用彩色主题切换。
-  colorSchemeToggle = true
-
-  # 显示在首页顶部的简介。
-  intro = "A cover-driven theme for long-term personal writing"
-
-  # 站点备案或额外页脚说明。
-  footer = "Built with Hugo"
-
-  # 首页卡片默认摘要长度。
-  # 设为 0 表示不截断，摘要会完整显示，不是“长度为 0”。
+  featuredImageField = "image"
+  favicon = "/img/logo-default.webp"
+  appleTouchIcon = "/img/logo-default.webp"
+  # 首页和列表卡片摘要长度。
+  # 设为 0 表示不截断，直接显示完整摘要。
   summaryLength = 0
+  articleWords = true
+  backToTop = true
+  # 实验性功能：浏览器 View Transitions API。
+  # 默认关闭，因为部分浏览器切换时仍可能短暂闪烁。
+  viewTransitions = false
 
   [params.extensions]
-      # Mermaid 默认不建议全站启用，因为它还会额外加载 JavaScript。
-      # 如果要在某一篇文章中使用，先在这里开启，再在该文章 front matter
-      # 中添加 `extensions = ["mermaid"]`。
-      mermaid = false
-      # KaTeX 默认不建议全站启用，因为它也会额外加载 JavaScript。
-      # 如果要在某一篇文章中使用，先在这里开启，再在该文章 front matter
-      # 中添加 `extensions = ["katex"]`。
-      katex = false
+    # Mermaid 默认不建议全站启用，因为它还会额外加载 JavaScript。
+    # 如果只想在单篇文章中使用，先在这里开启，再在该文章 front matter
+    # 中添加 `extensions = ["mermaid"]`。
+    mermaid = true
+    # KaTeX 默认不建议全站启用，因为它也会额外加载 JavaScript。
+    # 如果只想在单篇文章中使用，先在这里开启，再在该文章 front matter
+    # 中添加 `extensions = ["katex"]`。
+    katex = true
 
   [params.search]
-      # 搜索提供方，当前使用内置 JSON 搜索。
-      provider = "local"
-      # 是否把正文全文也写入搜索索引。
-      fullText = false
+    provider = "local"
+    fullText = false
 
   [params.seo]
-      # 可选站点副标题，可用于标题结构。
-      tagline = "一款适合个人长期写作的图文式主题"
-      # 首页元描述，用于搜索引擎和社交平台摘要。
-      homeDescription = "Pocket Hugo Theme 是一款适合长文写作、说说流、友链页与多语言个人站的图文式 Hugo 主题。"
-      # SEO 描述的最大长度。
-      descriptionLength = 180
-      # 页面标题结构中使用的分隔符。
-      separator = " · "
+    # 可选站点副标题，可参与页面标题结构。
+    tagline = "一款适合个人长期写作的图文式主题"
+    # 首页元描述，用于搜索引擎和社交平台摘要。
+    homeDescription = "Pocket Hugo Theme 是一款适合长文写作、说说流、友链页与多语言个人站的图文式 Hugo 主题。"
+    # SEO 描述最大长度。
+    descriptionLength = 180
+    # 页面标题结构使用的分隔符。
+    separator = " · "
 
-      [params.seo.title]
-        # 可用占位符：
-        # [site_name] [tagline] [separator]
-        # [post_title] [page_title] [group_title] [archive_title]
-        home = "[site_name]"
-        post = "[post_title][separator][site_name]"
-        page = "[page_title][separator][site_name]"
-        group = "[group_title][separator][site_name]"
-        archive = "[archive_title][separator][site_name]"
+    [params.seo.title]
+      # 可用占位符：
+      # [site_name] [tagline] [separator]
+      # [post_title] [page_title] [group_title] [archive_title]
+      home = "[site_name]"
+      post = "[post_title][separator][site_name]"
+      page = "[page_title][separator][site_name]"
+      group = "[group_title][separator][site_name]"
+      archive = "[archive_title][separator][site_name]"
 
   [params.alpine]
-      # 是否全局加载 Alpine.js，方便自定义轻交互小组件。
+    enabled = true
+
+  [params.projects.remoteDemo]
+    # Content Adapters 的实验性示例。
+    # 默认关闭，保证离线示例站更稳定。
+    enabled = false
+    source = "github-issues"
+    url = "https://api.github.com/repos/gohugoio/hugo/issues?per_page=6&state=open"
+
+  [params.footer]
+    since = 2026
+
+  [params.dateFormat]
+    published = "2006-01-02"
+    lastUpdated = "2006-01-02"
+
+  [params.sidebar]
+    subtitle = "一款适合个人长期写作的图文式主题"
+
+    [params.sidebar.avatar]
       enabled = true
+      local = true
+      src = "img/avatar.webp"
 
-  # 是否在文章页显示预计阅读时长。
-  readingTime = true
-
-  # 是否显示文章字数统计。
-  articleWords = true
+    [params.sidebar.qr]
+      enabled = false
+      # image = "img/your-qr.png"
+      # alt = "Scan me"
+      # width = 110
+      # height = 110
 
   [params.article]
-      # 是否启用 backlinks 反链。
-      backlinks = true
-      # 反链最多展示多少条。
-      backlinksLimit = 5
-      # 列表页是否显示摘要。
-      # 这里只影响首页、归档、分类、标签等文章卡片。
-      showListSummary = true
-      # 首页、分类、标签、归档等列表页里，渐变卡片是否显示外部标题。
-      listTitle = true
-      # 文章页标题下方是否显示 description。
-      # 这里只影响文章内页本身，不影响首页和列表页摘要。
-      showPageDescription = true
-      # 是否显示文章目录。
-      toc = true
-      # 是否显示预计阅读时长。
-      readingTime = true
+    backlinks = true
+    backlinksLimit = 5
+    # 列表页是否在标题下方显示摘要。
+    showListSummary = true
+    # 首页、分类、标签、归档等列表页里的渐变标题卡片是否显示外部标题。
+    listTitle = true
+    # 文章页标题下方是否渲染 .Description。
+    showPageDescription = true
+    toc = true
+    readingTime = true
 
   [params.images.cover]
-        # 列表页封面是否使用 Hugo Fill 裁切。
-        # 设为 false 时会尽量保留原图，不再生成裁切后的封面。
-        useFill = false
-        # 首页和文章卡片封面使用的 Hugo Fill 规格。
-        cardFill = "640x300 Center q85"
-        # 分类、标签等列表页封面使用的 Hugo Fill 规格。
-        taxonomyFill = "640x300 Center q85"
-        # og:image 和 twitter:image 使用的封面变体，常用 card 或 single。
-        openGraphVariant = "card"
-        # 当文章没有设置封面图时，是否启用默认封面。
-        useDefault = true
-        # "image" 使用 default-cover，"gradient" 渲染自动生成的渐变标题卡片。
-        fallbackMode = "gradient"
-        # 当页面没有封面图时，社交分享图是否仍回退到 default-cover。
-        openGraphUseDefault = true
-        # 当 fallbackMode = "image" 时使用的默认封面图地址，可写本地路径或远程链接。
-        default = "/img/default-cover.webp"
+      # 首页/列表封面是否使用 Hugo Fill 裁切。
+      # 设为 false 时会尽量保留原图，不再生成裁切封面。
+      useFill = false
+      # 首页和文章卡片封面使用的 Hugo Fill 规格。
+      cardFill = "640x300 Center q85"
+      # 分类、标签等列表页封面使用的 Hugo Fill 规格。
+      taxonomyFill = "640x300 Center q85"
+      # og:image 和 twitter:image 使用的封面变体，一般是 "card" 或 "single"。
+      openGraphVariant = "card"
+      # 当文章没有设置封面图时，是否启用默认封面。
+      useDefault = true
+      # "image" 使用 default-cover，"gradient" 渲染自动生成的渐变标题卡片。
+      fallbackMode = "gradient"
+      # 页面没有封面图时，社交分享图是否仍回退到 default-cover。
+      openGraphUseDefault = true
+      # fallbackMode = "image" 时使用的默认封面图地址，可写本地路径或远程链接。
+      default = "/img/default-cover.webp"
 
   [params.images.content]
     # 是否启用正文图片限高逻辑。
     enableMaxHeight = true
-    # 是否一键统一手机、平板、桌面三端高度。
+    # 是否统一手机、平板、桌面三端高度。
     limitHeight = false
-    # 开启统一高度后使用的值。
+    # limitHeight = true 时使用的统一高度值。
     unifiedMaxHeight = "320px"
-    # 正文图片在不同端上的显示高度阈值。
+    # 正文图片在不同断点上的显示高度阈值。
     mobileMaxHeight = "160px"
     tabletMaxHeight = "250px"
     desktopMaxHeight = "350px"
@@ -214,36 +223,25 @@ copyright = "MIT licensed demo content"
     # 深色模式下图片的 CSS brightness() 值。
     dark = "0.85"
 
+  [params.images.borders]
+    # 首页/列表封面图和文章页头图是否显示轻描边。
+    cover = true
+    # 正文里的普通图片是否显示轻描边。
+    content = true
+    # 自动生成的渐变标题卡片是否显示轻描边。
+    titleCards = true
+
   [params.images.pipeline]
-    # 是否启用 Hugo 原生响应式图像派生。
     responsive = true
-    # 统一输出格式，默认转成 webp。
     format = "webp"
-    # 图像质量。
     quality = 85
-    # 封面图派生宽度。
     coverWidths = [480, 720, 960, 1280]
-    # 正文图派生宽度。
     contentWidths = [640, 960, 1400]
 
-  # 是否启用返回顶部按钮。
-  backToTop = true
-
-  # 是否启用图片灯箱。
-  fancybox = true
-
-  # 是否启用说说页面。
-  enableTalks = true
-
-  # 自定义二维码图片，留空则不显示。
-  qrcode = ""
-
-  # 语言切换选项。
   [params.languageSwitcher]
-    # 站点只设置两种语言时，显示直接切换图标；多于两种时，显示下拉列表。
+    # 站点只有两种语言时，头部显示直接切换图标；多于两种时，显示下拉列表。
     headerSelectThreshold = 2
 
-  # 评论系统选项。
   [params.comments]
       # 是否全局启用评论。
       enabled = true
@@ -261,58 +259,95 @@ copyright = "MIT licensed demo content"
       emitMetadata = "0"
       inputPosition = "top"
       theme = "preferred_color_scheme"
-      # lang = "zh-CN"`r`n      # jsUrl = "https://giscus.app/client.js"
+      # lang = "en"
+      # jsUrl = "https://giscus.app/client.js"
 
     [params.comments.twikoo]
-      # envId = "https://twikoo.fosu.cc"
+      # 示例站这里使用的是演示服务地址。你自己的站点请申请并替换成自己的 Twikoo 服务 URL。
+      envId = "https://twikoo.fosu.ccc"
       # region = ""
-      # lang = "en"
-      # path = ""`r`n      # jsUrl = "https://cdn.jsdelivr.net/npm/twikoo@1.6.41/dist/twikoo.all.min.js"
-# 首页社交链接。
-[[params.social]]
-name = "GitHub"
-url = "https://github.com/h2dcc/pocket-hugo-theme"
-icon = "brand-github"
+      lang = "en-US"
+      # 这里固定成 "theme" 只是为了复用示例评论数据。
+      # 真正部署你自己的站点时，通常可以删掉，让 Twikoo 按页面路径自动区分。
+      path = "theme"
+      # jsUrl = "https://cdn.jsdelivr.net/npm/twikoo@1.7.3/dist/twikoo.min.js"
 
-[[params.social]]
-name = "Facebook"
-url = "https://www.facebook.com/"
-icon = "brand-facebook"
+  [params.colorScheme]
+    # 是否在头部显示深浅色模式切换按钮。
+    toggle = true
+    # 可选值为 "auto"、"light"、"dark"。
+    default = "auto"
+    # 可用配色：
+    # golden-summer-fields, soft-pastel-shades, black-gold-elegance,
+    # fresh-greens, light-steel, deep-sea-blue, morandi-mist, monochrome-core
+    preset = "black-gold-elegance"
+    # 是否在头部显示调色板选择器。
+    showPicker = true
 
-[[params.social]]
-name = "Twitter"
-url = "https://twitter.com/"
-icon = "brand-twitter"
+  [params.layout]
+    # double = 1320px 宽的双列列表布局，single = 1080px 宽的单列列表布局
+    listMode = "double"
 
-[[params.social]]
-name = "RSS"
-url = "/index.xml"
-icon = "rss"
+  [params.widgets]
+    homepage = [
+      { type = "search", params = { limit = 0 } },
+      { type = "archives", params = { limit = 3 } },
+      { type = "categories", params = { limit = 10 } },
+      { type = "tag-cloud", params = { limit = 20 } }
+    ]
+    static = [
+      { type = "search", params = { limit = 0 } },
+      { type = "archives", params = { limit = 3 } },
+      { type = "categories", params = { limit = 10 } },
+      { type = "tag-cloud", params = { limit = 20 } }
+    ]
+    page = [
+      { type = "toc" }
+    ]
 
-[params.widgets]
-  # 首页右边栏组件顺序。
-  homepage = ["search", "archives", "categories", "tag-cloud"]
+    [params.widgets.titleVisibility]
+      archives = false
+      backlinks = true
+      categories = false
+      related = true
+      search = false
+      tagCloud = true
+      toc = true
 
-  # 静态页面右边栏组件顺序。
-  static = ["search", "archives", "categories", "tag-cloud"]
+  [[params.social]]
+  name = "GitHub"
+  url = "https://github.com/h2dcc/pocket-hugo-theme"
+  icon = "brand-github"
 
-  # 文章页右边栏组件顺序。
-  page = ["toc", "search", "related", "archives", "categories", "tag-cloud"]
+  [[params.social]]
+  name = "Facebook"
+  url = "https://www.facebook.com/"
+  icon = "brand-facebook"
 
-  [params.widgets.titleVisibility]
-    # 是否显示目录组件标题。
-    toc = true
-    # 是否显示搜索组件标题。
-    search = true
-    # 是否显示相关文章标题。
-    related = true
-    # 是否显示归档标题。
-    archives = true
-    # 是否显示分类标题。
-    categories = true
-    # 是否显示标签云标题。
-    tagCloud = true
+  [[params.social]]
+  name = "Twitter"
+  url = "https://twitter.com/"
+  icon = "brand-twitter"
 
+  [[params.social]]
+  name = "RSS"
+  url = "/index.xml"
+  icon = "rss"
+
+[related]
+  includeNewer = true
+  threshold = 1
+  toLower = false
+
+  [[related.indices]]
+    name = "tags"
+    weight = 200
+
+  [[related.indices]]
+    name = "categories"
+    weight = 100
+
+# Markdown 渲染选项。
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -321,12 +356,13 @@ icon = "rss"
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 4
-    ordered = false
+    ordered = true
 
-# 首页输出 HTML、RSS 和 JSON，便于搜索与前端脚本使用。
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML", "RSS"]
-  term = ["HTML", "RSS"]
-  page = ["HTML"]
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = false
+    tabWidth = 4

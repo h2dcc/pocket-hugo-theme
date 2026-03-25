@@ -99,8 +99,8 @@ copyright = "MIT licensed demo content"
 # Theme options.
 [params]
   featuredImageField = "image"
-  favicon = "/img/logo-default.png"
-  appleTouchIcon = "/img/logo-default.png"
+  favicon = "/img/logo-default.webp"
+  appleTouchIcon = "/img/logo-default.webp"
   # Summary length for homepage and list cards.
   # Set to 0 to disable truncation and show the full summary instead.
   summaryLength = 0
@@ -167,7 +167,7 @@ copyright = "MIT licensed demo content"
     [params.sidebar.avatar]
       enabled = true
       local = true
-      src = "img/avatar.webp"
+      src = "img/logo-default.webp"
 
     [params.sidebar.qr]
       enabled = false
