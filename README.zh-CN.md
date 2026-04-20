@@ -240,6 +240,12 @@ hugo server --source exampleSite --themesDir ../..
   - 为兼容旧配置保留的别名。
 - `default`
   - 当 `fallbackMode = "image"` 时使用的默认封面图地址，可写本地路径或远程链接。
+- `titleFont.family`
+  - 自动生成的渐变标题卡片里，`.cover-fallback__title` 使用的 CSS `font-family`。
+- `titleFont.weight`
+  - 自动生成的渐变标题卡片标题字重，默认 `900`。
+- `titleFont.letterSpacing`
+  - 自动生成的渐变标题卡片标题字间距，默认 `-0.03em`。
 
 示例：
 
@@ -253,6 +259,11 @@ hugo server --source exampleSite --themesDir ../..
   fallbackMode = "gradient"
   openGraphUseDefault = true
   default = "/img/default-cover.webp"
+
+  [params.images.cover.titleFont]
+    family = "\"LXGW WenKai\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+    weight = "700"
+    letterSpacing = "-0.01em"
 ```
 
 ### 单页标题卡片

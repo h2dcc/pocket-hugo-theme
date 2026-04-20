@@ -9,11 +9,15 @@
 {{- $imageBrightnessLight := .Site.Params.images.brightness.light | default "1" -}}
 {{- $imageBrightnessDark := .Site.Params.images.brightness.dark | default "0.92" -}}
 {{- $imageBorders := .Site.Params.images.borders | default dict -}}
+{{- $titleFont := .Site.Params.images.cover.titleFont | default dict -}}
 {{- $coverBorderWidth := cond ($imageBorders.cover | default true) "1px" "0px" -}}
 {{- $contentBorderWidth := cond ($imageBorders.content | default true) "1px" "0px" -}}
 {{- $titleCardBorderWidth := cond ($imageBorders.titleCards | default true) "1px" "0px" -}}
+{{- $titleCardFontFamily := $titleFont.family | default "\"fix-punct\", \"confuse-punct\", system-ui, -apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Microsoft YaHei\", sans-serif" -}}
+{{- $titleCardFontWeight := $titleFont.weight | default "900" -}}
+{{- $titleCardLetterSpacing := $titleFont.letterSpacing | default "-0.03em" -}}
 <!DOCTYPE html>
-<html lang="{{ .Language.Lang | default .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}" data-layout-mode="{{ $layoutMode }}" data-palette="{{ $defaultPalette }}" {{ printf "style=%q" (printf "--content-width:%s;--image-brightness-light:%s;--image-brightness-dark:%s;--cover-image-border-width:%s;--content-image-border-width:%s;--title-card-border-width:%s;" $contentWidth $imageBrightnessLight $imageBrightnessDark $coverBorderWidth $contentBorderWidth $titleCardBorderWidth) | safeHTMLAttr }}>
+<html lang="{{ .Language.Lang | default .Site.LanguageCode }}" dir="{{ default `ltr` .Language.LanguageDirection }}" data-layout-mode="{{ $layoutMode }}" data-palette="{{ $defaultPalette }}" {{ printf "style=%q" (printf "--content-width:%s;--image-brightness-light:%s;--image-brightness-dark:%s;--cover-image-border-width:%s;--content-image-border-width:%s;--title-card-border-width:%s;--cover-fallback-title-font-family:%s;--cover-fallback-title-font-weight:%s;--cover-fallback-title-letter-spacing:%s;" $contentWidth $imageBrightnessLight $imageBrightnessDark $coverBorderWidth $contentBorderWidth $titleCardBorderWidth $titleCardFontFamily $titleCardFontWeight $titleCardLetterSpacing) | safeHTMLAttr }}>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

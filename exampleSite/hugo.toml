@@ -204,6 +204,13 @@ copyright = "MIT licensed demo content"
       # Local path or remote URL for the fallback cover image when fallbackMode = "image".
       default = "/img/default-cover.webp"
 
+    [params.images.cover.titleFont]
+      # CSS font-family used by generated gradient title cards.
+      family = "\"fix-punct\", \"confuse-punct\", system-ui, -apple-system, BlinkMacSystemFont, \"PingFang SC\", \"Microsoft YaHei\", sans-serif"
+      # Optional typography tweaks for generated title cards.
+      weight = "900"
+      letterSpacing = "-0.03em"
+
   [params.images.content]
     # Enable or disable max-height control for inline article images.
     enableMaxHeight = true

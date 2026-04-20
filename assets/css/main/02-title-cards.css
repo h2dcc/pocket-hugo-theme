@@ -56,8 +56,9 @@
   text-align: center;
   text-wrap: balance;
   line-height: 1.15;
-  letter-spacing: -0.03em;
-  font-weight: 900;
+  letter-spacing: var(--cover-fallback-title-letter-spacing, -0.03em);
+  font-family: var(--cover-fallback-title-font-family, "fix-punct", "confuse-punct", system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif);
+  font-weight: var(--cover-fallback-title-font-weight, 900);
   color: var(--cover-hero-text);
 }
 .cover-fallback[data-cover-palette="golden-summer-fields"][data-cover-tone="light"] {
